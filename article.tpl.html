@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>企业知识库搭建踩坑全记录：20 个灵魂拷问 · 姜sir笔记</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="notes">
+<div class="read-progress" id="rp"></div>
+
+<div class="container article-layout">
+  <aside class="side-nav">
+    <div class="series-box">
+      <span class="pill c-blue" style="margin-bottom:8px">专题 · 已完结</span>
+      <b>企业 RAG 知识库 20 问</b>
+      <span>{{STEPS}} 节 · 约 18 分钟</span>
+    </div>
+    <h5>本专题目录</h5>
+    {{SIDE}}
+  </aside>
+
+  <article>
+    <nav class="breadcrumb"><a href="index.html">首页</a><span class="bc-chev"></span><a href="notes.html">知识库</a><span class="bc-chev"></span><a href="notes.html?cat=ai">AI 应用</a><span class="bc-chev"></span><span>RAG 知识库</span></nav>
+    <h1 class="article-title">企业知识库搭建踩坑全记录：<br>20 个灵魂拷问</h1>
+    <div class="article-meta">
+      <span class="author"><span class="avatar">姜</span>姜sir</span>
+      <span class="m" data-i="cal">2026 年 10 月 10 日</span>
+      <span class="m" data-i="clock">约 18 分钟</span>
+      <span class="m" data-i="doc">{{WORDS}} 字</span>
+      <span class="post-tags"><a class="tag" href="notes.html">RAG</a><a class="tag" href="notes.html">向量数据库</a><a class="tag" href="notes.html">Embedding</a><a class="tag" href="notes.html">Rerank</a></span>
+    </div>
+
+    <div class="summary-box">
+      <h4><span data-i2="bulb"></span>读完你会得到</h4>
+      <ul>
+        <li>一条从文档上传到答案生成的完整数据流，以及每个环节的选型建议</li>
+        <li>检索精度从 78% 提升到 94% 的组合拳：混合检索 + Rerank</li>
+        <li>上线后的缓存、评估、监控、降级与灰度方案</li>
+      </ul>
+      <div class="flow"><span>上传</span><i>→</i><span>解析</span><i>→</i><span>分块</span><i>→</i><span>向量化</span><i>→</i><span>入库</span><i>→</i><span>检索</span><i>→</i><span>生成</span></div>
+    </div>
+
+    <div class="prose">
+{{PROSE}}
+    </div>
+
+    <div class="article-end">
+      <div class="end-actions">
+        <div class="post-tags"><span class="tag">RAG</span><span class="tag">向量数据库</span><span class="tag">Embedding</span><span class="tag">Rerank</span></div>
+        <button class="btn btn-ghost" id="copy-link" style="height:36px;font-size:13px"><span data-i2="link" style="display:inline-flex"></span>复制链接</button>
+      </div>
+      <div class="pager">
+        <a class="card hover-lift" href="article.html"><small>← 上一篇</small><b>FAISS 向量检索原理：IVF、PQ 与 HNSW</b></a>
+        <a class="card hover-lift" href="article.html"><small>下一篇 →</small><b>LangGraph 定时 Agent 从零到一</b></a>
+      </div>
+    </div>
+  </article>
+
+  <aside class="toc">
+    <h5><span data-i2="list"></span>本页目录</h5>
+    <div class="toc-list">
+{{TOC}}
+    </div>
+    <div class="toc-progress">
+      <div class="row"><span>阅读进度</span><b id="pct">0%</b></div>
+      <div class="bar"><i id="pbar"></i></div>
+      <div class="toc-actions"><button onclick="scrollTo({top:0})"><span data-i2="top"></span>回顶部</button><button data-open-search><span data-i2="search"></span>搜索</button></div>
+    </div>
+  </aside>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script>
+  document.querySelectorAll("[data-i]").forEach(e => e.insertAdjacentHTML("afterbegin", ICON[e.dataset.i]));
+  document.querySelectorAll("[data-i2]").forEach(e => e.innerHTML = ICON[e.dataset.i2]);
+  document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);
+  document.querySelectorAll("[data-open-search]").forEach(b => b.onclick = () => openSearch());
+  document.getElementById("copy-link").onclick = e => { navigator.clipboard?.writeText(location.href); e.currentTarget.lastChild.textContent = "已复制"; };
+  document.querySelectorAll(".code-head button").forEach(b => b.onclick = () => { navigator.clipboard?.writeText(b.closest(".code").querySelector("pre").innerText); b.textContent = "已复制 ✓"; setTimeout(() => b.textContent = "复制", 1500); });
+
+  const heads = [...document.querySelectorAll(".prose h2")];
+  const tocLinks = [...document.querySelectorAll(".toc-list a")];
+  const sideLinks = [...document.querySelectorAll(".side-nav a")];
+  function onScroll() {
+    const art = document.querySelector("article");
+    const total = art.offsetTop + art.offsetHeight - innerHeight;
+    const pct = Math.max(0, Math.min(100, Math.round(scrollY / total * 100)));
+    document.getElementById("rp").style.width = pct + "%";
+    document.getElementById("pbar").style.width = pct + "%";
+    document.getElementById("pct").textContent = pct + "%";
+    let idx = 0; heads.forEach((h, i) => { if (h.getBoundingClientRect().top < 140) idx = i; });
+    tocLinks.forEach((a, i) => a.classList.toggle("active", i === idx));
+    sideLinks.forEach((a, i) => a.classList.toggle("active", i === idx));
+    const act = tocLinks[idx]; const list = act.parentElement;
+    if (act.offsetTop < list.scrollTop || act.offsetTop > list.scrollTop + list.clientHeight - 30) list.scrollTop = act.offsetTop - 60;
+  }
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+</script>
+</body>
+</html>

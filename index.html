@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>姜sir笔记 · 把踩过的坑，写成能复用的经验</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="index">
+
+<section class="apple-hero">
+  <div class="apple-hero-inner">
+    <p class="apple-hero-eyebrow reveal">姜sir笔记</p>
+    <h1 class="apple-hero-title reveal" data-delay="60">AI 应用落地。<br>数据采集实战。<br><span class="apple-muted">工程自动化笔记。</span></h1>
+    <p class="apple-hero-sub reveal" data-delay="120">RAG · Agent · 爬虫 · RPA —— 每一篇都来自真实项目。</p>
+    <div class="apple-hero-cta reveal" data-delay="180">
+      <a class="apple-link" href="notes.html">浏览全部笔记 &gt;</a>
+      <a class="apple-link" href="graph.html">探索知识图谱 &gt;</a>
+    </div>
+  </div>
+</section>
+
+<section class="apple-section apple-bg-soft">
+  <div class="container">
+    <h2 class="apple-section-title reveal">精选专题</h2>
+    <p class="apple-section-sub reveal" data-delay="60">成体系的系列文章，适合从头读到尾。</p>
+    <div class="apple-series">
+      <a class="apple-series-card reveal" href="article.html">
+        <h3>企业 RAG 知识库 20 问</h3>
+        <p>从解析、分块、检索到灰度上线，覆盖知识库落地的完整链路。</p>
+        <span class="apple-cta">阅读专题 &gt;</span>
+      </a>
+      <a class="apple-series-card reveal" data-delay="60" href="notes.html?cat=ai">
+        <h3>LangGraph Agent 实战</h3>
+        <p>31 章从零搭建定时情报 Agent，状态图、工具、记忆、部署一条龙。</p>
+        <span class="apple-cta">阅读专题 &gt;</span>
+      </a>
+      <a class="apple-series-card reveal" data-delay="120" href="notes.html?cat=data">
+        <h3>公众号采集攻防</h3>
+        <p>五条采集路径、TLS 指纹、反爬四件套，一个真实项目的完整复盘。</p>
+        <span class="apple-cta">阅读专题 &gt;</span>
+      </a>
+      <a class="apple-series-card reveal" data-delay="180" href="daily.html">
+        <h3>每日科技日报</h3>
+        <p>每天精选 Hacker News 与 GitHub Trending，5 分钟看懂技术圈。</p>
+        <span class="apple-cta">查看日报 &gt;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="apple-section">
+  <div class="container">
+    <h2 class="apple-section-title reveal">最近更新</h2>
+    <p class="apple-section-sub reveal" data-delay="60">新鲜出炉的笔记。</p>
+    <div class="apple-latest" id="latest"></div>
+    <div style="text-align:center;margin-top:32px"><a class="apple-link reveal" href="notes.html">查看全部笔记 &gt;</a></div>
+  </div>
+</section>
+
+<section class="apple-section apple-bg-soft">
+  <div class="container">
+    <h2 class="apple-section-title reveal">科技日报</h2>
+    <p class="apple-section-sub reveal" data-delay="60">Hacker News 热榜 + GitHub Trending，每天 5 分钟。</p>
+    <div class="apple-daily" id="daily-strip"></div>
+    <div style="text-align:center;margin-top:32px"><a class="apple-link reveal" href="daily.html">往期日报 &gt;</a></div>
+  </div>
+</section>
+
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script>
+  const S = SITE;
+
+  const latest = [...S.posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
+  document.getElementById("latest").innerHTML = latest.map((p, i) => `
+    <a class="apple-post reveal" data-delay="${i * 40}" href="article.html">
+      <div class="apple-post-info">
+        <span class="apple-post-cat">${catPill(p.cat)}</span>
+        <h3>${p.title}</h3>
+        <p>${p.summary}</p>
+        <div class="apple-post-meta">
+          <span>${p.tags.slice(0, 3).map(t => t).join(" · ")}</span>
+          <span>${p.read} 分钟阅读</span>
+        </div>
+      </div>
+      <div class="apple-post-date">
+        <b>${+p.date.slice(8)}</b>
+        <span>${+p.date.slice(5, 7)}月</span>
+      </div>
+    </a>`).join("");
+
+  document.getElementById("daily-strip").innerHTML = S.dailies.slice(0, 4).map((d, i) => `
+    <a class="apple-daily-card reveal" data-delay="${i * 60}" href="daily.html">
+      <div class="apple-daily-date"><b>${d.date.slice(5).replace("-", ".")}</b><span>${weekday(d.date)}</span></div>
+      <ol>${d.hl.map((h, j) => `<li><em>0${j + 1}</em><span>${h}</span></li>`).join("")}</ol>
+    </a>`).join("");
+
+  initReveal();
+
+  // Interactive drawing on background drag
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+  let hue = 0;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function isInteractiveElement(target) {
+    return target.closest('a, button, input, textarea, select, [data-open-search], .site-header, .modal, .drawer');
+  }
+
+  document.addEventListener('mousedown', (e) => {
+    if (isInteractiveElement(e.target)) return;
+    isDrawing = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isDrawing) return;
+    if (isInteractiveElement(e.target)) {
+      isDrawing = false;
+      return;
+    }
+
+    ctx.strokeStyle = `hsl(${hue}, 70%, 60%)`;
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.globalAlpha = 0.6;
+
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(e.clientX, e.clientY);
+    ctx.stroke();
+
+    hue = (hue + 2) % 360;
+    lastX = e.clientX;
+    lastY = e.clientY;
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDrawing = false;
+  });
+
+  document.addEventListener('mouseleave', () => {
+    isDrawing = false;
+  });
+</script>
+</body>
+</html>

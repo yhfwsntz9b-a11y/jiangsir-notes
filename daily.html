@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报 · 姜sir笔记</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="daily">
+
+<div class="apple-page-head reveal">
+  <p class="apple-hero-eyebrow">Daily Tech Brief</p>
+  <h1>科技日报</h1>
+  <p>每天 10:00 更新。精选 Hacker News 热榜 Top 10 与 GitHub Trending，用 5 分钟看懂技术圈今天在聊什么。</p>
+</div>
+
+<div class="container">
+  <div class="apple-cal-section">
+    <div class="apple-cal-card reveal">
+      <div class="apple-cal-top">
+        <b id="cal-title"></b>
+        <div class="nav-btns"><button id="prev"></button><button id="next"></button></div>
+      </div>
+      <div class="apple-cal-grid" id="cal"></div>
+      <div class="apple-cal-stats">
+        <div><b id="c-total">0</b><span>累计期数</span></div>
+        <div><b id="c-month">0</b><span>本月期数</span></div>
+      </div>
+      <div class="apple-cal-src">
+        <div><i style="background:#FF6600"></i>Hacker News Top 10</div>
+        <div><i style="background:var(--text)"></i>GitHub Trending 每日榜</div>
+        <div><i style="background:var(--brand)"></i>今日洞察 · 一句话点评</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="apple-filter reveal">
+    <label class="input"><span id="ico-s"></span><input id="q" placeholder="搜索日报关键词，如 Claude、DeepSeek、Rust…"></label>
+  </div>
+
+  <div class="apple-tl" id="months"></div>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script>
+  const S = SITE;
+  document.getElementById("ico-s").outerHTML = ICON.search;
+  document.getElementById("prev").innerHTML = ICON.chevL;
+  document.getElementById("next").innerHTML = ICON.chev;
+  const has = new Set(S.dailies.map(d => d.date));
+  let cur = new Date(2026, 9, 1);
+  const pad = n => String(n).padStart(2, "0");
+
+  function renderCal() {
+    const y = cur.getFullYear(), m = cur.getMonth();
+    document.getElementById("cal-title").textContent = `${y} 年 ${m + 1} 月`;
+    const first = new Date(y, m, 1).getDay(), days = new Date(y, m + 1, 0).getDate();
+    let h = ["日", "一", "二", "三", "四", "五", "六"].map(w => `<div class="w">${w}</div>`).join("");
+    for (let i = 0; i < first; i++) h += `<div class="d off"></div>`;
+    let cnt = 0;
+    for (let d = 1; d <= days; d++) {
+      const k = `${y}-${pad(m + 1)}-${pad(d)}`; const ok = has.has(k); if (ok) cnt++;
+      h += `<div class="d ${ok ? "has" : ""} ${k === "2026-10-10" ? "today" : ""}" ${ok ? `data-k="${k}"` : ""}>${d}</div>`;
+    }
+    document.getElementById("cal").innerHTML = h;
+    document.getElementById("c-month").textContent = cnt;
+    document.querySelectorAll(".d.has").forEach(el => {
+      el.onclick = () => document.getElementById("d-" + el.dataset.k)?.scrollIntoView({ block: "center" });
+      el.onmouseenter = e => showTip(e, S.dailies.find(x => x.date === el.dataset.k).hl[0]); el.onmouseleave = hideTip;
+    });
+  }
+  document.getElementById("prev").onclick = () => { cur.setMonth(cur.getMonth() - 1); renderCal(); };
+  document.getElementById("next").onclick = () => { cur.setMonth(cur.getMonth() + 1); renderCal(); };
+  document.getElementById("c-total").textContent = S.dailies.length;
+
+  function renderList(q = "") {
+    const groups = {};
+    S.dailies.filter(d => !q || d.hl.join(" ").toLowerCase().includes(q.toLowerCase())).forEach(d => (groups[d.date.slice(0, 7)] ||= []).push(d));
+    const mark = s => q ? s.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"), m => `<mark>${m}</mark>`) : s;
+    document.getElementById("months").innerHTML = Object.entries(groups).map(([k, ds]) => `
+      <section class="apple-tl-section" style="margin-bottom:32px">
+        <h3 class="apple-month-title">${+k.slice(0, 4)} 年 ${+k.slice(5)} 月 <span>${ds.length} 期</span></h3>
+        <div class="apple-timeline">${ds.map(d => `
+          <a class="apple-tl-card" href="#" id="d-${d.date}">
+            <div class="tl-date"><b>${+d.date.slice(8)}</b><span>${weekday(d.date)}</span></div>
+            <div class="tl-body">
+              <h3>${mark(d.hl[0])}</h3>
+              <p>另有：${mark(d.hl[1])} 等 9 条</p>
+              <div class="hl"><span class="pill c-warm">HN Top 10</span><span class="pill c-blue">GitHub Trending</span>${d.date === "2026-10-10" ? '<span class="pill c-green">最新</span>' : ""}</div>
+            </div>
+            <span class="apple-tl-arrow">${ICON.arrow}</span>
+          </a>`).join("")}
+        </div>
+      </section>`).join("") || `<div class="card empty-state">没有找到相关日报</div>`;
+  }
+  document.getElementById("q").oninput = e => renderList(e.target.value.trim());
+  renderCal(); renderList(); initReveal();
+</script>
+</body>
+</html>

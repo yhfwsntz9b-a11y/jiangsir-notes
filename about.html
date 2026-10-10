@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于 · 姜sir笔记</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="about">
+
+<div class="container">
+  <div class="apple-profile reveal">
+    <div class="apple-avatar">姜</div>
+    <h1>姜sir</h1>
+    <div class="role">AI 应用工程师 · 数据工程 · 自动化</div>
+    <p class="bio">你好，我是姜sir。日常工作是把大模型真正用到业务里：搭企业知识库、写 Agent、做数据采集和自动化流水线。<br>这个网站是我的公开知识库——不追热点、不搬运，只记录自己亲手踩过的坑和验证过的方案。如果某篇笔记帮你少走了一段弯路，那它就值了。</p>
+    <div class="links">
+      <span class="tag">RAG</span><span class="tag">LangGraph</span><span class="tag">Python</span><span class="tag">爬虫</span><span class="tag">RPA</span><span class="tag">向量数据库</span>
+    </div>
+  </div>
+
+  <div class="apple-contact-grid reveal" data-delay="80" id="contact">
+    <a class="apple-contact-item" href="https://github.com/"><span class="ico" style="background:var(--bg-soft)" data-i="github"></span><div><b>GitHub</b><span>开源代码与项目</span></div></a>
+    <a class="apple-contact-item" href="#"><span class="ico c-green" data-i="chat"></span><div><b>微信公众号</b><span>同步推送科技日报</span></div></a>
+    <a class="apple-contact-item" href="#"><span class="ico c-blue" data-i="pen"></span><div><b>知乎</b><span>长文与问答</span></div></a>
+    <a class="apple-contact-item" href="#"><span class="ico c-warm" data-i="rss"></span><div><b>RSS 订阅</b><span>不错过任何更新</span></div></a>
+  </div>
+
+  <section class="apple-section">
+    <h2 class="apple-section-title reveal">我在做什么</h2>
+    <p class="apple-section-sub reveal" data-delay="60">三个方向，一个闭环：采集 → 处理 → 输出。</p>
+    <div class="apple-series" style="margin-top:36px">
+      <div class="apple-focus-card reveal" style="--accent:var(--brand);--accent-soft:var(--brand-soft)"><div class="series-ico" data-i="spark"></div><h3>AI 应用落地</h3><p>企业 RAG 知识库、LangGraph Agent、BI 问数 Agent，从原型到生产。</p><div class="post-tags"><span class="tag">RAG</span><span class="tag">Agent</span><span class="tag">LangChain</span></div></div>
+      <div class="apple-focus-card reveal" data-delay="60" style="--accent:var(--green);--accent-soft:var(--green-soft)"><div class="series-ico" data-i="spider"></div><h3>数据采集与工程</h3><p>公众号文章采集、企业级爬虫框架、向量化入库与 MinIO 存储管线。</p><div class="post-tags"><span class="tag">爬虫</span><span class="tag">curl_cffi</span><span class="tag">Milvus</span></div></div>
+      <div class="apple-focus-card reveal" data-delay="120" style="--accent:var(--warm);--accent-soft:var(--warm-soft)"><div class="series-ico" data-i="tool"></div><h3>自动化与内容生产</h3><p>每日科技日报流水线、macOS RPA、知乎/公众号自动发布。</p><div class="post-tags"><span class="tag">RPA</span><span class="tag">crontab</span><span class="tag">自动化</span></div></div>
+    </div>
+  </section>
+
+  <section class="apple-section apple-bg-soft">
+    <div class="split" style="grid-template-columns:1fr 1fr;gap:48px">
+      <div>
+        <h2 class="apple-section-title reveal" style="text-align:left;font-size:24px">技术栈</h2>
+        <p class="apple-section-sub reveal" data-delay="60" style="text-align:left;margin-bottom:24px">日常在用的工具和框架。</p>
+        <div class="apple-stack-grid reveal" id="stack" style="grid-template-columns:repeat(3,1fr)"></div>
+      </div>
+      <div>
+        <h2 class="apple-section-title reveal" style="text-align:left;font-size:24px">这个站点的故事</h2>
+        <p class="apple-section-sub reveal" data-delay="60" style="text-align:left;margin-bottom:24px">从零到现在的样子。</p>
+        <div class="apple-timeline-v reveal">
+          <div class="apple-tl-item"><time>2026.10</time><h4>姜sir笔记上线</h4><p>把散落在公众号、知乎、本地 Markdown 的内容整合成公开知识库。</p></div>
+          <div class="apple-tl-item"><time>2026.09</time><h4>科技日报开始连载</h4><p>HN + GitHub Trending 每日自动抓取，人工写洞察。</p></div>
+          <div class="apple-tl-item"><time>2026.09</time><h4>LangGraph 教程完稿</h4><p>10 万字、31 章，从零到一的定时 Agent 实战。</p></div>
+          <div class="apple-tl-item"><time>2026.07</time><h4>开始系统写作</h4><p>从爬虫框架和公众号采集项目复盘起步。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script>
+  document.querySelectorAll("[data-i]").forEach(e => e.innerHTML = ICON[e.dataset.i]);
+  const stack = [["Python", "主力语言", 5], ["LangGraph", "Agent 编排", 4], ["LangChain", "RAG 框架", 4], ["Milvus", "向量数据库", 4], ["FastAPI", "服务接口", 4], ["Playwright", "浏览器自动化", 4], ["curl_cffi", "反爬请求", 4], ["Docker", "部署", 3], ["HTML / CSS", "前端", 3]];
+  document.getElementById("stack").innerHTML = stack.map(([n, d, l]) => `<div class="apple-stack-item"><span class="name">${n}</span><small>${d}</small><div class="lv">${[1, 2, 3, 4, 5].map(i => `<i class="${i <= l ? "on" : ""}"></i>`).join("")}</div></div>`).join("");
+  initReveal();
+</script>
+</body>
+</html>

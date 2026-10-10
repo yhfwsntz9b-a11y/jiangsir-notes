@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识库 · 姜sir笔记</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="notes">
+
+<div class="apple-page-head reveal">
+  <p class="apple-hero-eyebrow">Knowledge Base</p>
+  <h1>知识库</h1>
+  <p>按「领域 → 主题」两级组织的全部笔记。可以按分类浏览、按标签筛选，或直接搜索关键词。</p>
+</div>
+
+<div class="container" style="padding-bottom:64px">
+  <div class="apple-cat-bar reveal" id="cat-bar"></div>
+  <div class="apple-sub-bar reveal" id="sub-bar"></div>
+
+  <div class="apple-filter reveal">
+    <label class="input"><span id="ico-s"></span><input id="q" placeholder="在知识库中搜索…"></label>
+    <div class="seg" id="sort"><button class="active" data-v="new">最新</button><button data-v="old">最早</button><button data-v="long">篇幅</button></div>
+  </div>
+
+  <div class="apple-chips reveal" id="chips"></div>
+  <div class="apple-result"><span id="info"></span><button class="link-more" id="reset">清除筛选</button></div>
+  <div class="apple-post-list" id="list"></div>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script>
+  const S = SITE;
+  document.getElementById("ico-s").outerHTML = ICON.search;
+  const st = { cat: new URLSearchParams(location.search).get("cat") || "", sub: "", tag: "", q: "", sort: "new" };
+
+  function renderCatBar() {
+    const n = c => S.posts.filter(p => p.cat === c).length;
+    let h = `<button class="apple-cat-btn ${!st.cat ? "active" : ""}" data-cat=""><span class="ico c-blue" style="width:18px;height:18px;display:inline-grid;place-items:center">${ICON.list}</span>全部<span class="count">${S.posts.length}</span></button>`;
+    S.categories.forEach(c => {
+      h += `<button class="apple-cat-btn ${st.cat === c.id ? "active" : ""}" data-cat="${c.id}"><span class="ico ${colorClass(c.color)}" style="width:18px;height:18px;display:inline-grid;place-items:center">${ICON[c.icon]}</span>${c.name}<span class="count">${n(c.id)}</span></button>`;
+    });
+    document.getElementById("cat-bar").innerHTML = h;
+    document.querySelectorAll("#cat-bar [data-cat]").forEach(b => b.onclick = () => { st.cat = b.dataset.cat; st.sub = ""; render(); });
+  }
+
+  function renderSubBar() {
+    if (!st.cat) { document.getElementById("sub-bar").innerHTML = ""; return; }
+    const c = catOf(st.cat);
+    const n = s => S.posts.filter(p => p.cat === st.cat && p.sub === s).length;
+    document.getElementById("sub-bar").innerHTML = `<button class="apple-sub-btn ${!st.sub ? "active" : ""}" data-sub="">全部</button>` +
+      c.subs.map(s => `<button class="apple-sub-btn ${st.sub === s ? "active" : ""}" data-sub="${s}">${s} ${n(s)}</button>`).join("");
+    document.querySelectorAll("#sub-bar [data-sub]").forEach(b => b.onclick = () => { st.sub = b.dataset.sub; renderList(); renderSubBar(); });
+  }
+
+  let chipsOpen = false;
+  function renderChips() {
+    const all = tagCounts(), shown = chipsOpen ? all : all.slice(0, 12);
+    if (st.tag && !shown.some(([t]) => t === st.tag)) shown.push(all.find(([t]) => t === st.tag));
+    document.getElementById("chips").innerHTML = shown.map(([t, n]) => `<button class="tag ${st.tag === t ? "active" : ""}" data-t="${t}">${t}<span class="tag-count">${n}</span></button>`).join("") +
+      `<button class="tag chip-more" id="more">${chipsOpen ? "收起" : `更多 ${all.length - 12} 个标签`}</button>`;
+    document.querySelectorAll("#chips [data-t]").forEach(b => b.onclick = () => { st.tag = st.tag === b.dataset.t ? "" : b.dataset.t; render(); });
+    document.getElementById("more").onclick = () => { chipsOpen = !chipsOpen; renderChips(); };
+  }
+
+  const hl = s => st.q ? s.replace(new RegExp(st.q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"), m => `<mark>${m}</mark>`) : s;
+
+  function renderList() {
+    let ps = S.posts.filter(p => (!st.cat || p.cat === st.cat) && (!st.sub || p.sub === st.sub) && (!st.tag || p.tags.includes(st.tag)) && (!st.q || (p.title + p.summary + p.tags.join(" ")).toLowerCase().includes(st.q.toLowerCase())));
+    ps.sort((a, b) => st.sort === "new" ? b.date.localeCompare(a.date) : st.sort === "old" ? a.date.localeCompare(b.date) : b.read - a.read);
+    const path = [st.cat && catOf(st.cat).name, st.sub, st.tag && "#" + st.tag].filter(Boolean).join(" / ");
+    document.getElementById("info").innerHTML = `${path ? path + " · " : ""}共 <b>${ps.length}</b> 篇笔记`;
+    document.getElementById("reset").style.visibility = (st.cat || st.tag || st.q) ? "visible" : "hidden";
+    document.getElementById("list").innerHTML = ps.length ? ps.map(p => `
+      <a class="apple-post-item" href="article.html">
+        <div>
+          <div class="post-top">${catPill(p.cat)}<span>${p.sub}</span><i class="sep"></i><span>${fmtDate(p.date)}</span><i class="sep"></i><span>${p.read} 分钟</span>${p.featured ? '<span class="pill c-warm">精选</span>' : ""}</div>
+          <h3>${hl(p.title)}</h3>
+          <p>${hl(p.summary)}</p>
+          <div class="post-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+        </div>
+        <div class="apple-post-date"><b>${+p.date.slice(8)}</b><span>${+p.date.slice(5, 7)}月</span></div>
+      </a>`).join("") : `<div class="empty-state">没有符合条件的笔记，换个关键词试试</div>`;
+  }
+
+  function render() { renderCatBar(); renderSubBar(); renderChips(); renderList(); }
+  document.getElementById("q").oninput = e => { st.q = e.target.value.trim(); renderList(); };
+  document.querySelectorAll("#sort button").forEach(b => b.onclick = () => { document.querySelectorAll("#sort button").forEach(x => x.classList.remove("active")); b.classList.add("active"); st.sort = b.dataset.v; renderList(); });
+  document.getElementById("reset").onclick = () => { Object.assign(st, { cat: "", sub: "", tag: "", q: "" }); document.getElementById("q").value = ""; render(); };
+  window.__st = st; window.__render = render;
+  render(); initReveal();
+</script>
+</body>
+</html>

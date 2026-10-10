@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识图谱 · 姜sir笔记</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="graph">
+
+<div class="apple-page-head reveal">
+  <p class="apple-hero-eyebrow">Knowledge Graph</p>
+  <h1>知识图谱与数据看板</h1>
+  <p>每篇笔记都不是孤岛。这里把领域、主题、笔记之间的关联画出来，并记录这座知识库的生长轨迹。</p>
+</div>
+
+<div class="container" style="padding-bottom:64px">
+  <div class="apple-stat-grid" id="stats"></div>
+
+  <div class="card graph-card reveal" style="margin-bottom:24px">
+    <div class="card-title">知识关联图谱<span style="font-size:12.5px;color:var(--muted);font-weight:500">节点 = 领域 / 主题 / 笔记，连线 = 归属或共享标签</span></div>
+    <div class="graph-wrap" id="gw">
+      <svg id="g"></svg>
+      <div class="graph-legend" id="legend"></div>
+      <div class="graph-hint">拖拽节点 · 悬停查看关联 · 点击打开</div>
+      <div class="graph-info" id="ginfo"></div>
+    </div>
+  </div>
+
+  <div class="card card-pad reveal" style="margin-bottom:24px">
+    <div class="card-title">写作活跃度<span style="font-size:12.5px;color:var(--muted);font-weight:500">基于笔记与日报的发布日期</span></div>
+    <div class="heat-row"><div class="heatmap" id="heat"></div><div class="heat-side" id="heat-side"></div></div>
+    <div class="heat-legend"><span>近 30 周 · 2026 年 3 月 — 10 月</span><div class="scale">少 <i style="background:var(--heat-0)"></i><i style="background:var(--heat-1)"></i><i style="background:var(--heat-2)"></i><i style="background:var(--heat-3)"></i><i style="background:var(--heat-4)"></i> 多</div></div>
+  </div>
+
+  <div class="dash-grid">
+    <div class="card card-pad reveal">
+      <div class="card-title">内容分布<span style="font-size:12.5px;color:var(--muted);font-weight:500">按主题统计笔记数</span></div>
+      <div class="bars" id="bars"></div>
+    </div>
+    <div class="card card-pad reveal">
+      <div class="card-title">技术栈雷达<span style="font-size:12.5px;color:var(--muted);font-weight:500">实战深度自评</span></div>
+      <div class="radar-wrap"><svg id="radar" viewBox="0 0 360 320"></svg></div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script>
+  const S = SITE;
+  const CV = { blue: "var(--brand)", green: "var(--green)", violet: "var(--violet)", warm: "var(--warm)" };
+
+  const dates = [...new Set(S.dailies.map(d => d.date))].sort();
+  let best = 1, run = 1;
+  for (let i = 1; i < dates.length; i++) { run = (new Date(dates[i]) - new Date(dates[i - 1])) / 864e5 === 1 ? run + 1 : 1; best = Math.max(best, run); }
+  const stats = [
+    ["深度笔记", S.posts.length, "篇", "doc", "c-blue", "近 30 天 +6"],
+    ["科技日报", S.dailies.length, "期", "news", "c-warm", "本月 +3"],
+    ["知识标签", tagCounts().length, "个", "tag", "c-violet", "覆盖 4 大领域"],
+    ["最长连更", best, "天", "flame", "c-green", "日报连续发布"]
+  ];
+  document.getElementById("stats").innerHTML = stats.map(([t, v, u, i, c, s], k) => `
+    <div class="apple-stat reveal" data-delay="${k * 60}">
+      <div class="apple-stat-top"><span>${t}</span><span class="ico ${c}">${ICON[i]}</span></div>
+      <b>${v}<span style="font-size:15px;font-weight:600;color:var(--muted);margin-left:4px">${u}</span></b>
+      <small><em>●</em>${s}</small>
+    </div>`).join("");
+
+  renderHeatmap(document.getElementById("heat"), 30);
+  (function () {
+    const m = activityMap(), days = Object.keys(m), month = days.filter(d => d.startsWith("2026-10")).length;
+    const total = S.posts.length + S.dailies.length;
+    document.getElementById("heat-side").innerHTML = [["活跃天数", days.length + " 天"], ["累计发布", total + " 篇"], ["本月更新", month + " 天"], ["日均产出", (total / days.length).toFixed(1) + " 篇"]].map(([a, b]) => `<div><b>${b}</b><span>${a}</span></div>`).join("");
+  })();
+
+  const subs = S.categories.flatMap(c => c.subs.map(s => ({ s, c, n: S.posts.filter(p => p.sub === s).length })));
+  const max = Math.max(...subs.map(x => x.n));
+  document.getElementById("bars").innerHTML = subs.sort((a, b) => b.n - a.n).slice(0, 9).map(x => `
+    <div class="bar-row"><span>${x.s}</span><div class="bar-track"><i style="--c:${CV[x.c.color]}" data-w="${x.n / max * 100}"></i></div><b>${x.n} 篇</b></div>`).join("");
+  setTimeout(() => document.querySelectorAll(".bar-track i").forEach(i => i.style.width = i.dataset.w + "%"), 200);
+
+  (function () {
+    const ax = [["RAG 检索", 4.6], ["Agent 编排", 4.2], ["数据采集", 4.5], ["自动化 RPA", 3.8], ["部署运维", 3.3], ["可视化", 3.0]];
+    const cx = 180, cy = 165, R = 115, n = ax.length;
+    const pt = (i, r) => [cx + r * Math.sin(2 * Math.PI * i / n), cy - r * Math.cos(2 * Math.PI * i / n)];
+    let h = "";
+    for (let l = 1; l <= 5; l++) h += `<polygon class="radar-ring" points="${ax.map((_, i) => pt(i, R * l / 5).join(",")).join(" ")}"/>`;
+    ax.forEach((a, i) => { const [x, y] = pt(i, R); h += `<line class="radar-axis" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`; const [lx, ly] = pt(i, R + 24); h += `<text class="radar-label" x="${lx}" y="${ly + 4}" text-anchor="middle">${a[0]}</text>`; });
+    h += `<polygon class="radar-area" points="${ax.map((a, i) => pt(i, R * a[1] / 5).join(",")).join(" ")}"/>`;
+    ax.forEach((a, i) => { const [x, y] = pt(i, R * a[1] / 5); h += `<circle class="radar-dot" cx="${x}" cy="${y}" r="4.5"><title>${a[0]} ${a[1]}</title></circle>`; });
+    document.getElementById("radar").innerHTML = h;
+  })();
+
+  (function () {
+    const svg = document.getElementById("g"), wrap = document.getElementById("gw");
+    const W = wrap.clientWidth, H = wrap.clientHeight;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const nodes = [], links = [], idx = {};
+    const anchor = {}, AX = [[.2, .32], [.78, .3], [.24, .72], [.76, .72]];
+    S.categories.forEach((c, k) => anchor[c.id] = [W * AX[k][0], H * AX[k][1]]);
+    const add = (id, label, type, color, home, extra = {}) => { idx[id] = nodes.length; nodes.push({ id, label, type, color, home, x: home[0] + (Math.random() - .5) * 120, y: home[1] + (Math.random() - .5) * 90, vx: 0, vy: 0, ...extra }); };
+    S.categories.forEach(c => {
+      add(c.id, c.name, "cat", c.color, anchor[c.id]);
+      c.subs.forEach(s => { add(c.id + s, s, "sub", c.color, anchor[c.id]); links.push([c.id, c.id + s, 95]); });
+    });
+    S.posts.forEach(p => { const c = catOf(p.cat); add(p.id, p.title.split(/[：:（(]/)[0], "post", c.color, anchor[p.cat], { post: p }); links.push([p.cat + p.sub, p.id, 70]); });
+    for (let i = 0; i < S.posts.length; i++) for (let j = i + 1; j < S.posts.length; j++) {
+      const a = S.posts[i], b = S.posts[j];
+      if (a.sub !== b.sub && a.tags.some(t => b.tags.includes(t))) links.push([a.id, b.id, 260, true]);
+    }
+    const L = links.map(([s, t, d, x]) => ({ s: nodes[idx[s]], t: nodes[idx[t]], d, x }));
+    const R = { cat: 22, sub: 11, post: 6 };
+
+    let alpha = 1, drag = null;
+    function tick() {
+      for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j]; let dx = b.x - a.x, dy = b.y - a.y, d2 = dx * dx + dy * dy || 1;
+        const f = 5200 / Math.max(d2, 400) * alpha, d = Math.sqrt(d2); dx /= d; dy /= d;
+        a.vx -= dx * f; a.vy -= dy * f; b.vx += dx * f; b.vy += dy * f;
+      }
+      L.forEach(l => { const dx = l.t.x - l.s.x, dy = l.t.y - l.s.y, d = Math.hypot(dx, dy) || 1, k = (d - l.d) / d * (l.x ? .004 : .08) * alpha; l.s.vx += dx * k; l.s.vy += dy * k; l.t.vx -= dx * k; l.t.vy -= dy * k; });
+      nodes.forEach(n => {
+        n.vx += (n.home[0] - n.x) * (n.type === "cat" ? .05 : .012) * alpha; n.vy += (n.home[1] - n.y) * (n.type === "cat" ? .05 : .012) * alpha;
+        if (n === drag) return;
+        n.x += n.vx *= .6; n.y += n.vy *= .6;
+        const r = R[n.type] + 40; n.x = Math.max(r, Math.min(W - r, n.x)); n.y = Math.max(r, Math.min(H - r - 30, n.y));
+      });
+    }
+    for (let i = 0; i < 600; i++) { tick(); alpha = Math.max(.08, alpha * .99); }
+
+    svg.innerHTML = `<g>${L.map((l, i) => `<line class="link" data-i="${i}" ${l.x ? 'stroke-dasharray="3 4"' : ""}/>`).join("")}</g>
+      <g>${nodes.map((n, i) => `<circle class="node" data-i="${i}" r="${R[n.type]}" style="fill:${n.type === "cat" ? CV[n.color] : n.type === "sub" ? `color-mix(in srgb, ${CV[n.color]} 55%, var(--surface))` : "var(--surface)"};stroke:${CV[n.color]};stroke-width:${n.type === "post" ? 2 : 0}"/>`).join("")}</g>
+      <g>${nodes.map((n, i) => `<text class="node-label ${n.type === "cat" ? "big" : ""}" data-i="${i}" text-anchor="middle">${n.type === "post" && n.label.length > 10 ? n.label.slice(0, 10) + "…" : n.label}</text>`).join("")}</g>`;
+    const lines = [...svg.querySelectorAll("line")], circles = [...svg.querySelectorAll("circle")], texts = [...svg.querySelectorAll("text")];
+    function draw() {
+      L.forEach((l, i) => { const e = lines[i]; e.setAttribute("x1", l.s.x); e.setAttribute("y1", l.s.y); e.setAttribute("x2", l.t.x); e.setAttribute("y2", l.t.y); });
+      nodes.forEach((n, i) => { circles[i].setAttribute("cx", n.x); circles[i].setAttribute("cy", n.y); texts[i].setAttribute("x", n.x); texts[i].setAttribute("y", n.y + (n.type === "cat" ? 5 : R[n.type] + 15)); });
+      if (nodes.find(n => n.type === "cat")) texts.forEach((t, i) => { if (nodes[i].type === "cat") { t.setAttribute("y", nodes[i].y + R.cat + 18); } });
+    }
+    draw();
+    function loop() { if (alpha > .02) { tick(); alpha *= .97; draw(); requestAnimationFrame(loop); } }
+
+    const info = document.getElementById("ginfo");
+    function focus(i) {
+      const nb = new Set([i]); const ls = new Set();
+      L.forEach((l, k) => { const a = idx[l.s.id], b = idx[l.t.id]; if (a === i || b === i) { nb.add(a); nb.add(b); ls.add(k); } });
+      svg.classList.add("dim");
+      circles.forEach((c, k) => c.classList.toggle("hl", nb.has(k))); texts.forEach((c, k) => c.classList.toggle("hl", nb.has(k))); lines.forEach((c, k) => c.classList.toggle("hl", ls.has(k)));
+      const n = nodes[i], c = S.categories.find(x => x.color === n.color);
+      const kind = { cat: "领域", sub: "主题", post: "笔记" }[n.type];
+      const cnt = n.type === "cat" ? S.posts.filter(p => p.cat === n.id).length + " 篇笔记" : n.type === "sub" ? S.posts.filter(p => p.sub === n.label).length + " 篇笔记" : n.post.read + " 分钟 · " + n.post.tags.join(" / ");
+      info.innerHTML = `<span class="pill ${colorClass(n.color)}">${kind} · ${c.name}</span><b>${n.post ? n.post.title : n.label}</b><p>${cnt}<br>关联节点 ${nb.size - 1} 个</p>`;
+      info.classList.add("show");
+    }
+    function blur() { svg.classList.remove("dim"); info.classList.remove("show"); }
+    circles.forEach((c, i) => {
+      c.onmouseenter = () => !drag && focus(i); c.onmouseleave = () => !drag && blur();
+      c.onpointerdown = e => { drag = nodes[i]; c.setPointerCapture(e.pointerId); };
+      c.onpointermove = e => { if (drag !== nodes[i]) return; const r = svg.getBoundingClientRect(); drag.x = (e.clientX - r.left) * W / r.width; drag.y = (e.clientY - r.top) * H / r.height; drag.vx = drag.vy = 0; if (alpha < .3) { alpha = .3; loop(); } draw(); };
+      c.onpointerup = () => { drag = null; };
+      c.ondblclick = () => nodes[i].post && (location.href = "article.html");
+    });
+    window.__focusNode = id => focus(idx[id]);
+    document.getElementById("legend").innerHTML = S.categories.map(c => `<span><i style="background:${CV[c.color]}"></i>${c.name}</span>`).join("") + `<span><i style="background:transparent;border:1.5px dashed var(--muted)"></i>共享标签</span>`;
+  })();
+
+  initReveal();
+</script>
+</body>
+</html>
