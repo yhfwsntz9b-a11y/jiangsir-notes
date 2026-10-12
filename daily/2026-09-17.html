@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报 2026-09-17 · 姜sir笔记</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
+.daily-report .cover { text-align: center; margin: 32px 0; }
+.daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+.daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
+.daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+.daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
+.daily-report ul, .daily-report ol { padding-left: 24px; }
+.daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
+.daily-report li strong { color: var(--text); }
+.daily-report hr { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+.daily-report table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.daily-report th { background: var(--bg); padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); }
+.daily-report td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.daily-report a { color: var(--brand); text-decoration: none; }
+.daily-report a:hover { text-decoration: underline; }
+.daily-report .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+.daily-report .meta-row { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
+.daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
+.daily-nav { text-align: center; padding: 24px; }
+.daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+.daily-nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
+}
+</style>
+</head>
+<body data-page="daily">
+
+<nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
+  <a href="../index.html">首页</a><span class="bc-chev"></span>
+  <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
+  <span>2026-09-17</span>
+</nav>
+<div class="daily-report">
+<h1>科技日报 | 2026-09-17</h1>
+<p class="subtitle">2026 年 9 月 17 日 周三 · GitHub Trending + Hacker News</p>
+<div class="meta-row">
+  <span class="pill pill-warm">HN Top 10</span>
+  <span class="pill pill-blue">GitHub Trending</span>
+</div>
+<div class="cover"><img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/cover.png" alt="封面"></div>
+<blockquote><p><strong>今日 GitHub 主线</strong>：阿里代码审查工具连续霸榜、MoE 推理引擎突破 3.5 万星、NSA 逆向框架重回视野、Cloudflare 安全审计插件引爆 DevSecOps</p></blockquote>
+<hr>
+<h2>🔥 GitHub 热门项目</h2>
+<h3>1. alibaba/open-code-review</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_11.png" alt="GH 11" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 31,879 stars（+3,231 today）</li>
+<li>🗣️ Go | 📄 Apache-2.0</li>
+<li>🔗 <a href="https://github.com/alibaba/open-code-review" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>阿里巴巴开源的工业级代码审查工具，采用"规则引擎 + AI 模型"混合架构，已在阿里内部大规模验证。支持多语言静态分析、安全漏洞扫描、性能热点检测，能与 GitHub/GitLab 深度集成实现 PR 自动审查。</p>
+<p><strong>核心亮点</strong></p>
+<ul>
+<li>混合架构：确定性规则保证基础质量，AI 模型捕捉复杂模式</li>
+<li>工业级验证：阿里内部数万工程师日常使用</li>
+<li>多平台集成：GitHub、GitLab、Bitbucket 一键接入</li>
+<li>可定制规则：支持自定义检查器和阈值</li>
+</ul>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>大型工程团队的代码质量门禁</li>
+<li>开源项目的 PR 审查自动化</li>
+<li>安全合规要求严格的企业环境</li>
+</ul>
+<p><strong>学习价值</strong></p>
+<ul>
+<li>理解规则引擎与 AI 模型的协作模式</li>
+<li>学习大规模代码审查的工程实践</li>
+<li>掌握静态分析工具的设计原理</li>
+</ul>
+<hr>
+<h3>2. JustVugg/colibri</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_12.png" alt="GH 12" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 35,038 stars（+1,546 today）</li>
+<li>🗣️ C | 📄 MIT</li>
+<li>🔗 <a href="https://github.com/JustVugg/colibri" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>纯 C 实现的 MoE（Mixture of Experts）模型推理引擎，零依赖，可在消费级硬件上运行前沿模型。无 Python、无 CUDA 依赖，纯 CPU 即可运行 70B 级别的 MoE 模型。</p>
+<p><strong>核心亮点</strong></p>
+<ul>
+<li>纯 C 实现：极致内存控制，无运行时依赖</li>
+<li>跨平台：Linux、macOS、Windows、嵌入式设备通吃</li>
+<li>MoE 优化：专家路由和负载均衡的精细实现</li>
+<li>低资源需求：8GB 内存即可运行中等规模模型</li>
+</ul>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>边缘设备和嵌入式 AI 推理</li>
+<li>资源受限的服务器环境</li>
+<li>需要极致性能控制的场景</li>
+</ul>
+<p><strong>学习价值</strong></p>
+<ul>
+<li>深入理解 MoE 架构的实现细节</li>
+<li>学习 C 语言的高性能编程技巧</li>
+<li>掌握无依赖部署的工程实践</li>
+</ul>
+<hr>
+<h3>3. abue-ammar/tinycast</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_13.png" alt="GH 13" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 5,598 stars（+1,179 today）</li>
+<li>🗣️ Swift | 📄 MIT</li>
+<li>🔗 <a href="https://github.com/abue-ammar/tinycast" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>极简但功能完整的 macOS 启动器，支持热键、剪贴板历史、快速搜索。用 Swift 原生开发，启动速度快、内存占用低，设计理念类似 Alfred 但更聚焦于核心功能。</p>
+<p><strong>核心亮点</strong></p>
+<ul>
+<li>原生 Swift：启动速度快，内存占用低</li>
+<li>极简设计：只保留启动器核心功能</li>
+<li>剪贴板历史：支持文本、图片、文件路径</li>
+<li>可扩展：支持自定义插件和工作流</li>
+</ul>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>厌倦了 Spotlight 或 Raycast 复杂性的用户</li>
+<li>追求极致轻量的 macOS 用户</li>
+<li>需要快速访问文件和应用的开发者</li>
+</ul>
+<p><strong>学习价值</strong></p>
+<ul>
+<li>学习 macOS 原生应用开发</li>
+<li>理解启动器类工具的实现原理</li>
+<li>掌握 Swift 的 UI 编程技巧</li>
+</ul>
+<hr>
+<h3>4. NationalSecurityAgency/ghidra</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_14.png" alt="GH 14" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 77,803 stars（+1,059 today）</li>
+<li>🗣️ Java | 📄 Apache-2.0</li>
+<li>🔗 <a href="https://github.com/NationalSecurityAgency/ghidra" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>美国国家安全局（NSA）开源的逆向工程框架，支持反汇编、反编译、动态调试，覆盖 x86、ARM、MIPS 等主流架构。在恶意软件分析、漏洞挖掘、固件审计等领域是行业标准工具。</p>
+<p><strong>核心亮点</strong></p>
+<ul>
+<li>官方背景：NSA 开发维护，质量可靠</li>
+<li>多架构支持：覆盖主流 CPU 和文件格式</li>
+<li>插件生态：丰富的社区插件扩展功能</li>
+<li>协作功能：支持多人协同分析同一项目</li>
+</ul>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>安全研究人员的恶意软件分析</li>
+<li>开发者的漏洞挖掘和补丁分析</li>
+<li>嵌入式工程师的固件审计</li>
+</ul>
+<p><strong>学习价值</strong></p>
+<ul>
+<li>理解逆向工程的系统方法</li>
+<li>学习二进制分析的高级技巧</li>
+<li>掌握安全研究的工具链</li>
+</ul>
+<hr>
+<h3>5. cloudflare/security-audit-skill</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_15.png" alt="GH 15" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 7,256 stars（+927 today）</li>
+<li>🗣️ JavaScript | 📄 MIT</li>
+<li>🔗 <a href="https://github.com/cloudflare/security-audit-skill" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>Cloudflare 开源的 AI 编码代理安全审计技能插件，支持多阶段安全扫描和独立验证。能集成到 Claude Code、Cursor 等 AI 编码工具中，在代码生成阶段实时检测安全漏洞。</p>
+<p><strong>核心亮点</strong></p>
+<ul>
+<li>多阶段扫描：语法分析、数据流追踪、依赖检查</li>
+<li>独立验证：每个发现都经过二次确认</li>
+<li>实时集成：在编码过程中即时反馈</li>
+<li>OWASP 覆盖：全面检测 Top 10 漏洞类型</li>
+</ul>
+<p><strong>适用场景</strong></p>
+<ul>
+<li>DevSecOps 团队的安全左移实践</li>
+<li>AI 辅助开发的质量保障</li>
+<li>开源项目的安全审计自动化</li>
+</ul>
+<p><strong>学习价值</strong></p>
+<ul>
+<li>理解 AI 安全审计的实现原理</li>
+<li>学习静态分析的高级技术</li>
+<li>掌握 DevSecOps 的最佳实践</li>
+</ul>
+<hr>
+<h3>6. ever-co/ever-gauzy</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_16.png" alt="GH 16" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 7,313 stars（+778 today）</li>
+<li>🗣️ TypeScript | 📄 AGPL-3.0</li>
+<li>🔗 <a href="https://github.com/ever-co/ever-gauzy" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>开源商业管理平台，集成 ERP、CRM、HRM、ATS、项目管理等模块。用 TypeScript 全栈开发，支持自托管和多云部署，提供丰富的 API 和插件机制。对于不想被 SaaS 厂商锁定的企业，这是一个值得评估的开源方案。</p>
+<hr>
+<h3>7. Lakr233/vphone-cli</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_17.png" alt="GH 17" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 13,346 stars（+547 today）</li>
+<li>🗣️ Swift | 📄 MIT</li>
+<li>🔗 <a href="https://github.com/Lakr233/vphone-cli" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>面向知识工作者的 Swift 命令行工具集，提供 iOS/macOS 设备管理、自动化脚本、数据同步等功能。设计理念是"用终端管理移动设备"，对于开发者和高级用户，提供了比 Xcode 或 Finder 更灵活的自动化能力。</p>
+<hr>
+<h3>8. jamiepine/voicebox</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_18.png" alt="GH 18" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 54,385 stars（+417 today）</li>
+<li>🗣️ TypeScript | 📄 MIT</li>
+<li>🔗 <a href="https://github.com/jamiepine/voicebox" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>开源 AI 语音工作室，支持语音克隆、语音转文字、文字转语音。基于最新的语音模型（如 F5-TTS、Whisper），提供本地部署方案，注重隐私和可控性。对于内容创作者、开发者、以及需要语音 API 的应用，这是一个功能完备的选择。</p>
+<hr>
+<h3>9. anthropics/knowledge-work-plugins</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_19.png" alt="GH 19" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 24,287 stars（+110 today）</li>
+<li>🗣️ Python | 📄 MIT</li>
+<li>🔗 <a href="https://github.com/anthropics/knowledge-work-plugins" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>Anthropic 官方开源的知识工作插件集合，主要面向 Claude 编码代理和知识管理场景。覆盖文档解析、代码索引、上下文检索、任务追踪等常见知识工作流，能与 Claude Code、Cursor 等工具无缝集成。对于构建 AI 辅助开发环境的团队，这是官方推荐的最佳实践参考。</p>
+<hr>
+<h3>10. ankitects/anki</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-17/gh_20.png" alt="GH 20" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>基本信息</strong></p>
+<ul>
+<li>⭐ 30,864 stars（+58 today）</li>
+<li>🗣️ Rust | 📄 AGPL-3.0</li>
+<li>🔗 <a href="https://github.com/ankitects/anki" target="_blank">GitHub</a></li>
+</ul>
+<p><strong>项目介绍</strong></p>
+<p>经典的间隔重复抽卡程序，用 Rust 重写了核心引擎后性能大幅提升。Anki 是语言学习、医学考试、编程面试等领域的标配工具，其 Rust 重写版本在启动速度、内存占用、同步性能上都有显著改善。对于需要高效记忆的用户，这是一个久经考验的选择。</p>
+<hr>
+<h2>📰 Hacker News 速览</h2>
+<table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>分数</th>
+<th>链接</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>编程小技巧的深远影响</td>
+<td>387</td>
+<td><a href="https://will-keleher.com/posts/small-programming-tricks-matter/" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>4B 模型生成比 Postgres 快 81% 的查询计划</td>
+<td>383</td>
+<td><a href="https://rohanbansal.com/qorl" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>小米 Mimo 2.6 实时训练仪表板</td>
+<td>236</td>
+<td><a href="https://mimo.xiaomi.com/rl/" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Nvidia 宣布 Rust 原生 GPU 编程</td>
+<td>221</td>
+<td><a href="https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-g" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>.NET 11 性能改进</td>
+<td>148</td>
+<td><a href="https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-11/" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Factorio RNG 逆向工程</td>
+<td>141</td>
+<td><a href="https://gegell.github.io/posts/factorio-rng/" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>打破三元 LLM 的 1.58-bit 屏障</td>
+<td>132</td>
+<td><a href="https://arxiv.org/abs/2609.16338" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>美国战略石油储备的工程学</td>
+<td>86</td>
+<td><a href="https://johnjwang.com/post/2026/09/15/engineering-behind-us-strategic-petroleum-" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>备份并不简单</td>
+<td>70</td>
+<td><a href="https://filipovski.net/2026/09/16/backups-arent-simple.html" target="_blank">原文</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>OpenSpec 轻量级 AI 规范框架</td>
+<td>52</td>
+<td><a href="https://openspec.dev/" target="_blank">原文</a></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>🔑 今日关键词</h3>
+<p><strong>阿里代码审查霸榜</strong>：open-code-review 连续两日登顶，+3,231 stars，总量逼近 3.2 万——工业级 AI 代码审查工具的需求爆发。</p>
+<p><strong>MoE 推理纯 C 实现</strong>：colibri 突破 3.5 万星，零依赖在消费级硬件跑 70B 模型——边缘 AI 的基础设施正在成熟。</p>
+<p><strong>Nvidia 拥抱 Rust</strong>：CUDA-Rust 官方绑定发布，GPU 编程从 C 语言垄断走向多语言并存——内存安全与高性能的融合。</p>
+<p><strong>4B 模型碾压 Postgres</strong>：小模型生成的查询计划比原生优化器快 81%——数据库内核优化的范式转移信号。</p>
+<hr>
+<blockquote><p><strong>数据来源</strong>: GitHub Trending + Hacker News | 自动生成于 2026-09-17</p></blockquote>
+<blockquote><p><strong>图片托管</strong>: GitHub + jsDelivr CDN</p></blockquote>
+</div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
+</body>
+</html>
