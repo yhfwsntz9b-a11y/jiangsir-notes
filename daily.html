@@ -61,7 +61,7 @@
     let cnt = 0;
     for (let d = 1; d <= days; d++) {
       const k = `${y}-${pad(m + 1)}-${pad(d)}`; const ok = has.has(k); if (ok) cnt++;
-      h += `<div class="d ${ok ? "has" : ""} ${k === "2026-10-10" ? "today" : ""}" ${ok ? `data-k="${k}"` : ""}>${d}</div>`;
+      h += `<div class="d ${ok ? "has" : ""} ${k === "2026-10-12" ? "today" : ""}" ${ok ? `data-k="${k}"` : ""}>${d}</div>`;
     }
     document.getElementById("cal").innerHTML = h;
     document.getElementById("c-month").textContent = cnt;
@@ -87,7 +87,7 @@
             <div class="tl-body">
               <h3>${mark(d.hl[0])}</h3>
               <p>另有：${mark(d.hl[1])} 等 9 条</p>
-              <div class="hl"><span class="pill c-warm">HN Top 10</span><span class="pill c-blue">GitHub Trending</span>${d.date === "2026-10-10" ? '<span class="pill c-green">最新</span>' : ""}</div>
+              <div class="hl"><span class="pill c-warm">HN Top 10</span><span class="pill c-blue">GitHub Trending</span>${d.date === "2026-10-12" ? '<span class="pill c-green">最新</span>' : ""}</div>
             </div>
             <span class="apple-tl-arrow">${ICON.arrow}</span>
           </a>`).join("")}
