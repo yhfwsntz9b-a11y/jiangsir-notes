@@ -82,7 +82,7 @@
       <section class="apple-tl-section" style="margin-bottom:32px">
         <h3 class="apple-month-title">${+k.slice(0, 4)} 年 ${+k.slice(5)} 月 <span>${ds.length} 期</span></h3>
         <div class="apple-timeline">${ds.map(d => `
-          <a class="apple-tl-card" href="#" id="d-${d.date}">
+          <a class="apple-tl-card" href="daily-detail.html?date=${d.date}" id="d-${d.date}">
             <div class="tl-date"><b>${+d.date.slice(8)}</b><span>${weekday(d.date)}</span></div>
             <div class="tl-body">
               <h3>${mark(d.hl[0])}</h3>

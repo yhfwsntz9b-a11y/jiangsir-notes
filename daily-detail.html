@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报详情 · 姜sir笔记</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="daily">
+
+<div class="apple-page-head reveal">
+  <p class="apple-hero-eyebrow">Daily Tech Brief</p>
+  <h1 id="d-title">科技日报</h1>
+  <p id="d-subtitle">加载中...</p>
+</div>
+
+<div class="container">
+  <nav class="breadcrumb" style="margin-bottom:24px">
+    <a href="index.html">首页</a><span class="bc-chev"></span>
+    <a href="daily.html">科技日报</a><span class="bc-chev"></span>
+    <span id="bc-date">详情</span>
+  </nav>
+
+  <article class="apple-daily-detail">
+    <div class="daily-header">
+      <div class="daily-date-badge">
+        <b id="detail-day">--</b>
+        <span id="detail-weekday">--</span>
+      </div>
+      <div class="daily-meta">
+        <span class="pill c-warm">HN Top 10</span>
+        <span class="pill c-blue">GitHub Trending</span>
+      </div>
+    </div>
+
+    <div class="daily-highlights">
+      <h3>今日亮点</h3>
+      <div class="highlight-card">
+        <div class="highlight-num">01</div>
+        <div class="highlight-content">
+          <h4 id="hl-1">--</h4>
+          <p class="highlight-source">来源：Hacker News 热榜</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-num">02</div>
+        <div class="highlight-content">
+          <h4 id="hl-2">--</h4>
+          <p class="highlight-source">来源：GitHub Trending</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="daily-actions">
+      <a href="daily.html" class="btn btn-primary">← 返回日报列表</a>
+      <button class="btn btn-ghost" id="copy-link">复制链接</button>
+    </div>
+  </article>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script>
+  document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);
+
+  const dateId = new URLSearchParams(location.search).get("date") || "";
+  const daily = SITE.dailies.find(d => d.date === dateId);
+
+  if (!daily) {
+    document.querySelector(".container").innerHTML = `
+      <div class="card empty-state" style="text-align:center;padding:60px 20px">
+        <h2>日报未找到</h2>
+        <p>请检查链接是否正确，或返回日报列表浏览全部期数。</p>
+        <a href="daily.html" class="btn btn-primary" style="margin-top:20px">返回日报列表</a>
+      </div>`;
+  } else {
+    const d = new Date(daily.date);
+    const weekdays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    const months = ["1 月", "2 月", "3 月", "4 月", "5 月", "6 月", "7 月", "8 月", "9 月", "10 月", "11 月", "12 月"];
+
+    document.getElementById("d-title").textContent = `${d.getFullYear()} 年 ${months[d.getMonth()]}`;
+    document.getElementById("d-subtitle").textContent = `科技日报 · ${d.getDate()} 日 ${weekdays[d.getDay()]}`;
+    document.getElementById("bc-date").textContent = `${d.getMonth() + 1} 月 ${d.getDate()} 日`;
+
+    document.getElementById("detail-day").textContent = String(d.getDate()).padStart(2, "0");
+    document.getElementById("detail-weekday").textContent = weekdays[d.getDay()];
+
+    document.getElementById("hl-1").textContent = daily.hl[0] || "暂无内容";
+    document.getElementById("hl-2").textContent = daily.hl[1] || "暂无内容";
+
+    document.getElementById("copy-link").onclick = e => {
+      navigator.clipboard?.writeText(location.href);
+      e.currentTarget.textContent = "已复制 ✓";
+      setTimeout(() => e.currentTarget.textContent = "复制链接", 1500);
+    };
+  }
+</script>
+</body>
+</html>
