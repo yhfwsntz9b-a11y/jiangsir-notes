@@ -6,7 +6,7 @@ import json
 
 SITE_ROOT = "/Users/jiangyunchao/jiangsir-notes"
 DAILY_DIR = os.path.join(SITE_ROOT, "daily")
-MD_ROOT = "/Users/jiangyunchao/知乎/zhihu_daily_news/outputs/tech_daily"
+DALIY_NEW = "/Users/jiangyunchao/daliy_new"
 
 os.makedirs(DAILY_DIR, exist_ok=True)
 
@@ -297,44 +297,31 @@ def generate_placeholder(date_str, highlights):
     print(f"Generated placeholder: {out_path}")
 
 
-# Map of dates to their MD files
-MD_MAP = {
-    "2026-09-16": os.path.join(MD_ROOT, "2026-09-16", "daily_news_wechat.md"),
-    "2026-09-17": os.path.join(MD_ROOT, "2026-09-17", "daily_news_wechat.md"),
-    "2026-09-18": os.path.join(MD_ROOT, "2026-09-18", "daily_news_wechat.md"),
-    "2026-09-20": os.path.join(MD_ROOT, "2026-09-20", "2026-09-20_wechat.md"),
-}
+# Auto-discover all WeChat MD files from daliy_new
+MD_MAP = {}
+if os.path.exists(DALIY_NEW):
+    for fname in sorted(os.listdir(DALIY_NEW)):
+        if fname.endswith('_wechat.md'):
+            date_str = fname.replace('_wechat.md', '')
+            MD_MAP[date_str] = os.path.join(DALIY_NEW, fname)
 
 # Highlights for dates without MD files (from data.js)
 HIGHLIGHTS = {
     "2026-10-12": ["Karpathy：LLM 能力认知鸿沟正在扩大，业界与学界严重脱节", "morluto/rea：AI Agent 逆向工程工具单日 25,599 星，GitHub 现象级"],
-    "2026-10-10": ["Cloudflare 收购 Deno，边缘计算吞下服务端运行时", "3A 级扫雷游戏 Triple-A Minesweeper"],
-    "2026-10-09": ["Whistle：16.9 MB 的超轻量语音转文字模型", "行业为何对 DeepSeek 4.1 Flash 如此淡定？"],
-    "2026-10-08": ["Apollo 软件先驱 Margaret Hamilton 逝世", "Claude Haiku 5.5 发布：$0.10 输入的性价比模型"],
-    "2026-09-30": ["GPT 6.1 Sol：五分之一价格的近 Astra 智能", "德里如何把电网损耗从 50% 降到 5%"],
-    "2026-09-29": ["Anthropic 发布新一代 Sonnet 5.5", "MUBI 经典电影海盗史"],
-    "2026-09-28": ["Google 是从什么时候开始变得这么怪的？", "Fireworks 发布 Ember-1：专为省 Token 而生"],
-    "2026-09-24": ["GPT-6 Sol and Luna 登顶 HN：双模型战略铺开", "意大利议会投票通过重返核电"],
-    "2026-09-23": ["Claude Opus 5.5 发布", "GPT-6 Sol and Luna 发布"],
-    "2026-09-22": ["Exfiltrate your Weights：GET 请求窃取模型权重", "用俄罗斯方块理解注意力机制"],
-    "2026-09-21": ["AI 模型权重可被提取", "ChatGPT 通过广告收集器获取浏览行为"],
-    "2026-09-15": ["XCancel 服务无限期停摆", "OpenAI 机器人早已知晓 RubyGems 缓存漏洞"],
-    "2026-09-14": ["Google 为何仍在投放可疑广告？", "Fable 5.1 破解 370 年未解密码"],
-    "2026-09-11": ["Shopify 从 React Native 回归原生开发", "研究人员能否信任 OpenAI 处理未发表数学成果"],
-    "2026-09-10": ["Shopify 收购 Tailwind CSS", "Apple 发布双屏 iPhone Duo"],
 }
 
 
 if __name__ == "__main__":
     # Generate from existing MD files
-    for date_str, md_path in MD_MAP.items():
+    for date_str, md_path in sorted(MD_MAP.items()):
         if os.path.exists(md_path):
             generate_from_md(date_str, md_path)
         else:
             print(f"MD not found: {md_path}")
 
-    # Generate placeholders for dates without MD
+    # Generate placeholders for dates without MD (only those in HIGHLIGHTS)
     for date_str, hls in HIGHLIGHTS.items():
-        generate_placeholder(date_str, hls)
+        if date_str not in MD_MAP:
+            generate_placeholder(date_str, hls)
 
-    print(f"\nDone! Generated {len(MD_MAP) + len(HIGHLIGHTS)} daily pages in {DAILY_DIR}")
+    print(f"\nDone! Generated {len(MD_MAP)} full pages + {len([d for d in HIGHLIGHTS if d not in MD_MAP])} placeholders in {DAILY_DIR}")

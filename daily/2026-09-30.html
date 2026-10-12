@@ -57,17 +57,330 @@
   <span class="pill pill-warm">HN Top 10</span>
   <span class="pill pill-blue">GitHub Trending</span>
 </div>
-<h2>今日亮点</h2>
-<div class="project-card">
-<h3>亮点 1</h3>
-<p>GPT 6.1 Sol：五分之一价格的近 Astra 智能</p>
-</div>
-<div class="project-card">
-<h3>亮点 2</h3>
-<p>德里如何把电网损耗从 50% 降到 5%</p>
-</div>
-<blockquote><p>完整微信版日报内容正在整理中，敬请期待。</p></blockquote>
-
+<blockquote><p>每日精选 GitHub 热门开源项目，带你了解技术前沿动态。</p></blockquote>
+<h2>🎨 封面</h2>
+<div class="cover"><img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_cover.png" alt="封面"></div>
+<hr>
+<h2>今日热门开源项目 TOP 10</h2>
+<h3>1. VoiceStudio —— 开源本地版 ElevenLabs，646 种语言语音克隆</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_01.png" alt="VoiceStudio" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/debpalash/VoiceStudio" target="_blank">debpalash/VoiceStudio</a></li>
+<li>语言：Python | ⭐ 48,112 | 今日 +4,758</li>
+<li>标签：voice-ai, voice-cloning, TTS, local-first, MLX, CUDA</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>VoiceStudio 是一个完全本地运行的桌面应用，目标是做 ElevenLabs 的开源平替。支持语音克隆、声音设计、视频配音、听写、转录和有声书制作，覆盖 646 种语言。底层集成 HuggingFace 模型，支持 CUDA 和 Apple MLX 加速。连续两天霸榜 GitHub Trending。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>全流程离线：语音克隆 → 合成 → 转录 → 配音，无需调用任何云端 API</li>
+<li>Tauri 桌面框架 + 本地推理，隐私数据不出本机</li>
+<li>支持 OmniVoice 模型族，646 语种覆盖全球主要语言</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>有声书 / 播客批量制作</li>
+<li>视频多语言配音工作流</li>
+<li>对隐私敏感的语音数据处理</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：本地语音 AI 全栈集成的参考实现，Tauri + HuggingFace + MLX/CUDA 的跨平台方案。</p>
+<hr>
+<h3>2. NVIDIA OpenShell —— AI Agent 的安全沙箱运行时</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_02.png" alt="OpenShell" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/NVIDIA/OpenShell" target="_blank">NVIDIA/OpenShell</a></li>
+<li>语言：Rust | ⭐ 10,603 | 今日 +990</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>NVIDIA 开源的 OpenShell 是一个为自主 AI Agent 设计的安全、私有运行时。当 AI Agent 越来越强大、越来越自主，如何确保它们不会做出危险操作？OpenShell 用 Rust 的内存安全 + 严格的沙箱隔离，给 Agent 一个"安全屋"。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>Rust 实现，内存安全 + 零成本抽象</li>
+<li>严格的资源隔离和权限控制</li>
+<li>NVIDIA 官方开源，工业级可靠性</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>自主 AI Agent 的安全执行环境</li>
+<li>需要严格权限控制的企业级应用</li>
+<li>AI 安全研究</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：当 Agent 从"工具"变成"自主体"，安全运行时成为刚需——OpenShell 展示了 NVIDIA 的答案。</p>
+<hr>
+<h3>3. Hindsight —— 会学习的 Agent 记忆系统，LongMemEval 登顶</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_03.png" alt="Hindsight" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/vectorize-io/hindsight" target="_blank">vectorize-io/hindsight</a></li>
+<li>语言：Python | ⭐ 42,842 | 今日 +2,575</li>
+<li>标签：agentic-ai, agents, ai-memory, memory</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>Hindsight 不是简单的向量检索记忆库，而是一个"会学习"的 Agent 记忆系统。它模仿人类认知的"保留-回忆-反思"三阶段机制，让 Agent 不只是记住历史，而是从经验中提炼规律。在 LongMemEval 基准测试中达到 SOTA。连续多日保持高热度。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>仿生记忆架构：World Facts / Experiences / Observations / Mental Models 四层记忆库</li>
+<li>支持 Docker、裸机、嵌入式三种部署模式</li>
+<li>兼容 25+ LLM 提供商，提供 MCP 端点</li>
+<li>与 Claude Code 等编程 Agent 深度集成</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>长期运行的编程助手</li>
+<li>需要跨会话学习的 Agent</li>
+<li>个性化对话系统</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：Agent 记忆不等于 RAG——Hindsight 展示了从"记住"到"学会"的架构跃迁。</p>
+<hr>
+<h3>4. Paperclip —— 开源 Agent 管理工具，打工人的 AI 团队调度台</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_04.png" alt="Paperclip" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/paperclipai/paperclip" target="_blank">paperclipai/paperclip</a></li>
+<li>语言：TypeScript | ⭐ 94,463 | 今日 +2,458</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>Paperclip 自称是"每个人在工作中管理 Agent 的开源应用"。它提供了一个可视化面板，让你同时调度、监控和协调多个 AI Agent 的工作流——从代码生成到数据分析，一站式管理你的 AI 团队。9.4 万 Star，Agent 管理已从极客玩具变成生产力刚需。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>多 Agent 并行调度和状态监控</li>
+<li>可视化工作流编排</li>
+<li>接近 10 万 Star 说明一切：Agent 管理是真实需求</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>团队级 AI Agent 编排</li>
+<li>多任务并行自动化</li>
+<li>Agent 运行状态可视化</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：理解 Agent 编排层的设计思路——当 Agent 数量从 1 个变成 10 个，管理本身就是个问题。</p>
+<hr>
+<h3>5. dbx —— 25MB 轻量级跨平台数据库客户端，支持 100+ 数据库</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_05.png" alt="dbx" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/t8y2/dbx" target="_blank">t8y2/dbx</a></li>
+<li>语言：Rust | ⭐ 22,000 | 今日 +232</li>
+<li>标签：database-client, MySQL, PostgreSQL, MongoDB, Redis, MCP</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>dbx 是一个仅 25MB 的轻量级跨平台数据库管理工具，支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、DuckDB、SQL Server、达梦等 100+ 数据库。内置 AI 助手、MCP Server、CLI、桌面端和 Docker 部署。Rust 实现，性能优异。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>25MB 极致轻量，启动秒开</li>
+<li>100+ 数据库统一界面</li>
+<li>内置 AI 助手 + MCP Server</li>
+<li>Rust + Tauri + Vue 技术栈</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>全栈开发者的数据库管理</li>
+<li>需要快速切换多种数据库</li>
+<li>对体积敏感的便携工具</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：Rust 在桌面应用领域的优秀案例——轻量、快速、跨平台。</p>
+<hr>
+<h3>6. OpenRig —— Claude Code + Codex 多 Agent 协同框架</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_06.png" alt="OpenRig" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/mvschwarz/openrig" target="_blank">mvschwarz/openrig</a></li>
+<li>语言：TypeScript | ⭐ 2,437 | 今日 +737</li>
+<li>标签：multi-agent, claude-code, codex-cli, agent-harness, tmux</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>OpenRig 是一个多 Agent 协同框架，让 Claude Code 和 OpenAI Codex 在同一个 tmux 会话中协作编程。它把不同 AI 编程助手组织成一个统一的系统，分配任务、共享上下文、协同完成复杂工程任务。连续两天上榜。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>tmux 多路复用实现多 Agent 并行</li>
+<li>Claude Code + Codex 双引擎协同</li>
+<li>Agent 技能系统和任务编排</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>大型代码库的 AI 辅助开发</li>
+<li>多 Agent 编程实验</li>
+<li>AI 编程工具的深度用户</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：当 AI 编程从"单助手"走向"团队协作"，OpenRig 展示了多 Agent 协同的工程实现。</p>
+<hr>
+<h3>7. OpenShip —— 自托管部署平台</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_07.png" alt="OpenShip" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/oblien/openship" target="_blank">oblien/openship</a></li>
+<li>语言：TypeScript | ⭐ 13,823 | 今日 +437</li>
+<li>标签：self-hosted, deployments, agents, AI</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>OpenShip 是一个自托管的部署平台，让你在自己的服务器上轻松部署和管理应用。在 Vercel/Netlify 等云端部署越来越贵的今天，自托管成为越来越多开发者的选择。OpenShip 提供了类似 Heroku 的体验，但完全掌控在你手中。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>一键部署，类 Heroku 体验</li>
+<li>完全自托管，数据自主可控</li>
+<li>支持 AI Agent 应用部署</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>不想依赖云平台的独立开发者</li>
+<li>需要数据主权的企業</li>
+<li>AI Agent 应用的私有化部署</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：自托管基础设施的完整参考实现。</p>
+<hr>
+<h3>8. reclip —— 轻量级自托管视频下载器</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_08.png" alt="reclip" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/averygan/reclip" target="_blank">averygan/reclip</a></li>
+<li>语言：HTML | ⭐ 10,097 | 今日 +113</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>reclip 是一个轻量级的自托管媒体下载器，支持从几乎所有网站下载视频。提供简洁的 Web UI，Docker 一键部署。在 yt-dlp 等工具基础上提供了更友好的用户界面。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>支持几乎所有视频网站</li>
+<li>简洁的 Web UI</li>
+<li>Docker 自托管，隐私安全</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>视频内容创作者素材收集</li>
+<li>离线观看需求</li>
+<li>不想依赖第三方下载服务</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：yt-dlp 的 Web UI 封装实践。</p>
+<hr>
+<h3>9. CS341 Coursebook —— UIUC 开源系统编程教材</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_09.png" alt="CS341" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/cs341-illinois/coursebook" target="_blank">cs341-illinois/coursebook</a></li>
+<li>语言：TeX | ⭐ 3,102 | 今日 +572</li>
+<li>标签：C, Linux, POSIX, system-programming</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>伊利诺伊大学 CS341 课程的开源教材，涵盖系统编程入门：C 语言、Linux 系统调用、POSIX 标准、进程管理、内存管理等。用 LaTeX/WikiBook 编写，持续更新。连续两天上榜，说明学术开源教材的持续需求。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>名校课程体系 + 开源协作</li>
+<li>从 C 基础到 POSIX 系统编程的完整路径</li>
+<li>LaTeX 源码开放，可自行定制和翻译</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>计算机系统课程自学</li>
+<li>从应用层转向系统层的程序员</li>
+<li>教学参考</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：UIUC 系统编程课的完整教材开源，比大部分中文系统编程书更贴近现代工程实践。</p>
+<hr>
+<h3>10. AI Engineering from Scratch —— 从零构建 AI 工程完整教程</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-30/2026-09-30_gh_10.png" alt="AI Engineering" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank">rohitg00/ai-engineering-from-scratch</a></li>
+<li>语言：Python | ⭐ 61,368 | 今日 +786</li>
+<li>标签：agents, LLM, deep-learning, computer-vision, MLOps</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>"Learn it. Build it. Ship it for others."——从零开始构建完整的 AI 工程体系。涵盖机器学习、深度学习、计算机视觉、NLP、LLM、Agent、强化学习、MCP、Rust 等全栈 AI 技术。6.1 万 Star，是目前最全面的 AI 工程开源教程之一。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>全栈覆盖：从基础 ML 到前沿 Agent</li>
+<li>实战导向：每个模块都有完整项目</li>
+<li>持续更新，紧跟技术趋势</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>AI 工程师系统化学习</li>
+<li>从理论到工程的完整路径</li>
+<li>团队培训教材</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：6 万 Star 说明一切——这是目前最全面的 AI 工程学习路径。</p>
+<hr>
+<h2>📊 Hacker News 快讯</h2>
+<table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+<th>评论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>GPT 6.1 Sol — 接近 Astra 智能，价格仅五分之一</td>
+<td>🔥 765</td>
+<td>💬 710</td>
+</tr>
+<tr>
+<td>2</td>
+<td>How Delhi cut electricity loss from 50 to 5 percent</td>
+<td>431</td>
+<td>249</td>
+</tr>
+<tr>
+<td>3</td>
+<td>America.gov — 美国政府官方网站</td>
+<td>322</td>
+<td>260</td>
+</tr>
+<tr>
+<td>4</td>
+<td>U.S. postal inspectors shut down counterfeit postage site</td>
+<td>163</td>
+<td>86</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Livenerf: Has Opus 5.5 been nerfed yet?</td>
+<td>150</td>
+<td>82</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Real-time Solar System with 526k asteroids</td>
+<td>94</td>
+<td>25</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Vermont replacing power plants with home batteries</td>
+<td>61</td>
+<td>30</td>
+</tr>
+<tr>
+<td>8</td>
+<td>NASA asked former SR-71A staffers to help secret restart</td>
+<td>47</td>
+<td>34</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Show HN: 3D model of an Enigma machine</td>
+<td>27</td>
+<td>3</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Needed 1+1, built a functional programming language</td>
+<td>17</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>📈 今日洞察</h2>
+<h3>1. GPT 6.1 Sol 发布：AI 军备竞赛进入"性价比"阶段</h3>
+<p>OpenAI 发布 GPT 6.1 Sol，号称"接近 Astra 智能，价格仅五分之一"。765 分 + 710 条评论的热度说明一切。当 GPT-6 Astra 以"关键级"网络安全能力著称但被锁定时，市场需要的是<strong>可用且便宜</strong>的智能。AI 军备竞赛从"谁更强"转向"谁更划算"。</p>
+<h3>2. Agent 基础设施持续霸榜</h3>
+<p>VoiceStudio（语音）、OpenShell（安全运行时）、Hindsight（记忆）、Paperclip（管理）、OpenRig（协同）——Agent 基础设施连续多日占据 GitHub Trending。这不是偶然：Agent 正在从"能聊天"进化到"能干活"，而干活需要完整的基础设施栈。</p>
+<h3>3. Rust 在基础设施层崛起</h3>
+<p>OpenShell（NVIDIA Agent 沙箱）和 dbx（数据库客户端）都是 Rust 实现。Rust 的内存安全 + 零成本抽象，让它成为构建安全、高性能基础设施的首选。当 AI 系统对安全性要求越来越高，Rust 的地位只会越来越重要。</p>
+<h3>4. 自托管成为新共识</h3>
+<p>OpenShip（部署平台）和 reclip（视频下载器）代表了自托管趋势。在云端服务越来越贵、数据隐私越来越敏感的今天，"自己的服务器自己做主"正在从极客选择变成主流共识。</p>
 </div>
 
 <nav class="daily-nav">

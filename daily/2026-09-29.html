@@ -57,17 +57,282 @@
   <span class="pill pill-warm">HN Top 10</span>
   <span class="pill pill-blue">GitHub Trending</span>
 </div>
-<h2>今日亮点</h2>
-<div class="project-card">
-<h3>亮点 1</h3>
-<p>Anthropic 发布新一代 Sonnet 5.5</p>
-</div>
-<div class="project-card">
-<h3>亮点 2</h3>
-<p>MUBI 经典电影海盗史</p>
-</div>
-<blockquote><p>完整微信版日报内容正在整理中，敬请期待。</p></blockquote>
-
+<blockquote><p>每日精选 GitHub 热门开源项目，带你了解技术前沿动态。</p></blockquote>
+<h2>🎨 封面</h2>
+<div class="cover"><img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_cover.png" alt="封面"></div>
+<hr>
+<h2>今日热门开源项目 TOP 8</h2>
+<h3>1. VoiceStudio —— 开源本地版 ElevenLabs，646 种语言语音克隆</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_gh_01.png" alt="VoiceStudio" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/debpalash/VoiceStudio" target="_blank">debpalash/VoiceStudio</a></li>
+<li>语言：Python | ⭐ 44,092 | 今日 +3,221</li>
+<li>标签：voice-ai, voice-cloning, TTS, local-first, MLX, CUDA</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>VoiceStudio 是一个完全本地运行的桌面应用，目标是做 ElevenLabs 的开源平替。支持语音克隆、声音设计、视频配音、听写、转录和有声书制作，覆盖 646 种语言。底层集成 HuggingFace 模型，支持 CUDA 和 Apple MLX 加速。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>全流程离线：语音克隆 → 合成 → 转录 → 配音，无需调用任何云端 API</li>
+<li>Tauri 桌面框架 + 本地推理，隐私数据不出本机</li>
+<li>支持 OmniVoice 模型族，646 语种覆盖全球主要语言</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>有声书 / 播客批量制作</li>
+<li>视频多语言配音工作流</li>
+<li>对隐私敏感的语音数据处理</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：本地语音 AI 全栈集成的参考实现，Tauri + HuggingFace + MLX/CUDA 的跨平台方案。</p>
+<hr>
+<h3>2. Paperclip —— 开源 Agent 管理工具，打工人的 AI 团队调度台</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_gh_02.png" alt="Paperclip" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/paperclipai/paperclip" target="_blank">paperclipai/paperclip</a></li>
+<li>语言：TypeScript | ⭐ 92,810 | 今日 +3,197</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>Paperclip 自称是"每个人在工作中管理 Agent 的开源应用"。它提供了一个可视化面板，让你同时调度、监控和协调多个 AI Agent 的工作流——从代码生成到数据分析，一站式管理你的 AI 团队。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>多 Agent 并行调度和状态监控</li>
+<li>可视化工作流编排</li>
+<li>9.2 万 Star 说明一切：Agent 管理已从极客玩具变成生产力刚需</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>团队级 AI Agent 编排</li>
+<li>多任务并行自动化</li>
+<li>Agent 运行状态可视化</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：理解 Agent 编排层的设计思路——当 Agent 数量从 1 个变成 10 个，管理本身就是个问题。</p>
+<hr>
+<h3>3. Hindsight —— 会学习的 Agent 记忆系统，LongMemEval 登顶</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_gh_03.png" alt="Hindsight" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/vectorize-io/hindsight" target="_blank">vectorize-io/hindsight</a></li>
+<li>语言：Python | ⭐ 40,983 | 今日 +4,561</li>
+<li>标签：agentic-ai, agents, ai-memory, memory</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>Hindsight 不是简单的向量检索记忆库，而是一个"会学习"的 Agent 记忆系统。它模仿人类认知的"保留-回忆-反思"三阶段机制，让 Agent 不只是记住历史，而是从经验中提炼规律。在 LongMemEval 基准测试中达到 SOTA。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>仿生记忆架构：World Facts / Experiences / Observations / Mental Models 四层记忆库</li>
+<li>支持 Docker、裸机、嵌入式三种部署模式</li>
+<li>兼容 25+ LLM 提供商，提供 MCP 端点</li>
+<li>与 Claude Code 等编程 Agent 深度集成</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>长期运行的编程助手</li>
+<li>需要跨会话学习的 Agent</li>
+<li>个性化对话系统</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：Agent 记忆不等于 RAG——Hindsight 展示了从"记住"到"学会"的架构跃迁。</p>
+<hr>
+<h3>4. PLFM_RADAR —— 开源低成本 10.5 GHz 相控阵雷达</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_gh_04.png" alt="PLFM_RADAR" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/NawfalMotii79/PLFM_RADAR" target="_blank">NawfalMotii79/PLFM_RADAR</a></li>
+<li>语言：PLSQL | ⭐ 25,759 | 今日 +158</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>一个开源的低成本 10.5 GHz PLFM（脉冲线性调频）相控阵雷达系统。项目提供完整的硬件设计、信号处理算法和数据处理流程，适合射频工程和雷达信号处理的学习与研究。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>10.5 GHz 工作频率，X 波段</li>
+<li>PLFM 波形设计 + 相控阵波束成形</li>
+<li>完整的开源硬件 BOM 和信号处理链路</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>射频/微波工程教学</li>
+<li>雷达信号处理研究</li>
+<li>业余无线电爱好者实验</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：罕见的完整开源雷达项目，从硬件到算法全链路可复现。</p>
+<hr>
+<h3>5. CS341 Coursebook —— UIUC 开源系统编程教材</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_gh_05.png" alt="CS341 Coursebook" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/cs341-illinois/coursebook" target="_blank">cs341-illinois/coursebook</a></li>
+<li>语言：TeX | ⭐ 2,512 | 今日 +195</li>
+<li>标签：C, Linux, POSIX, system-programming</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>伊利诺伊大学 CS341 课程的开源教材，涵盖系统编程入门：C 语言、Linux 系统调用、POSIX 标准、进程管理、内存管理等。用 LaTeX/WikiBook 编写，持续更新。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>名校课程体系 + 开源协作</li>
+<li>从 C 基础到 POSIX 系统编程的完整路径</li>
+<li>LaTeX 源码开放，可自行定制和翻译</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>计算机系统课程自学</li>
+<li>从应用层转向系统层的程序员</li>
+<li>教学参考</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：UIUC 系统编程课的完整教材开源，比大部分中文系统编程书更贴近现代工程实践。</p>
+<hr>
+<h3>6. UP —— 韩先凯的人生进阶指南</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_gh_06.png" alt="UP" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/byoungd/up" target="_blank">byoungd/up</a></li>
+<li>语言：JavaScript | ⭐ 64,673 | 今日 +327</li>
+<li>标签：AI学习, 英语学习, tutorial</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>一个集成了 AI 学习指南、英语学习教程、人生进阶指南的综合开源项目。6.4 万 Star，持续更新，内容涵盖如何用 AI 工具提升个人效率、英语学习方法论、以及系统化的自我提升路径。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>AI 辅助学习的实践指南</li>
+<li>系统化的个人成长方法论</li>
+<li>持续维护 7 年+（2017 年创建）</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>想用 AI 提升学习和工作效率</li>
+<li>英语学习者</li>
+<li>寻找系统化自我提升方法</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：一个持续 7 年的开源项目本身就是"长期主义"的最佳案例。</p>
+<hr>
+<h3>7. OpenRig —— Claude Code + Codex 多 Agent 协同框架</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_gh_07.png" alt="OpenRig" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/mvschwarz/openrig" target="_blank">mvschwarz/openrig</a></li>
+<li>语言：TypeScript | ⭐ 1,722 | 今日 +734</li>
+<li>标签：multi-agent, claude-code, codex-cli, agent-harness, tmux</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>OpenRig 是一个多 Agent 协同框架，让 Claude Code 和 OpenAI Codex 在同一个 tmux 会话中协作编程。它把不同 AI 编程助手组织成一个统一的系统，分配任务、共享上下文、协同完成复杂工程任务。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>tmux 多路复用实现多 Agent 并行</li>
+<li>Claude Code + Codex 双引擎协同</li>
+<li>Agent 技能系统和任务编排</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>大型代码库的 AI 辅助开发</li>
+<li>多 Agent 编程实验</li>
+<li>AI 编程工具的深度用户</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：当 AI 编程从"单助手"走向"团队协作"，OpenRig 展示了多 Agent 协同的工程实现。</p>
+<hr>
+<h3>8. Univer —— AI Agent 的 Office 套件，表格/文档/幻灯片/PDF 一体化</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-09-29/2026-09-29_gh_08.png" alt="Univer" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/dream-num/univer" target="_blank">dream-num/univer</a></li>
+<li>语言：TypeScript | ⭐ 21,260 | 今日 +1,099</li>
+<li>标签：spreadsheet, doc, ppt, pdf, excel, word</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>Univer 自称是"AI Agent 的 Office 套件"——在同一个运行时中提供电子表格、文档、幻灯片、画布、关系表和 PDF 的完整编辑能力。它不是简单的文档查看器，而是一个可编程的办公套件 SDK，让 AI Agent 能直接操作 Office 文档。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>全格式覆盖：xlsx/docx/pptx/pdf 统一 API</li>
+<li>SDK 化设计，可嵌入任何应用</li>
+<li>协同编辑 + AI Agent 集成</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>需要 AI 自动处理 Office 文档的应用</li>
+<li>在线协作办公工具</li>
+<li>文档自动化生成系统</li>
+</ul>
+<p>📚 <strong>学习价值</strong>：AI Agent 需要"手"来操作现实世界的文档——Univer 提供了这双手。</p>
+<hr>
+<h2>📊 Hacker News 快讯</h2>
+<table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+<th>评论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sonnet 5.5 — Anthropic 发布新一代模型</td>
+<td>🔥 550</td>
+<td>💬 378</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pirating the Pirates — MUBI 经典电影海盗史</td>
+<td>397</td>
+<td>206</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kids turned NPR Spotify comments into a secret group chat</td>
+<td>269</td>
+<td>168</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Jeff — Jev-compatible 0.8B 决策模型，本地训练 ~30ms</td>
+<td>235</td>
+<td>81</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Hijacking the PS5's RTMP stream</td>
+<td>183</td>
+<td>62</td>
+</tr>
+<tr>
+<td>6</td>
+<td>World Labs Is Joining AMD — 李飞飞团队加入 AMD</td>
+<td>171</td>
+<td>65</td>
+</tr>
+<tr>
+<td>7</td>
+<td>MicroLLM Lab — 浏览器里跑 7 个微型 LLM</td>
+<td>115</td>
+<td>57</td>
+</tr>
+<tr>
+<td>8</td>
+<td>12,000-year-old Göbeklitepe burials</td>
+<td>67</td>
+<td>15</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Scientists solve 1840s space weather mystery</td>
+<td>50</td>
+<td>31</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Best shape of a city — 城市形态与距离建模</td>
+<td>9</td>
+<td>5</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>📈 今日洞察</h2>
+<h3>1. Agent 基础设施全面爆发</h3>
+<p>今天的 GitHub Trending 几乎被 Agent 基础设施占满：Paperclip 管 Agent 调度，Hindsight 管 Agent 记忆，OpenRig 管多 Agent 协同，Univer 给 Agent 提供文档操作能力。这不是巧合——Agent 正在从"能聊天"进化到"能干活"，而干活需要完整的基础设施栈。</p>
+<h3>2. 本地优先成为新共识</h3>
+<p>VoiceStudio 4.4 万 Star 的核心卖点就两个字：<strong>本地</strong>。不传云端、不调 API、数据不出本机。当 ElevenLabs 等云端语音服务越来越贵、隐私争议越来越大，开源本地方案正在成为开发者的首选。</p>
+<h3>3. 学术开源教材值得关注</h3>
+<p>CS341 Coursebook 和 UP 项目说明一件事：最好的学习资源不一定在付费课程里。UIUC 的系统编程教材、韩先凯 7 年维护的学习指南——这些开源项目的信息密度远超大部分付费内容。</p>
+<h3>4. HN 的"人文平衡"</h3>
+<p>在一片 AI/Agent/开源的技术喧嚣中，HN 首页还有 12000 年前的考古发现、1840 年代的太空天气之谜、城市形态的数学建模，以及孩子们把 NPR 播客评论区变成秘密群聊的暖心故事。技术社区需要这种平衡——提醒我们技术之外还有历史和人情。</p>
 </div>
 
 <nav class="daily-nav">
