@@ -25,7 +25,7 @@
     <h2 class="apple-section-title reveal">精选专题</h2>
     <p class="apple-section-sub reveal" data-delay="60">成体系的系列文章，适合从头读到尾。</p>
     <div class="apple-series">
-      <a class="apple-series-card reveal" href="article.html">
+      <a class="apple-series-card reveal" href="article.html?id=enterprise-kb">
         <h3>企业 RAG 知识库 20 问</h3>
         <p>从解析、分块、检索到灰度上线，覆盖知识库落地的完整链路。</p>
         <span class="apple-cta">阅读专题 &gt;</span>
@@ -74,7 +74,7 @@
 
   const latest = [...S.posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
   document.getElementById("latest").innerHTML = latest.map((p, i) => `
-    <a class="apple-post reveal" data-delay="${i * 40}" href="article.html">
+    <a class="apple-post reveal" data-delay="${i * 40}" href="article.html?id=${p.id}">
       <div class="apple-post-info">
         <span class="apple-post-cat">${catPill(p.cat)}</span>
         <h3>${p.title}</h3>

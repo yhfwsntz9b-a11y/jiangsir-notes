@@ -73,7 +73,7 @@
     document.getElementById("info").innerHTML = `${path ? path + " · " : ""}共 <b>${ps.length}</b> 篇笔记`;
     document.getElementById("reset").style.visibility = (st.cat || st.tag || st.q) ? "visible" : "hidden";
     document.getElementById("list").innerHTML = ps.length ? ps.map(p => `
-      <a class="apple-post-item" href="article.html">
+      <a class="apple-post-item" href="article.html?id=${p.id}">
         <div>
           <div class="post-top">${catPill(p.cat)}<span>${p.sub}</span><i class="sep"></i><span>${fmtDate(p.date)}</span><i class="sep"></i><span>${p.read} 分钟</span>${p.featured ? '<span class="pill c-warm">精选</span>' : ""}</div>
           <h3>${hl(p.title)}</h3>
