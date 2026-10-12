@@ -159,7 +159,7 @@
       c.onpointerdown = e => { drag = nodes[i]; c.setPointerCapture(e.pointerId); };
       c.onpointermove = e => { if (drag !== nodes[i]) return; const r = svg.getBoundingClientRect(); drag.x = (e.clientX - r.left) * W / r.width; drag.y = (e.clientY - r.top) * H / r.height; drag.vx = drag.vy = 0; if (alpha < .3) { alpha = .3; loop(); } draw(); };
       c.onpointerup = () => { drag = null; };
-      c.ondblclick = () => nodes[i].post && (location.href = "article.html");
+      c.ondblclick = () => nodes[i].post && (location.href = "article.html?id=" + nodes[i].post.id);
     });
     window.__focusNode = id => focus(idx[id]);
     document.getElementById("legend").innerHTML = S.categories.map(c => `<span><i style="background:${CV[c.color]}"></i>${c.name}</span>`).join("") + `<span><i style="background:transparent;border:1.5px dashed var(--muted)"></i>共享标签</span>`;

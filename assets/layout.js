@@ -108,7 +108,7 @@
     let html = "";
     if (posts.length) {
       html += `<div class="modal-group">${q ? "笔记" : "推荐阅读"}</div>`;
-      posts.forEach(p => { const c = catOf(p.cat); items.push(`article.html?id=${p.id}`); html += `<a class="modal-item" href="article.html"><div class="ico ${colorOf[c.color]}">${I.doc}</div><div><b>${hl(p.title, q)}</b><span>${c.name} / ${p.sub} · ${p.read} 分钟</span></div><kbd class="enter">↵</kbd></a>`; });
+      posts.forEach(p => { const c = catOf(p.cat); items.push(`article.html?id=${p.id}`); html += `<a class="modal-item" href="article.html?id=${p.id}"><div class="ico ${colorOf[c.color]}">${I.doc}</div><div><b>${hl(p.title, q)}</b><span>${c.name} / ${p.sub} · ${p.read} 分钟</span></div><kbd class="enter">↵</kbd></a>`; });
     }
     if (days.length) {
       html += `<div class="modal-group">科技日报</div>`;

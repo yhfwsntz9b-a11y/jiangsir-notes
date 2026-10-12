@@ -33,7 +33,7 @@
 <script>
   const S = SITE;
   document.getElementById("ico-s").outerHTML = ICON.search;
-  const st = { cat: new URLSearchParams(location.search).get("cat") || "", sub: "", tag: "", q: "", sort: "new" };
+  const st = { cat: new URLSearchParams(location.search).get("cat") || "", sub: "", tag: new URLSearchParams(location.search).get("tag") || "", q: "", sort: "new" };
 
   function renderCatBar() {
     const n = c => S.posts.filter(p => p.cat === c).length;
