@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报 2026-10-13 · 姜sir笔记</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
+.daily-report .cover { text-align: center; margin: 32px 0; }
+.daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+.daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
+.daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+.daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
+.daily-report ul, .daily-report ol { padding-left: 24px; }
+.daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
+.daily-report li strong { color: var(--text); }
+.daily-report hr { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+.daily-report table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.daily-report th { background: var(--bg); padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); }
+.daily-report td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.daily-report a { color: var(--brand); text-decoration: none; }
+.daily-report a:hover { text-decoration: underline; }
+.daily-report .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+.daily-report .meta-row { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
+.daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
+.daily-nav { text-align: center; padding: 24px; }
+.daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+.daily-nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
+}
+</style>
+</head>
+<body data-page="daily">
+
+<nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
+  <a href="../index.html">首页</a><span class="bc-chev"></span>
+  <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
+  <span>2026-10-13</span>
+</nav>
+<div class="daily-report">
+<h1>科技日报 | 2026-10-13</h1>
+<p class="subtitle">2026 年 10 月 13 日 周一 · GitHub Trending + Hacker News</p>
+<div class="meta-row">
+  <span class="pill pill-warm">HN Top 10</span>
+  <span class="pill pill-blue">GitHub Trending</span>
+</div>
+<blockquote><p>每日精选 GitHub 热门开源项目，带你了解技术前沿动态。</p></blockquote>
+<h2>🎨 封面</h2>
+<div class="cover"><img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_cover.png" alt="封面"></div>
+<hr>
+<h2>今日热门开源项目 TOP 9</h2>
+<h3>1. WordCraft —— 纯 Rust 重写 Microsoft Word，开源办公套件先锋</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_01.png" alt="WordCraft" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/storytold/wordcraft" target="_blank">storytold/wordcraft</a></li>
+<li>语言：Rust | ⭐ 9,139</li>
+<li>标签：word-processor, rust, clean-room, office-suite, open-source</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>纯 Rust 实现的"净室"（clean-room）文字处理器——不依赖任何 Microsoft 代码，从零重写 Word 的核心功能。今日 GitHub 最高星，storytold 办公套件家族的旗舰项目。"净室"意味着完全独立开发，规避版权风险，同时保留对 .docx 格式的兼容。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>纯 Rust 实现，内存安全 + 零成本抽象</li>
+<li>净室逆向工程，完全独立于 Microsoft 代码</li>
+<li>支持 .docx 格式读写，兼容现有文档生态</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>对数据隐私有要求的文档处理</li>
+<li>Linux/跨平台办公环境</li>
+<li>Rust 系统编程学习</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>storytold 系列今日霸榜 5 个项目（WordCraft、GridCraft、CADCraft、DeckCraft、SoundCraft），用 Rust 重写整个办公套件。这不仅是技术挑战，更是对"软件应该由用户控制"理念的实践。</p>
+<hr>
+<h3>2. Anatomy —— AI Agent 生成等距机械插画技能</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_02.png" alt="Anatomy" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/wheresryan22/anatomy" target="_blank">wheresryan22/anatomy</a></li>
+<li>语言：Python | ⭐ 6,232</li>
+<li>标签：ai-agent, isometric-illustration, technical-drawing, skill</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>一个 Agent 技能（skill），让 AI 能创建详细的、交互式的等距（isometric）真实机械插画。6,232 星说明技术插画自动化的需求旺盛。输入文字描述，输出精美的等距剖面图——工程师和技术写作者的新宠。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>基于 Agent 的自动插画生成</li>
+<li>等距投影 + 交互式 SVG 输出</li>
+<li>支持真实机械结构的自动拆解和标注</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>技术文档配图自动化</li>
+<li>工程教学材料制作</li>
+<li>产品说明书插图</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>AI 从"写文字"到"画技术图"的跨越。等距插画是工程领域最常用的可视化方式，这个技能让 Agent 直接产出专业级技术插图。</p>
+<hr>
+<h3>3. GridCraft —— 纯 Rust 重写电子表格</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_03.png" alt="GridCraft" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/storytold/gridcraft" target="_blank">storytold/gridcraft</a></li>
+<li>语言：Rust | ⭐ 3,832</li>
+<li>标签：spreadsheet, rust, clean-room, excel-alternative, office-suite</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>storytold 办公套件家族的电子表格组件——纯 Rust 净室重写 Excel 风格电子表格。3,832 星，支持公式引擎、单元格格式化、图表渲染等核心功能。与 WordCraft 同系列，目标是用 Rust 重建整个办公生态。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>高性能公式引擎，支持复杂引用和数组公式</li>
+<li>净室实现，兼容 .xlsx 格式</li>
+<li>Rust 内存安全保证，杜绝缓冲区溢出</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>数据分析与计算</li>
+<li>替代商业电子表格方案</li>
+<li>嵌入式表格引擎</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>电子表格的公式引擎是计算机科学经典课题。用 Rust 重写意味着更好的性能和安全性，也代表开源办公套件正在走向成熟。</p>
+<hr>
+<h3>4. ARTEX —— 百度冠军 AI 自主渗透测试系统</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_04.png" alt="ARTEX" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/mhtsec/ARTEX" target="_blank">mhtsec/ARTEX</a></li>
+<li>语言：Python | ⭐ 3,568</li>
+<li>标签：ai-pentest, autonomous-agent, cybersecurity, baidu, champion</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>百度"agent+"攻防挑战赛冠军项目——AI 自主渗透测试系统。3,568 星，能自动完成从信息收集、漏洞扫描到漏洞利用的全链路渗透测试。代表了 AI 在网络安全攻防领域的最新突破。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>全自主渗透测试：信息收集 → 漏洞发现 → 利用执行</li>
+<li>多 Agent 协作架构，分工完成不同攻击阶段</li>
+<li>支持多种目标环境（Web、网络、主机）</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>安全团队的自动化渗透测试</li>
+<li>红蓝对抗演练</li>
+<li>安全研究和漏洞挖掘</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>AI Agent 在安全攻防领域的实战应用。冠军项目意味着其能力已经过专业评审验证。理解 AI 如何自主完成渗透测试，对安全从业者至关重要。</p>
+<hr>
+<h3>5. CADCraft —— 纯 Rust 重写 AutoCAD</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_05.png" alt="CADCraft" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/storytold/cadcraft" target="_blank">storytold/cadcraft</a></li>
+<li>语言：Rust | ⭐ 3,466</li>
+<li>标签：cad, rust, clean-room, autocad-alternative, drafting</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>storytold 系列的 CAD 组件——纯 Rust 净室重写 AutoCAD 风格的计算机辅助设计软件。3,466 星，支持 2D 制图、3D 建模、图层管理等专业 CAD 功能。工程师终于有了一个开源替代方案。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>完整的 2D/3D CAD 引擎</li>
+<li>支持 DWG/DXF 格式兼容</li>
+<li>参数化设计和约束求解</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>机械设计和工程制图</li>
+<li>建筑设计辅助</li>
+<li>开源 CAD 方案需求</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>CAD 软件长期被 Autodesk 垄断。CADCraft 证明用 Rust 可以从零构建专业级 CAD 系统，这对工程软件国产化意义重大。</p>
+<hr>
+<h3>6. NVIDIA macOS Driver —— RTX 显卡重返 Mac</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_06.png" alt="NVIDIA macOS Driver" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/nullmoth/nvidia-macos-driver" target="_blank">nullmoth/nvidia-macos-driver</a></li>
+<li>语言：C/Metal | ⭐ 2,739</li>
+<li>标签：nvidia, macos, metal, gpu-driver, sequoia</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>让 NVIDIA GeForce RTX 显卡在 macOS 15 Sequoia 上运行的 Metal 驱动。2,739 星——自从 Apple 抛弃 NVIDIA 转向 AMD/自研芯片后，Mac 用户苦等多年的 NVIDIA 驱动终于以开源社区项目的形式回归。支持 Intel 和 OpenCore 启动。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>基于 Apple Metal API 的 NVIDIA GPU 驱动</li>
+<li>支持 macOS 15 Sequoia（Intel / OpenCore）</li>
+<li>开源完整源码，社区可审计和贡献</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>Mac 用户的 CUDA/GPU 计算需求</li>
+<li>AI/ML 训练（NVIDIA GPU 生态）</li>
+<li>专业图形和视频编辑</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>Apple 与 NVIDIA 分手多年后，社区用 Metal API 重新架起了桥梁。这对需要在 Mac 上使用 CUDA 的 AI 开发者是重大利好。</p>
+<hr>
+<h3>7. DeckCraft —— 纯 Rust 重写 PowerPoint</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_07.png" alt="DeckCraft" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/storytold/deckcraft" target="_blank">storytold/deckcraft</a></li>
+<li>语言：Rust | ⭐ 2,591</li>
+<li>标签：presentations, rust, clean-room, powerpoint-alternative, slides</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>storytold 系列的演示文稿组件——纯 Rust 净室重写 PowerPoint。2,591 星，支持幻灯片设计、动画、母版模板等核心功能。加上 WordCraft、GridCraft、CADCraft、SoundCraft，storytold 正在用 Rust 构建完整的办公+创意套件。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>幻灯片引擎 + 动画系统</li>
+<li>兼容 .pptx 格式</li>
+<li>母版模板和主题系统</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>技术分享和演讲</li>
+<li>替代商业演示软件</li>
+<li>嵌入式演示引擎</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>办公套件五大组件已齐（文档、表格、演示、CAD、音频），storytold 的野心是用 Rust 重建整个创意工具链。这种系统级重写需要极深的工程功底。</p>
+<hr>
+<h3>8. OmDrop Owl —— 非 Apple 设备的隔空投送</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_08.png" alt="OmDrop Owl" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/t4t5/omdrop-owl" target="_blank">t4t5/omdrop-owl</a></li>
+<li>语言：Swift/Kotlin | ⭐ 2,453</li>
+<li>标签：airdrop, file-sharing, cross-platform, android, windows, linux</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>让 Android、Windows、Linux 设备也能使用类似 AirDrop 的隔空投送功能。2,453 星，以猫头鹰（Owl）为吉祥物，跨平台文件传输终于有了优雅方案。不需要网络，基于蓝牙/WiFi 直连。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>跨平台：Android ↔ Windows ↔ Linux ↔ macOS</li>
+<li>基于蓝牙 + WiFi 直连，无需路由器</li>
+<li>端到端加密传输</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>多设备文件快速传输</li>
+<li>跨平台团队协作</li>
+<li>无网络环境下的文件分享</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>AirDrop 是 Apple 生态最被羡慕的功能之一。OmDrop 用开源方式实现了跨平台版本，解决了"Apple 和非 Apple 设备之间传文件"的长期痛点。</p>
+<hr>
+<h3>9. SoundCraft —— 纯 Rust 重写 Pro Tools</h3>
+<img src="https://cdn.jsdelivr.net/gh/yhfwsntz9b-a11y/daily-news-images@main/2026-10-13/2026-10-13_gh_09.png" alt="SoundCraft" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/storytold/soundcraft" target="_blank">storytold/soundcraft</a></li>
+<li>语言：Rust | ⭐ 2,268</li>
+<li>标签：audio, daw, rust, clean-room, pro-tools-alternative</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>storytold 系列的音频工作站组件——纯 Rust 净室重写 Avid Pro Tools。2,268 星，支持多轨录音、混音、音频编辑等专业 DAW 功能。音乐制作人终于有了开源的专业级选择。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>多轨录音和混音引擎</li>
+<li>低延迟音频处理（Rust 性能优势）</li>
+<li>VST/AU 插件兼容</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>音乐制作和录音</li>
+<li>播客和后制音频</li>
+<li>专业音频工程</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>音频处理对实时性要求极高，Rust 的零成本抽象和无 GC 特性天然适合。SoundCraft 证明 Rust 可以胜任专业音频领域的严苛要求。</p>
+<hr>
+<h2>📊 今日 HN 热门一览</h2>
+<table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>分数</th>
+<th>评论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hackers activate automatic defrosting in supermarket fridges across Europe</td>
+<td>414</td>
+<td>632</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GLM-Legal</td>
+<td>410</td>
+<td>236</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A Modern Web App in C</td>
+<td>367</td>
+<td>159</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Citroen revives the 2CV for an electric age</td>
+<td>253</td>
+<td>310</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver</td>
+<td>247</td>
+<td>64</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Who Is Vfmaddrnd231pd?</td>
+<td>90</td>
+<td>8</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Launch HN: Agent37 (YC F26) – Low-cost agent sandboxes</td>
+<td>89</td>
+<td>62</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Making big downloads resumable in Firefox</td>
+<td>73</td>
+<td>23</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Writing a Demoscene Intro for the ZX Spectrum</td>
+<td>66</td>
+<td>6</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Blood cells from 80-year-old donor become stem cells with molecular age under 20</td>
+<td>50</td>
+<td>19</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔍 今日趋势洞察</h2>
+<p><strong>1. storytold 霸榜：用 Rust 重写整个办公套件</strong></p>
+<p>今日 GitHub 最大看点——storytold 组织 5 个项目同时登上 Trending：WordCraft（Word）、GridCraft（Excel）、CADCraft（AutoCAD）、DeckCraft（PowerPoint）、SoundCraft（Pro Tools）。全部采用纯 Rust 净室实现，目标是从零构建一个完整的开源办公+创意套件。这不是简单的"替代 Office"——净室工程意味着完全独立开发，规避版权风险的同时实现格式兼容。当五个组件同时成熟，一个真正的"Rust 办公生态"正在成形。</p>
+<p><strong>2. AI 安全攻防进入自主 Agent 时代</strong></p>
+<p>ARTEX（3,568 星）拿下百度"agent+"攻防挑战赛冠军，HN 上"黑客激活欧洲超市冰箱自动除霜"以 414 分/632 评论登顶。两个事件指向同一趋势：AI Agent 在网络安全领域从辅助工具变成自主行动者。ARTEX 能自动完成全链路渗透测试，而超市冰箱攻击事件则展示了 IoT 设备在 Agent 时代的脆弱性。攻防双方都在 Agent 化，安全格局正在被重塑。</p>
+<p><strong>3. NVIDIA 重返 Mac：社区填补 Apple 留下的空缺</strong></p>
+<p>nvidia-macos-driver（2,739 星）让 RTX 显卡在 macOS Sequoia 上重新运行。自从 Apple 转向自研芯片后，Mac 用户失去了 CUDA 生态。社区开发者用 Metal API 重新架起桥梁——这对需要在 Mac 上做 AI 训练的开发者是重大利好。当官方不提供服务时，开源社区往往会找到出路。</p>
+<p><strong>4. 跨平台文件传输：OmDrop 解决 AirDrop 生态壁垒</strong></p>
+<p>OmDrop Owl（2,453 星）让非 Apple 设备也能"隔空投送"。Apple 生态最令人羡慕的功能之一终于有了跨平台开源替代。在 Apple/Android/Windows/Linux 多设备并存的时代，跨平台文件传输的痛点长期存在。OmDrop 用蓝牙+WiFi 直连的方式，实现了无需路由器的端到端传输。</p>
+<blockquote><p>📅 数据来源：Hacker News TOP10 + GitHub Trending | 生成日期：2026-10-13</p></blockquote>
+</div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
+</body>
+</html>
