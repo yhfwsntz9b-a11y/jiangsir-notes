@@ -1,11 +1,14 @@
 window.SITE = {
   categories: [
-    { id: "ai", name: "AI 应用", color: "blue", icon: "spark", subs: ["RAG 知识库", "Agent 开发", "模型微调", "论文解读"] },
+    { id: "ai", name: "AI 应用", color: "blue", icon: "spark", subs: ["RAG 知识库", "Agent 开发", "模型动态", "模型微调", "论文解读"] },
     { id: "data", name: "数据采集", color: "green", icon: "spider", subs: ["爬虫框架", "公众号采集", "反爬对抗"] },
     { id: "eng", name: "工程实践", color: "violet", icon: "tool", subs: ["自动化 RPA", "部署运维", "可视化看板"] },
     { id: "essay", name: "随笔", color: "warm", icon: "pen", subs: ["技术思考", "读书笔记", "哲学与 AI"] }
   ],
   posts: [
+    { id: "ai-overreach", title: "三个月内第二次暂停：当 AI 开始“做错事”", summary: "Agent 能自主执行动作之后，一次越权就是一个真实副作用。从 OpenAI 暂停事件看对齐监控、行为审计与权限边界的工程解。", cat: "ai", sub: "Agent 开发", tags: ["AI安全", "Agent", "对齐", "OpenAI"], date: "2026-10-14", read: 6, featured: true },
+    { id: "gemini-4-argon", title: "一次吐完 100 万 Token：Gemini 4 Argon 改变了什么", summary: "百万级上下文不是把窗口做大而已：注意力成本、位置编码外推、KV Cache 与检索范式的连锁变化。", cat: "ai", sub: "模型动态", tags: ["Gemini", "Google", "长上下文", "大模型"], date: "2026-10-14", read: 5 },
+    { id: "prompt-injection", title: "提示注入：Agent 时代的 SQL 注入", summary: "当模型拿到工具调用权限，一段藏在网页里的文字就能触发越权动作。数据/指令不分层，就是新一轮注入攻击的温床。", cat: "ai", sub: "Agent 开发", tags: ["AI安全", "Agent", "提示注入", "LLM安全"], date: "2026-10-14", read: 6 },
     { id: "enterprise-kb", title: "企业知识库搭建踩坑全记录：20 个灵魂拷问", summary: "从“需不需要 RAG”到灰度上线，把两年企业知识库经验浓缩成 20 个问题，每个问题一句经验之谈。", cat: "ai", sub: "RAG 知识库", tags: ["RAG", "向量数据库", "Embedding", "Rerank"], date: "2026-10-10", read: 18, featured: true },
     { id: "langgraph-agent", title: "LangGraph 定时 Agent 从零到一：31 章完整教程", summary: "用 LangGraph 编排一个每天定时运行的情报 Agent：状态图、工具调用、记忆、失败重试与部署。", cat: "ai", sub: "Agent 开发", tags: ["LangGraph", "Agent", "定时任务"], date: "2026-09-26", read: 45, featured: true },
     { id: "agent-arch", title: "六种 Agent 架构怎么选：从 ReAct 到 Supervisor", summary: "ReAct、Workflow、Planner-Executor、Multi-Agent、Supervisor、Reflection 的适用场景与代价对比。", cat: "ai", sub: "Agent 开发", tags: ["Agent", "架构设计", "LangChain"], date: "2026-09-12", read: 14 },

@@ -459,6 +459,9 @@ mark { background: color-mix(in srgb, var(--warm) 28%, transparent); color: inhe
 .prose td { padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--text-2); }
 .prose tr:last-child td { border-bottom: 0; }
 .prose tr:hover td { background: var(--surface-2); }
+.prose figure.art-fig { margin: 28px 0; }
+.prose figure.art-fig img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 12px 32px rgba(0,0,0,.10); }
+.prose figure.art-fig figcaption { margin-top: 10px; font-size: 13px; line-height: 1.7; color: var(--muted); text-align: center; }
 
 .article-end { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); }
 .end-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
