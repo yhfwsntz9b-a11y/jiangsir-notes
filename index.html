@@ -91,7 +91,7 @@
     </a>`).join("");
 
   document.getElementById("daily-strip").innerHTML = S.dailies.slice(0, 4).map((d, i) => `
-    <a class="apple-daily-card reveal" data-delay="${i * 60}" href="daily.html">
+    <a class="apple-daily-card reveal" data-delay="${i * 60}" href="daily-detail.html?date=${d.date}">
       <div class="apple-daily-date"><b>${d.date.slice(5).replace("-", ".")}</b><span>${weekday(d.date)}</span></div>
       <ol>${d.hl.map((h, j) => `<li><em>0${j + 1}</em><span>${h}</span></li>`).join("")}</ol>
     </a>`).join("");
