@@ -6,6 +6,9 @@ window.SITE = {
     { id: "essay", name: "随笔", color: "warm", icon: "pen", subs: ["技术思考", "读书笔记", "哲学与 AI"] }
   ],
   posts: [
+    { id: "ai-cs-hallucination", title: "AI 客服为什么会“胡说八道”？大模型的幻觉与护栏", summary: "一句编造的发货时间，就是一次真实的客诉。从幻觉机制到 RAG 护栏，讲清客服 AI 为什么必须做到“无依据不回答”。", cat: "ai", sub: "RAG 知识库", tags: ["AI客服", "RAG", "大模型幻觉", "AI安全"], date: "2026-10-15", read: 6 },
+    { id: "ai-cs-memory", title: "从“答非所问”到“像个真人”：AI 客服的短期记忆", summary: "买家换货、运费连着问，AI 却当成两个新问题。短期记忆为什么是客服体验的分水岭，以及它到底怎么做。", cat: "ai", sub: "Agent 开发", tags: ["AI客服", "短期记忆", "上下文管理", "Agent"], date: "2026-10-15", read: 5 },
+    { id: "ai-cs-handoff", title: "当 AI 客服撞上“差评威胁”：什么时候该闭嘴叫人工", summary: "不是所有消息都该自动回复。识别该转人工的信号、把握置信度与话术边界，才是客服 AI 的及格线。", cat: "ai", sub: "Agent 开发", tags: ["AI客服", "转人工", "风险控制", "Agent"], date: "2026-10-15", read: 6 },
     { id: "ai-overreach", title: "三个月内第二次暂停：当 AI 开始“做错事”", summary: "Agent 能自主执行动作之后，一次越权就是一个真实副作用。从 OpenAI 暂停事件看对齐监控、行为审计与权限边界的工程解。", cat: "ai", sub: "Agent 开发", tags: ["AI安全", "Agent", "对齐", "OpenAI"], date: "2026-10-14", read: 6, featured: true },
     { id: "gemini-4-argon", title: "一次吐完 100 万 Token：Gemini 4 Argon 改变了什么", summary: "百万级上下文不是把窗口做大而已：注意力成本、位置编码外推、KV Cache 与检索范式的连锁变化。", cat: "ai", sub: "模型动态", tags: ["Gemini", "Google", "长上下文", "大模型"], date: "2026-10-14", read: 5 },
     { id: "prompt-injection", title: "提示注入：Agent 时代的 SQL 注入", summary: "当模型拿到工具调用权限，一段藏在网页里的文字就能触发越权动作。数据/指令不分层，就是新一轮注入攻击的温床。", cat: "ai", sub: "Agent 开发", tags: ["AI安全", "Agent", "提示注入", "LLM安全"], date: "2026-10-14", read: 6 },
