@@ -246,6 +246,31 @@ def generate_from_md(date_str, md_path):
     with open(md_path, 'r', encoding='utf-8') as f:
         md_content = f.read()
 
+    # Copy images from daily work dir to site images dir and rewrite URLs
+    src_img_dir = f"/Users/jiangyunchao/daliy_new/agent_tutorial/{date_str}/images"
+    dst_img_dir = os.path.join(SITE_ROOT, "images", date_str)
+    if os.path.exists(src_img_dir):
+        os.makedirs(dst_img_dir, exist_ok=True)
+        for fname in os.listdir(src_img_dir):
+            src = os.path.join(src_img_dir, fname)
+            dst = os.path.join(dst_img_dir, fname)
+            if os.path.isfile(src):
+                import shutil
+                shutil.copy2(src, dst)
+
+    # Rewrite CDN URLs to local relative paths (strip date prefix from filename)
+    def rewrite_cdn(m):
+        fname = m.group(1)
+        prefix = date_str + "_"
+        if fname.startswith(prefix):
+            fname = fname[len(prefix):]
+        return f'../images/{date_str}/{fname}'
+    md_content = re.sub(
+        r'https://cdn\.jsdelivr\.net/gh/yhfwsntz9b-a11y/daily-news-images@main/' + re.escape(date_str) + r'/([^)\s]+)',
+        rewrite_cdn,
+        md_content
+    )
+
     info = get_date_info(date_str)
     content_html = md_to_html(md_content)
 

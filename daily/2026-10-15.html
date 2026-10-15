@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报 2026-10-15 · 姜sir笔记</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
+.daily-report .cover { text-align: center; margin: 32px 0; }
+.daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+.daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
+.daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+.daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
+.daily-report ul, .daily-report ol { padding-left: 24px; }
+.daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
+.daily-report li strong { color: var(--text); }
+.daily-report hr { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+.daily-report table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.daily-report th { background: var(--bg); padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); }
+.daily-report td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.daily-report a { color: var(--brand); text-decoration: none; }
+.daily-report a:hover { text-decoration: underline; }
+.daily-report .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+.daily-report .meta-row { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
+.daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
+.daily-nav { text-align: center; padding: 24px; }
+.daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+.daily-nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
+}
+</style>
+</head>
+<body data-page="daily">
+
+<nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
+  <a href="../index.html">首页</a><span class="bc-chev"></span>
+  <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
+  <span>2026-10-15</span>
+</nav>
+<div class="daily-report">
+<h1>科技日报 | 2026-10-15</h1>
+<p class="subtitle">2026 年 10 月 15 日 周三 · GitHub Trending + Hacker News</p>
+<div class="meta-row">
+  <span class="pill pill-warm">HN Top 10</span>
+  <span class="pill pill-blue">GitHub Trending</span>
+</div>
+<blockquote><p>每日精选 GitHub 热门开源项目，带你了解技术前沿动态。</p></blockquote>
+<h2>🎨 封面</h2>
+<div class="cover"><img src="../images/2026-10-15/cover.png" alt="封面"></div>
+<hr>
+<h2>今日热门开源项目 TOP 10</h2>
+<h3>1. open-code-review —— 阿里巴巴开源 AI 代码审查工具</h3>
+<img src="../images/2026-10-15/gh_01.png" alt="open-code-review" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba/open-code-review</a></li>
+<li>语言：Go | ⭐ 44,328</li>
+<li>标签：code-review, ai, security, alibaba, open-source</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>阿里巴巴开源的安全、高效 AI 代码审查工具。44,328 星，连续多日 GitHub Trending 前列。集成了 AI 驱动的代码分析能力，能自动检测安全漏洞、代码风格问题和性能瓶颈。大厂开源的工业级代码审查方案。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>AI 驱动的多维度代码审查（安全、性能、风格）</li>
+<li>Go 实现，部署简单，性能优异</li>
+<li>支持主流 Git 平台集成（GitHub、GitLab、Gitea）</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>企业级 CI/CD 流水线集成</li>
+<li>代码安全合规审查</li>
+<li>团队代码质量自动化管控</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>阿里在代码审查领域积累了多年经验，这次开源意味着中小团队也能用上大厂级别的代码审查能力。Go 实现也保证了在大规模仓库上的性能表现。</p>
+<hr>
+<h3>2. claude-code —— Anthropic 官方推出的 AI 编程 Agent</h3>
+<img src="../images/2026-10-15/gh_10.png" alt="claude-code" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/anthropics/claude-code" target="_blank">anthropics/claude-code</a></li>
+<li>语言：TypeScript | ⭐ 58,760</li>
+<li>标签：ai-agent, coding, cli, claude, anthropic</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>Anthropic 官方开源的 Claude Code 命令行编程 Agent。58,760 星，直接把 Claude 的能力注入终端：读代码、改代码、跑测试、调试报错。它不是简单的代码补全，而是能理解整个代码库并执行多步骤工程任务的 Agent。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>终端原生交互，支持自然语言指令</li>
+<li>代码库级上下文理解，可跨文件修改</li>
+<li>内置工具调用（bash、文件读写、搜索）</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>大型代码库重构和迁移</li>
+<li>自动化 Bug 修复和测试补充</li>
+<li>日常开发中的复杂查询与修改</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>Claude Code 代表了「AI 原生开发工具」的新形态。当模型能直接操作代码库，开发者的角色从「手写每一行」转向「审核和引导 Agent」。这对工程团队的协作方式影响深远。</p>
+<hr>
+<h3>3. gods-eye-view —— AI 驱动的全局三维态势感知可视化</h3>
+<img src="../images/2026-10-15/gh_02.png" alt="gods-eye-view" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank">bilawalsidhu/gods-eye-view</a></li>
+<li>语言：TypeScript | ⭐ 38,420</li>
+<li>标签：3d, visualization, ai, maps, situational-awareness</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>一个用 AI 把复杂数据转化为「上帝视角」三维态势图的可视化工具。38,420 星，核心思路：输入结构化的地理、网络或业务数据，自动生成可交互的 3D 全局视图。适合需要「一眼看清全局」的场景。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>数据 → 3D 场景自动映射</li>
+<li>支持地理空间、网络拓扑、时间序列多维数据</li>
+<li>WebGL 渲染，浏览器即可运行</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>网络安全态势感知</li>
+<li>物流与供应链全局监控</li>
+<li>城市级 IoT 数据可视化</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>信息过载时代，「看得清」比「数据多」更重要。god's-eye-view 把 AI 的总结能力和 3D 可视化结合，让决策者从表格里解脱出来。</p>
+<hr>
+<h3>4. WeKnora —— 腾讯开源 LLM 知识与 RAG 引擎</h3>
+<img src="../images/2026-10-15/gh_09.png" alt="WeKnora" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/Tencent/WeKnora" target="_blank">Tencent/WeKnora</a></li>
+<li>语言：Go | ⭐ 33,240</li>
+<li>标签：llm, rag, knowledge-base, tencent, go</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>腾讯开源的 LLM 知识平台与 RAG（检索增强生成）引擎。33,240 星，Go 实现，提供从文档解析、切块、向量化到检索的完整 RAG 管线。企业级知识库搭建的一站式方案。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>完整的 RAG 管线：OCR → Chunk → Embedding → Retrieval</li>
+<li>Go 实现，高并发、低资源占用</li>
+<li>支持多种文档格式和向量数据库</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>企业知识库搭建</li>
+<li>智能客服知识底座</li>
+<li>内部文档问答系统</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>RAG 已经从概念走向工程化。腾讯的 WeKnora 提供了工业级 RAG 引擎的参考实现，Go 语言选择也保证了在生产环境中的可扩展性。</p>
+<hr>
+<h3>5. paperclip —— 一个想帮你搞定一切的 AI Agent</h3>
+<img src="../images/2026-10-15/gh_05.png" alt="paperclip" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/paperclipai/paperclip" target="_blank">paperclipai/paperclip</a></li>
+<li>语言：TypeScript | ⭐ 31,580</li>
+<li>标签：ai-agent, automation, productivity, llm</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>一个以「曲别针助手」为隐喻的通用 AI Agent 框架。31,580 星，目标是让 Agent 像当年的 Office 小助手一样无处不在，但能力远超当年的 Clippy——它能读写文件、调用 API、浏览网页、执行多步骤任务。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>多工具链组合，支持自定义 Skill</li>
+<li>任务记忆与状态持久化</li>
+<li>可视化工作流编排</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>个人生产力自动化</li>
+<li>企业流程自动化</li>
+<li>多 Agent 协作原型</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>通用 Agent 的难点不是「能做什么」，而是「知道该做什么」。paperclip 的可视化编排和 Skill 系统，提供了一种把 Agent 能力模块化的工程思路。</p>
+<hr>
+<h3>6. financial-services —— Anthropic 金融场景 Agent 插件集</h3>
+<img src="../images/2026-10-15/gh_04.png" alt="financial-services" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/anthropics/financial-services" target="_blank">anthropics/financial-services</a></li>
+<li>语言：Python | ⭐ 22,150</li>
+<li>标签：finance, ai-agent, claude, fintech, plugins</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>Anthropic 官方发布的金融服务领域 Agent 插件集。22,150 星，为 Claude 提供财报分析、风险评估、合规查询、市场数据调用等专业能力。金融行业 vertical Agent 的重要基础设施。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>预置金融数据源接口（财报、行情、监管文件）</li>
+<li>结构化输出（表格、JSON、报告）</li>
+<li>审计追踪与可解释性</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>投研报告自动化</li>
+<li>合规审查助手</li>
+<li>客户风险评估</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>垂直领域 Agent 正在取代通用对话。金融是第一个被深度改造的赛道之一，因为数据结构化程度高、合规要求强、错误代价大。Anthropic 下场做插件集，说明行业 Agent 化进入落地期。</p>
+<hr>
+<h3>7. i-have-adhd —— 为 ADHD 人群设计的 AI 专注力助手</h3>
+<img src="../images/2026-10-15/gh_06.png" alt="i-have-adhd" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/ayghri/i-have-adhd" target="_blank">ayghri/i-have-adhd</a></li>
+<li>语言：TypeScript | ⭐ 18,330</li>
+<li>标签：productivity, adhd, focus, ai, mental-health</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>一款专为 ADHD（注意力缺陷多动障碍）人群设计的 AI 专注力助手。18,330 星，通过任务拆分、注意力追踪、智能提醒和「分心拦截」等功能，帮助用户进入并保持心流状态。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>AI 识别分心模式并主动干预</li>
+<li>任务粒度动态调整</li>
+<li>游戏化反馈机制</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>远程办公专注力管理</li>
+<li>学习任务拆解</li>
+<li>数字健康研究</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>当 AI 从「提高效率」转向「理解人的认知状态」，产品的设计哲学完全不同。i-have-adhd 代表了 AI 辅助认知健康的一个细分但真实的方向。</p>
+<hr>
+<h3>8. Octop —— 腾讯云开源多 Agent 编排平台</h3>
+<img src="../images/2026-10-15/gh_08.png" alt="Octop" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/TencentCloud/Octop" target="_blank">TencentCloud/Octop</a></li>
+<li>语言：Go | ⭐ 15,680</li>
+<li>标签：multi-agent, orchestration, cloud, tencent, go</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>腾讯云开源的多 Agent 编排平台 Octop（章鱼）。15,680 星，解决多个 Agent 协同工作时的调度、通信、状态共享和故障恢复问题。名字隐喻章鱼多触手协同。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>声明式 Agent 工作流定义</li>
+<li>多 Agent 间消息总线与状态同步</li>
+<li>云原生部署，支持 K8s</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>企业级 Multi-Agent 系统</li>
+<li>复杂任务分解与并行执行</li>
+<li>跨 Agent 工具调用编排</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>Single Agent 已经不够用了。真正的企业场景需要多个 Agent 像团队一样协作。Octop 提供了多 Agent 编排的参考架构，和 WeKnora 一起构成腾讯在 Agent 领域的双布局。</p>
+<hr>
+<h3>9. ECC —— 轻量级边缘计算控制器</h3>
+<img src="../images/2026-10-15/gh_03.png" alt="ECC" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/affaan-m/ECC" target="_blank">affaan-m/ECC</a></li>
+<li>语言：Rust | ⭐ 12,440</li>
+<li>标签：edge-computing, iot, controller, rust, kubernetes</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>一个为边缘设备设计的轻量级计算控制器。12,440 星，Rust 实现，目标是在资源受限的边缘节点上运行容器化 workload，并与云端 K8s 协同。解决边缘场景「算力弱、网络差、管理难」的问题。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>Rust 实现，内存安全且资源占用低</li>
+<li>断网续传与边缘自治</li>
+<li>与云端 K8s 控制面双向同步</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>工厂边缘网关</li>
+<li>智能零售门店</li>
+<li>车联网边缘节点</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>边缘计算不是缩小版云计算，而是自治 + 协同的新范式。ECC 用 Rust 保证安全性和资源效率，是边缘控制器的一个干净实现。</p>
+<hr>
+<h3>10. hindsight —— 向量检索可观测性工具</h3>
+<img src="../images/2026-10-15/gh_07.png" alt="hindsight" style="width:100%;border-radius:10px;margin:12px 0">
+<p>🏷️ <strong>基本信息</strong></p>
+<ul>
+<li>仓库：<a href="https://github.com/vectorize-io/hindsight" target="_blank">vectorize-io/hindsight</a></li>
+<li>语言：Python | ⭐ 9,270</li>
+<li>标签：vector-search, observability, rag, embeddings</li>
+</ul>
+<p>📖 <strong>项目介绍</strong></p>
+<p>向量检索系统的可观测性工具。9,270 星，帮助开发者理解 RAG 系统中的检索质量：为什么某个 chunk 被召回、query 和文档的相似度分布、以及检索失败的根因。</p>
+<p>✨ <strong>技术亮点</strong></p>
+<ul>
+<li>检索结果可视化与归因</li>
+<li>Query-Document 相似度分布分析</li>
+<li>集成主流向量数据库</li>
+</ul>
+<p>🎯 <strong>适合场景</strong></p>
+<ul>
+<li>RAG 系统调优</li>
+<li>向量数据库性能排查</li>
+<li>检索质量评估</li>
+</ul>
+<p>📚 <strong>学习价值</strong></p>
+<p>RAG 系统 80% 的问题出在检索层。hindsight 把「黑盒检索」变成可观测、可调试的管线，是生产级 RAG 必不可少的工具。</p>
+<hr>
+<h2>📊 今日 HN 热门一览</h2>
+<table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>分数</th>
+<th>评论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Gemini 4 Argon</td>
+<td>1174</td>
+<td>836</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Redesigning source control at Anthropic</td>
+<td>668</td>
+<td>641</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ledger confirms spy chip implant behind wallet crypto thefts</td>
+<td>587</td>
+<td>391</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thunderbird for iOS</td>
+<td>398</td>
+<td>174</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Show HN: Guitoro, a virtual guitar you strum with your keyboard</td>
+<td>372</td>
+<td>99</td>
+</tr>
+<tr>
+<td>6</td>
+<td>I posted to HN, and then my website was flooded with AI bot traffic</td>
+<td>306</td>
+<td>164</td>
+</tr>
+<tr>
+<td>7</td>
+<td>The United Kingdom generates less electricity per person than in the 1970s</td>
+<td>264</td>
+<td>362</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Recreational Programming</td>
+<td>123</td>
+<td>47</td>
+</tr>
+<tr>
+<td>9</td>
+<td>900-Page Pre-Pantone Guide to Color from 1692</td>
+<td>115</td>
+<td>10</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Show HN: How random are you?</td>
+<td>121</td>
+<td>64</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔍 今日趋势洞察</h2>
+<p><strong>1. Agent 基础设施进入「大厂全栈」时代</strong></p>
+<p>今日 GitHub 上 Anthropic（claude-code、financial-services）、腾讯云（Octop、WeKnora）、阿里（open-code-review）同时发力。Agent 不再只是创业公司做的小工具，大厂开始从代码、金融、知识库、多 Agent 编排等垂直场景构建完整栈。这标志着 Agent 从「概念验证」进入「企业落地」阶段。</p>
+<p><strong>2. AI 的能力边界继续外推：100 万 Token 与终端 Agent 并存</strong></p>
+<p>HN 最高分是 Gemini 4 Argon 的 100 万 Token 上下文窗口，GitHub 上则是 claude-code 这种终端级 Agent。两个方向看似相反：一个把上下文做得极大，一个把 Agent 做得极贴近开发者。本质是同一趋势——AI 正在覆盖越来越长的思考链和越来越深的工具链。</p>
+<p><strong>3. 硬件安全与 AI 爬虫：技术繁荣的一体两面</strong></p>
+<p>Ledger 硬件钱包被植入间谍芯片，登顶 HN 安全讨论；另一边，「发帖后被 AI 爬虫淹没」也引发热议。前者是物理供应链攻击，后者是数字内容生态攻击。AI 时代，安全的边界从芯片、固件一直延伸到网络流量和内容真实性。</p>
+<p><strong>4. 开源可视化与认知工具正在崛起</strong></p>
+<p>gods-eye-view（3D 态势感知）、hindsight（向量检索可观测）、i-have-adhd（专注力辅助）三个项目代表了开源的新方向：不只是底层框架，而是直接帮人「看见」和「思考」的工具。当 AI 生成内容越来越容易，辅助人类理解和决策的工具反而更有价值。</p>
+<blockquote><p>📅 数据来源：Hacker News TOP10 + GitHub Trending | 生成日期：2026-10-15</p></blockquote>
+</div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
+</body>
+</html>
