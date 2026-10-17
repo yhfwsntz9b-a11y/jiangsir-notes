@@ -264,6 +264,11 @@ def generate_from_md(date_str, md_path):
         prefix = date_str + "_"
         if fname.startswith(prefix):
             fname = fname[len(prefix):]
+        # CDN names don't always match local names (HN images use hn_ prefix
+        # in some batches, plain NN in others) — prefer whichever file exists.
+        if not os.path.exists(os.path.join(dst_img_dir, fname)) and \
+           os.path.exists(os.path.join(dst_img_dir, 'hn_' + fname)):
+            fname = 'hn_' + fname
         return f'../images/{date_str}/{fname}'
     md_content = re.sub(
         r'https://cdn\.jsdelivr\.net/gh/yhfwsntz9b-a11y/daily-news-images@main/' + re.escape(date_str) + r'/([^)\s]+)',
