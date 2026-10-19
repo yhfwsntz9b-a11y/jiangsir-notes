@@ -30,6 +30,7 @@ window.SITE = {
     { id: "philosophy-ai", title: "如果苏格拉底遇到 ChatGPT", summary: "用哲学家的视角追问：会回答问题的机器，懂得“知道自己不知道”吗？", cat: "essay", sub: "哲学与 AI", tags: ["哲学", "思考"], date: "2026-06-20", read: 6 }
   ],
   dailies: [
+    { date: "2026-10-19", hl: ["Meta 在抗议日下架 No Kings 账号，90 分钟后恢复", "DeepSeek 开放搜索抓取 API：千次 0.75 美元"] },
     { date: "2026-10-17", hl: ["Claude 解开 ECDSA 曲线参数来源之谜", "Mercor：90% 的工作时间未被 AI 基准覆盖"] },
     { date: "2026-10-16", hl: ["morluto/rea 单日暴涨 3.2 万星：用 Agent 逆向一切", "HN 热议：在线广告被武器化投递零点击间谍软件"] },
     { date: "2026-10-15", hl: ["Gemini 4 Argon 发布 100 万 Token 上下文窗口", "Anthropic 为 AI Agent 时代重构源码管理"] },
