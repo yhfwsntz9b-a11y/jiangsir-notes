@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent 概念地图 · 六种形态与模块落点</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --card: #fffdf8;
+    --ink: #1f2a3a;
+    --muted: #5f6b7a;
+    --line: #c9c2b4;
+    --amber: #b8732c;
+    --amber-soft: #f6e9d8;
+    --green: #2f7d5b;
+    --soft: #e9e4d8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #e7e2d7;
+    color: var(--ink);
+    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .bar {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: #4a5666;
+  }
+  .bar a { color: #4a5666; text-decoration: none; border-bottom: 1px solid transparent; }
+  .bar a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .bar .brand { font-weight: 700; color: var(--ink); letter-spacing: .5px; }
+  .page {
+    max-width: 1180px;
+    margin: 0 auto 56px;
+    padding: 46px 48px 44px;
+    background: var(--bg);
+    box-shadow: 0 18px 50px rgba(31, 42, 58, .12);
+    border-radius: 6px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--amber);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  h1 {
+    margin: 0 0 12px;
+    font-size: 34px;
+    line-height: 1.25;
+    letter-spacing: .5px;
+  }
+  .lede {
+    margin: 0 0 30px;
+    max-width: 780px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .lede strong { color: var(--ink); }
+
+  .skeleton {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .sk {
+    position: relative;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .sk b { display: block; font-size: 13px; margin-bottom: 2px; }
+  .sk span { color: var(--muted); }
+  .sk::after {
+    content: "→";
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--line);
+    font-size: 14px;
+    background: var(--bg);
+    padding: 0 1px;
+  }
+  .sk:last-child::after { display: none; }
+  .legend-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 34px;
+  }
+  .legend-line i {
+    display: inline-block;
+    width: 22px;
+    height: 0;
+    border-top: 2px dashed var(--amber);
+    vertical-align: middle;
+    margin-right: 7px;
+  }
+  .legend-line i.solid { border-top: 2px solid var(--ink); }
+
+  h2 {
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 20px 16px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--amber);
+    box-shadow: 0 12px 28px rgba(31, 42, 58, .12);
+  }
+  .card .no {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .where {
+    font-size: 11px;
+    color: var(--amber);
+    border: 1px dashed var(--amber);
+    border-radius: 999px;
+    padding: 2px 8px;
+    letter-spacing: .5px;
+    background: var(--amber-soft);
+  }
+  .where.in { color: var(--green); border-color: var(--green); background: #e8f0ea; }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+  .card p {
+    margin: 0 0 14px;
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--muted);
+    flex: 1;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .chips span {
+    overflow-wrap: anywhere;
+    font-size: 11px;
+    color: #4a5666;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, .6);
+  }
+  .chips span.hot { color: var(--amber); border-color: var(--amber); }
+
+  .mini {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .mini b {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--soft);
+  }
+  .mini b.on { background: var(--amber); }
+  .mini b.on.in { background: var(--green); }
+  .go {
+    font-size: 12px;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: .5px;
+  }
+  .go::after { content: " →"; color: var(--amber); }
+
+  .base {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: var(--card);
+    border: 1px solid var(--ink);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .base:hover { border-color: var(--amber); }
+  .base .left { display: flex; align-items: center; gap: 16px; }
+  .base .num {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--line);
+    line-height: 1;
+  }
+  .base h3 { margin: 0 0 4px; font-size: 17px; }
+  .base p { margin: 0; font-size: 13px; color: var(--muted); }
+  .base .go { white-space: nowrap; }
+
+  .foot {
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .foot b { color: var(--ink); }
+
+  @media (max-width: 900px) {
+    .page { padding: 32px 22px; border-radius: 0; }
+    h1 { font-size: 26px; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .skeleton { grid-template-columns: 1fr 1fr; }
+    .sk::after { display: none; }
+  }
+  @media (max-width: 620px) {
+    .grid { grid-template-columns: 1fr; }
+    .skeleton { grid-template-columns: 1fr; }
+    .base { flex-direction: column; align-items: flex-start; }
+    .base .left { min-width: 0; }
+    .card .no span:first-child { overflow-wrap: anywhere; }
+    .bar { padding: 14px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <span class="brand">姜sir笔记 · Agent 概念地图</span>
+  <a href="timed-agent.html">基准图：定时 Agent →</a>
+</div>
+
+<main class="page">
+  <div class="eyebrow">AGENT 开发 · 概念地图</div>
+  <h1>同一套骨架，六种形态</h1>
+  <p class="lede">
+    六个变体都沿用同一张基准图：<strong>外部调度层 → Agent 业务层 → Agent 运行时 → 结果输出层</strong>。
+    变的只是“能力模块落在哪一层”。<strong>琥珀虚线</strong>标出本图新增或变化的部分，其余都是基准骨架。
+  </p>
+
+  <div class="skeleton">
+    <div class="sk"><b>外部调度层</b><span>APScheduler：何时跑</span></div>
+    <div class="sk"><b>Agent 业务层</b><span>Job 函数 / 调用 / 回调</span></div>
+    <div class="sk"><b>Agent 运行时</b><span>循环壳 + 推理 + 工具 + 上下文</span></div>
+    <div class="sk"><b>结果输出层</b><span>落库 / 通知 / 日志</span></div>
+  </div>
+  <div class="legend-line">
+    <span><i></i>琥珀虚线 = 新增 / 变化</span>
+    <span><i class="solid"></i>实线 = 调用与数据流</span>
+    <span>绿色 = 反馈回路</span>
+  </div>
+
+  <a class="base" href="timed-agent.html">
+    <div class="left">
+      <div class="num">00</div>
+      <div>
+        <h3>基准图：定时 Agent</h3>
+        <p>先把“定时”从 Agent 里剥出去：APScheduler 只管何时跑，Agent 只管怎么解。</p>
+      </div>
+    </div>
+    <span class="go">先看这张</span>
+  </a>
+
+  <h2>六种形态</h2>
+  <div class="grid">
+
+    <a class="card" href="agent-map-01.html">
+      <div class="no"><span>01 / MEMORY</span><span class="where">新增层</span></div>
+      <h3>有记忆的 Agent</h3>
+      <p>短期记忆挂 Checkpointer、长期记忆进 Store；真正难的是写入治理，而不是把聊天记录塞回 Prompt。</p>
+      <div class="chips"><span class="hot">Checkpointer</span><span class="hot">Store</span><span>thread_id</span><span>TTL</span></div>
+      <div class="mini"><b></b><b></b><b></b><b class="on"></b></div>
+      <span class="go">打开变体 01</span>
+    </a>
+
+    <a class="card" href="agent-map-02.html">
+      <div class="no"><span>02 / RAG</span><span class="where">新增层</span></div>
+      <h3>有知识库的 Agent</h3>
+      <p>知识库是工具，不是记忆。离线入库、在线检索，Agent 通过 knowledge_search 拿到片段与出处。</p>
+      <div class="chips"><span class="hot">knowledge_search</span><span>chunk</span><span>rerank</span><span>pre-filter</span></div>
+      <div class="mini"><b></b><b></b><b></b><b class="on"></b></div>
+      <span class="go">打开变体 02</span>
+    </a>
+
+    <a class="card" href="agent-map-03.html">
+      <div class="no"><span>03 / HUMAN-IN-THE-LOOP</span><span class="where">新增层</span></div>
+      <h3>带人工介入的 Agent</h3>
+      <p>危险动作先 Interrupt 挂起，状态落 Checkpointer；人审批后 resume，而不是让 Agent 原地等。</p>
+      <div class="chips"><span class="hot">interrupt</span><span class="hot">resume</span><span>审批粒度</span><span>超时拒绝</span></div>
+      <div class="mini"><b></b><b></b><b></b><b class="on"></b></div>
+      <span class="go">打开变体 03</span>
+    </a>
+
+    <a class="card" href="agent-map-04.html">
+      <div class="no"><span>04 / REFLECTION</span><span class="where in">运行时内</span></div>
+      <h3>带反思的 Agent</h3>
+      <p>Actor 出草稿，Critic 按 rubric 挑错，验收门决定回炉还是放行；关键是独立视角和退出条件。</p>
+      <div class="chips"><span class="hot">Critic</span><span>rubric</span><span>max_rounds</span><span>验收门</span></div>
+      <div class="mini"><b></b><b></b><b class="on in"></b><b></b></div>
+      <span class="go">打开变体 04</span>
+    </a>
+
+    <a class="card" href="agent-map-05.html">
+      <div class="no"><span>05 / PLAN-AND-EXECUTE</span><span class="where in">运行时内</span></div>
+      <h3>Plan-and-Execute</h3>
+      <p>Planner 只规划，计划写成状态；Executor 逐步执行。经典实现不会自动重规划，Replanner 是额外节点。</p>
+      <div class="chips"><span class="hot">Planner</span><span class="hot">计划状态</span><span>Replanner</span><span>max_steps</span></div>
+      <div class="mini"><b></b><b></b><b class="on in"></b><b></b></div>
+      <span class="go">打开变体 05</span>
+    </a>
+
+    <a class="card" href="agent-map-06.html">
+      <div class="no"><span>06 / MULTI-AGENT</span><span class="where in">运行时内</span></div>
+      <h3>多 Agent</h3>
+      <p>Supervisor 分派，Worker 各自带 Prompt、工具、权限和上下文；共享状态，但不共享脑子。</p>
+      <div class="chips"><span class="hot">Supervisor</span><span>Worker</span><span>共享 State</span><span>max_turns</span></div>
+      <div class="mini"><b></b><b class="on in"></b><b></b><b></b></div>
+      <span class="go">打开变体 06</span>
+    </a>
+
+  </div>
+
+  <div class="foot">
+    <b>看图顺序：</b>先看 00 基准图建立骨架，再按需看变体。前三种（记忆、知识库、人工介入）是在骨架外新增一层；
+    后三种（Reflection、Plan-and-Execute、多 Agent）主要改运行时内部的图结构。<br>
+    <b>一句话：</b>框架提供的是循环壳；记忆、检索、审批、反思、规划、多 Agent，都是在这层壳上加状态、加节点、加协议。
+  </div>
+</main>
+
+</body>
+</html>

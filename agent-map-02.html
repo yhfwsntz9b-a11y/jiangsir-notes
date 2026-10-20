@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有知识库的 Agent：RAG 是工具，不是记忆</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --card: #fffdf8;
+    --ink: #1f2a3a;
+    --muted: #6b7280;
+    --line: #c9c2b4;
+    --amber: #b8732c;
+    --green: #2f7d5b;
+    --soft: #e9e4d8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 0 40px;
+    background: #e7e2d7;
+    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    color: var(--ink);
+  }
+  .page-bar {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: #4a5666;
+  }
+  .page-bar a { color: #4a5666; text-decoration: none; border-bottom: 1px solid transparent; }
+  .page-bar a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .page-bar .brand { font-weight: 700; letter-spacing: .5px; color: var(--ink); }
+  .viewport { width: 100%; max-width: 1400px; margin: 0 auto; overflow: hidden; position: relative; }
+  .stage {
+    position: relative;
+    width: 1400px;
+    height: 1120px;
+    background: var(--bg);
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(31, 42, 58, .12);
+    transform-origin: top left;
+  }
+  h1 {
+    position: absolute;
+    left: 50px;
+    top: 28px;
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: .5px;
+    font-weight: 700;
+  }
+  .subtitle {
+    position: absolute;
+    left: 51px;
+    top: 72px;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: .3px;
+  }
+  .tag {
+    position: absolute;
+    right: 50px;
+    top: 40px;
+    font-size: 11px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, .35);
+  }
+
+  .layer {
+    position: absolute;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .22);
+    z-index: 0;
+  }
+  .layer.variant {
+    border: 1.6px dashed var(--amber);
+    background: rgba(255, 247, 233, .55);
+  }
+  .layer-title {
+    position: absolute;
+    top: -13px;
+    left: 18px;
+    background: var(--bg);
+    padding: 0 9px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+  .layer.variant .layer-title { color: var(--amber); background: #f7f0e1; }
+
+  .box {
+    position: absolute;
+    background: var(--card);
+    border: 1.4px solid var(--ink);
+    border-radius: 7px;
+    padding: 11px 14px;
+    z-index: 2;
+  }
+  .box h3 { margin: 0 0 4px; font-size: 15px; line-height: 1.25; }
+  .box p { margin: 0; font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+  .box.added {
+    border: 1.8px dashed var(--amber);
+    background: #fff8ec;
+  }
+  .add-tag {
+    position: absolute;
+    top: -9px;
+    right: 8px;
+    background: var(--amber);
+    color: #fff;
+    font-size: 9.5px;
+    line-height: 1.5;
+    padding: 1px 6px;
+    border-radius: 999px;
+    letter-spacing: .5px;
+    z-index: 3;
+  }
+  .chip {
+    display: inline-block;
+    margin: 6px 5px 0 0;
+    padding: 2px 7px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 10.5px;
+    color: #405066;
+    background: #fff;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  }
+  .chip.hot { border-color: var(--amber); color: #8a4e13; background: #fff3df; }
+  .tiny { margin-top: 7px; font-size: 10.5px; color: var(--muted); letter-spacing: .2px; }
+
+  .runtime {
+    position: absolute;
+    border: 2px solid var(--ink);
+    border-radius: 9px;
+    background: #faf7ef;
+    z-index: 1;
+  }
+  .runtime-title {
+    position: absolute;
+    top: -13px;
+    left: 16px;
+    background: #faf7ef;
+    padding: 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    z-index: 3;
+  }
+  .contains {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 10px;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    border-radius: 999px;
+    padding: 2px 7px;
+    background: var(--bg);
+    z-index: 3;
+  }
+  .shell {
+    position: absolute;
+    height: 32px;
+    background: var(--soft);
+    border-bottom: 1px solid var(--line);
+    border-radius: 7px 7px 0 0;
+    font-size: 12px;
+    color: #3d4b5c;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    z-index: 2;
+    letter-spacing: .2px;
+  }
+
+  .note {
+    position: absolute;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 13px 16px;
+    z-index: 2;
+  }
+  .note h3 { margin: 0 0 7px; font-size: 14px; line-height: 1.35; }
+  .note p { margin: 0 0 5px; font-size: 11.5px; line-height: 1.55; color: #3d4b5c; }
+  .note p:last-child { margin-bottom: 0; }
+  .note .small { font-size: 10.5px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+
+  .rail {
+    position: absolute;
+    left: 36px;
+    top: 130px;
+    width: 48px;
+    height: 860px;
+    border: 1px dashed var(--line);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, .25);
+    z-index: 2;
+  }
+
+  .legend {
+    position: absolute;
+    left: 150px;
+    top: 1078px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 11.5px;
+    color: #3d4b5c;
+    z-index: 2;
+  }
+  .legend .item { display: flex; align-items: center; gap: 8px; }
+  .icon-nest { width: 24px; height: 18px; border: 1.4px solid var(--ink); position: relative; }
+  .icon-nest::after { content: ""; position: absolute; inset: 4px 5px; border: 1.2px solid var(--ink); }
+  .icon-line { width: 30px; height: 0; border-top: 1.5px solid var(--ink); position: relative; }
+  .icon-line::after {
+    content: ""; position: absolute; right: -1px; top: -4px;
+    border-left: 7px solid var(--ink); border-top: 3.5px solid transparent; border-bottom: 3.5px solid transparent;
+  }
+  .icon-loop { width: 28px; height: 16px; border: 2px solid var(--green); border-radius: 50%; position: relative; }
+  .icon-loop::after {
+    content: ""; position: absolute; right: -3px; top: 2px;
+    border-left: 7px solid var(--green); border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+  }
+  .icon-dash { width: 26px; height: 18px; border: 1.5px dashed var(--amber); border-radius: 4px; }
+  .footnote {
+    position: absolute;
+    left: 150px;
+    top: 1102px;
+    font-size: 11px;
+    color: var(--muted);
+    z-index: 2;
+  }
+
+  .arrows { position: absolute; inset: 0; width: 1400px; height: 1120px; z-index: 1; pointer-events: none; }
+  .label, .label-green, .label-amber {
+    font-size: 12px;
+    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    paint-order: stroke;
+    stroke: #f4f1ea;
+    stroke-width: 5px;
+    stroke-linejoin: round;
+  }
+  .label { fill: #5b6778; }
+  .label-green { fill: #2f7d5b; }
+  .label-amber { fill: #a05f18; }
+
+  @media (max-width: 760px) {
+    .viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .page-bar { padding: 12px; gap: 8px; }
+    .page-bar .brand { display: none; }
+  }
+
+  @media print {
+    @page { size: 1400px 1120px; margin: 0; }
+    body { padding: 0; background: #fff; }
+    .page-bar { display: none; }
+    .stage { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page-bar">
+  <a href="agent-map-overview.html">← 变体总览</a>
+  <span class="brand">Agent 概念地图 · 模块边界与包含关系</span>
+  <span>变体 02 / 06</span>
+</div>
+
+<div class="viewport">
+<div class="stage">
+  <h1>有知识库的 Agent：RAG 是工具，不是记忆</h1>
+  <div class="subtitle">离线建库，在线检索；Agent 通过 knowledge_search 拿到带出处的片段，再交给 LLM 作答。</div>
+  <div class="tag">概念图 · 变体 02 / 06</div>
+  <div class="rail">日志 / Trace</div>
+
+
+  <!-- 外部调度层 -->
+  <div class="layer" style="left:110px; top:120px; width:950px; height:120px;">
+    <div class="layer-title">外部调度层</div>
+    <div class="box" style="left:30px; top:48px; width:430px; height:56px;">
+      <h3>APScheduler</h3>
+      <p>Cron / Interval / Date Trigger</p>
+      <span class="chip">CronTrigger</span><span class="chip">JobStore</span><span class="chip">Executor</span>
+    </div>
+    <div class="box" style="left:500px; top:48px; width:210px; height:56px; border-color:var(--amber);">
+      <h3>何时跑</h3>
+      <p>错过补偿 · 并发控制</p>
+      <span class="chip">job_id</span>
+    </div>
+  </div>
+  <!-- Agent 业务层 -->
+  <div class="layer" style="left:110px; top:270px; width:950px; height:520px;">
+    <div class="layer-title">Agent 业务层</div>
+    <div class="box" style="left:30px; top:50px; width:190px; height:74px;">
+      <h3>Job 函数</h3>
+      <p>读任务 + 组装业务问题</p>
+      <span class="chip">普通 Python 函数</span>
+    </div>
+    <div class="box" style="left:260px; top:50px; width:210px; height:74px;">
+      <h3>调用 Agent</h3>
+      <p>Agent 自己决定要不要检索</p>
+      <span class="chip">不写循环</span>
+    </div>
+    <div class="box" style="left:770px; top:50px; width:170px; height:74px;">
+      <h3>回调函数</h3>
+      <p>落库 / 通知 / 失败记录</p>
+      <span class="chip">输出层入口</span>
+    </div>
+  </div>
+  <!-- Agent 运行时 -->
+  <div class="runtime" style="left:140px; top:440px; width:760px; height:320px;">
+    <div class="runtime-title">Agent 运行时（嵌套）</div>
+    <div class="contains">嵌套框 = 包含</div>
+    <div class="shell" style="left:40px; top:30px; width:680px;">AgentExecutor / LangGraph 图 · 通用循环壳子，不做推理</div>
+
+    <div class="box" style="left:30px; top:80px; width:240px; height:145px;">
+      <h3>推理单元</h3>
+      <p>判断：需要查知识库，还是直接回答</p>
+      <span class="chip">LLM</span><span class="chip">Prompt</span><span class="chip">解析器</span>
+      <div class="tiny">决定 query 与 top_k</div>
+    </div>
+
+    <div class="box" style="left:310px; top:80px; width:280px; height:100px;">
+      <h3>工具集</h3>
+      <p>检索也是工具，不是隐式前置步骤</p>
+      <span class="chip hot">knowledge_search</span><span class="chip">web_search</span><span class="chip">fetch</span>
+    </div>
+
+    <div class="box" style="left:310px; top:200px; width:280px; height:60px;">
+      <h3 style="font-size:13px; margin-bottom:2px;">上下文 / Observation</h3>
+      <p>片段 + 出处 + 相似度分数</p>
+    </div>
+  </div>
+
+  <!-- 知识库层 -->
+  <div class="layer variant" style="left:110px; top:810px; width:850px; height:130px;">
+    <div class="layer-title">知识库层（新增）· 离线建库 → 在线检索</div>
+    <div class="box added" style="left:30px; top:46px; width:390px; height:66px;">
+      <span class="add-tag">离线 / 增量</span>
+      <h3>入库管线</h3>
+      <p>文档解析 → 切块 → Embedding → 向量库</p>
+      <span class="chip">chunk 800 / overlap 100</span><span class="chip">metadata</span>
+    </div>
+    <div class="box added" style="left:450px; top:46px; width:370px; height:66px;">
+      <span class="add-tag">在线</span>
+      <h3>检索管线</h3>
+      <p>Query 改写 → Top-k → Rerank → 片段</p>
+      <span class="chip">top_k = 5</span><span class="chip">带出处</span><span class="chip">权限过滤</span>
+    </div>
+  </div>
+
+  <!-- 结果输出层 -->
+  <div class="layer" style="left:110px; top:960px; width:950px; height:110px;">
+    <div class="layer-title">结果输出层</div>
+    <p style="position:absolute; left:32px; top:24px; margin:0; font-size:12px; color:var(--muted);">任务完成后落地：结果、状态、失败原因</p>
+    <span class="chip" style="position:absolute; left:32px; top:62px; font-size:12px; padding:4px 12px;">数据库</span>
+    <span class="chip" style="position:absolute; left:130px; top:62px; font-size:12px; padding:4px 12px;">文件</span>
+    <span class="chip" style="position:absolute; left:210px; top:62px; font-size:12px; padding:4px 12px;">Webhook</span>
+    <span class="chip" style="position:absolute; left:315px; top:62px; font-size:12px; padding:4px 12px;">消息队列</span>
+    <span class="chip" style="position:absolute; left:415px; top:62px; font-size:12px; padding:4px 12px;">日志</span>
+  </div>  <div class="note" style="left:1090px; top:132px; width:280px; height:138px;">
+    <h3>RAG 是工具，不是记忆</h3>
+    <p>知识库回答“世界上的事实是什么”；记忆回答“这个用户/这次任务发生过什么”。</p><p>两者存储结构、更新频率、权限模型都不同，别混在一个库里。</p>
+  </div>
+  <div class="note" style="left:1090px; top:292px; width:280px; height:138px;">
+    <h3>检索由模型决定</h3>
+    <p>把检索做成 <code>knowledge_search</code> 工具，模型才会按需改写 query、决定是否二次检索。</p><p>也可以做成固定节点，但那就不是“Agent 自主检索”了。</p>
+  </div>
+  <div class="note" style="left:1090px; top:452px; width:280px; height:162px;">
+    <h3>答案必须带出处</h3>
+    <p>片段要带 document_id、来源、权限标签。</p><p>检索不到依据时应拒答或转人工，而不是让模型自由发挥。</p><p>权限过滤要在检索前做（pre-filter），不能检索后再删。</p>
+  </div>
+
+
+
+
+    <div class="legend">
+      <div class="item"><span class="icon-nest"></span>嵌套框 = 包含</div>
+      <div class="item"><span class="icon-line"></span>实线 = 调用</div>
+      <div class="item"><span class="icon-loop"></span>绿色回环 = 循环反馈</div>
+      <div class="item"><span class="icon-dash"></span>琥珀虚线 = 本图新增 / 变化</div>
+    </div>
+    
+  <div class="footnote">知识库负责“有据可依”，不负责“记得你”；检索是工具调用，回答必须能指回出处。</div>
+
+  <svg class="arrows" viewBox="0 0 1400 1120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#1f2a3a"/>
+      </marker>
+      <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#2f7d5b"/>
+      </marker>
+      <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#b8732c"/>
+      </marker>
+
+    </defs>
+
+    <g stroke="#b8b0a1" stroke-width="1.2" stroke-dasharray="2 4">
+      <path d="M84 190 H110"/><path d="M84 430 H110"/><path d="M84 650 H110"/><path d="M84 1000 H110"/>
+    </g>
+    <path d="M250 240 V320" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="260" y="285">到点触发</text>
+    <path d="M330 357 H370" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="332" y="347">传任务</text>
+    <path d="M475 394 V440" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="485" y="433">invoke</text>
+    <!-- 推理到检索工具 -->
+    <path d="M410 560 H450" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="412" y="550">Action</text>
+    <!-- 检索工具到上下文 -->
+    <path d="M590 620 V640" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- Observation 回传 -->
+    <path d="M450 670 H425 V700 H330 V665" fill="none" stroke="#2f7d5b" stroke-width="2.1" marker-end="url(#arrow-green)"/>
+    <text class="label-green" x="345" y="713">Observation 回传</text>
+    <!-- 工具到在线检索 -->
+    <path d="M590 620 V800 H720 V850" fill="none" stroke="#b8732c" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+    <text class="label-amber" x="600" y="792">knowledge_search(query)</text>
+    <!-- 在线检索到上下文 -->
+    <path d="M800 850 V670 H730" fill="none" stroke="#b8732c" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+    <text class="label-amber" x="790" y="660">top-k 片段 + 出处</text>
+    <!-- 离线索引到在线检索 -->
+    <path d="M510 888 H560" fill="none" stroke="#b8732c" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+        <!-- 回调到输出层 -->
+    <path d="M1005 394 V960" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="1015" y="700">落库 / 通知</text>
+
+  </svg>
+</div>
+</div>
+<script>
+  (function () {
+    const wrap = document.querySelector(".viewport");
+    const stage = document.querySelector(".stage");
+    const embedded = new URLSearchParams(location.search).get("embed") === "1";
+    if (embedded) {
+      const bar = document.querySelector(".page-bar");
+      if (bar) bar.style.display = "none";
+    }
+    function fit() {
+      const min = (!embedded && window.innerWidth < 760) ? 0.62 : 0;
+      const scale = Math.min(1, Math.max(min, wrap.clientWidth / 1400));
+      stage.style.transform = "scale(" + scale + ")";
+      wrap.style.height = (1120 * scale) + "px";
+    }
+    fit();
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(wrap);
+    else addEventListener("resize", fit);
+  })();
+</script>
+</body>
+</html>

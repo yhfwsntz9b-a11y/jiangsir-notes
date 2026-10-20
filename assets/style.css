@@ -464,6 +464,10 @@ mark { background: color-mix(in srgb, var(--warm) 28%, transparent); color: inhe
 .prose figure.art-fig figcaption { margin-top: 10px; font-size: 13px; line-height: 1.7; color: var(--muted); text-align: center; }
 .map-embed { width: min(1240px, calc(100vw - 40px)); margin: 32px 0 24px 50%; transform: translateX(-50%); }
 .map-embed iframe { display: block; width: 100%; aspect-ratio: 1400 / 1020; border: 1px solid var(--border); border-radius: 16px; background: #e7e2d7; box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+.map-embed.diagram { margin: 22px 0 10px 50%; }
+.map-embed.diagram iframe { aspect-ratio: 1400 / 1120; }
+.map-more { margin: 0 0 40px; text-align: center; font-size: 14px; }
+.map-more a { color: var(--brand); }
 @media (max-width: 700px) { .map-embed { width: calc(100vw - 24px); } }
 
 .article-end { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border); }

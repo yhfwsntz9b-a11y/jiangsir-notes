@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>带反思的 Agent：生成之后，再多一次自我校验</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --card: #fffdf8;
+    --ink: #1f2a3a;
+    --muted: #6b7280;
+    --line: #c9c2b4;
+    --amber: #b8732c;
+    --green: #2f7d5b;
+    --soft: #e9e4d8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 0 40px;
+    background: #e7e2d7;
+    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    color: var(--ink);
+  }
+  .page-bar {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: #4a5666;
+  }
+  .page-bar a { color: #4a5666; text-decoration: none; border-bottom: 1px solid transparent; }
+  .page-bar a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .page-bar .brand { font-weight: 700; letter-spacing: .5px; color: var(--ink); }
+  .viewport { width: 100%; max-width: 1400px; margin: 0 auto; overflow: hidden; position: relative; }
+  .stage {
+    position: relative;
+    width: 1400px;
+    height: 1120px;
+    background: var(--bg);
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(31, 42, 58, .12);
+    transform-origin: top left;
+  }
+  h1 {
+    position: absolute;
+    left: 50px;
+    top: 28px;
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: .5px;
+    font-weight: 700;
+  }
+  .subtitle {
+    position: absolute;
+    left: 51px;
+    top: 72px;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: .3px;
+  }
+  .tag {
+    position: absolute;
+    right: 50px;
+    top: 40px;
+    font-size: 11px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, .35);
+  }
+
+  .layer {
+    position: absolute;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .22);
+    z-index: 0;
+  }
+  .layer.variant {
+    border: 1.6px dashed var(--amber);
+    background: rgba(255, 247, 233, .55);
+  }
+  .layer-title {
+    position: absolute;
+    top: -13px;
+    left: 18px;
+    background: var(--bg);
+    padding: 0 9px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+  .layer.variant .layer-title { color: var(--amber); background: #f7f0e1; }
+
+  .box {
+    position: absolute;
+    background: var(--card);
+    border: 1.4px solid var(--ink);
+    border-radius: 7px;
+    padding: 11px 14px;
+    z-index: 2;
+  }
+  .box h3 { margin: 0 0 4px; font-size: 15px; line-height: 1.25; }
+  .box p { margin: 0; font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+  .box.added {
+    border: 1.8px dashed var(--amber);
+    background: #fff8ec;
+  }
+  .add-tag {
+    position: absolute;
+    top: -9px;
+    right: 8px;
+    background: var(--amber);
+    color: #fff;
+    font-size: 9.5px;
+    line-height: 1.5;
+    padding: 1px 6px;
+    border-radius: 999px;
+    letter-spacing: .5px;
+    z-index: 3;
+  }
+  .chip {
+    display: inline-block;
+    margin: 6px 5px 0 0;
+    padding: 2px 7px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 10.5px;
+    color: #405066;
+    background: #fff;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  }
+  .chip.hot { border-color: var(--amber); color: #8a4e13; background: #fff3df; }
+  .tiny { margin-top: 7px; font-size: 10.5px; color: var(--muted); letter-spacing: .2px; }
+
+  .runtime {
+    position: absolute;
+    border: 2px solid var(--ink);
+    border-radius: 9px;
+    background: #faf7ef;
+    z-index: 1;
+  }
+  .runtime-title {
+    position: absolute;
+    top: -13px;
+    left: 16px;
+    background: #faf7ef;
+    padding: 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    z-index: 3;
+  }
+  .contains {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 10px;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    border-radius: 999px;
+    padding: 2px 7px;
+    background: var(--bg);
+    z-index: 3;
+  }
+  .shell {
+    position: absolute;
+    height: 32px;
+    background: var(--soft);
+    border-bottom: 1px solid var(--line);
+    border-radius: 7px 7px 0 0;
+    font-size: 12px;
+    color: #3d4b5c;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    z-index: 2;
+    letter-spacing: .2px;
+  }
+
+  .note {
+    position: absolute;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 13px 16px;
+    z-index: 2;
+  }
+  .note h3 { margin: 0 0 7px; font-size: 14px; line-height: 1.35; }
+  .note p { margin: 0 0 5px; font-size: 11.5px; line-height: 1.55; color: #3d4b5c; }
+  .note p:last-child { margin-bottom: 0; }
+  .note .small { font-size: 10.5px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+
+  .rail {
+    position: absolute;
+    left: 36px;
+    top: 130px;
+    width: 48px;
+    height: 860px;
+    border: 1px dashed var(--line);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, .25);
+    z-index: 2;
+  }
+
+  .legend {
+    position: absolute;
+    left: 150px;
+    top: 1078px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 11.5px;
+    color: #3d4b5c;
+    z-index: 2;
+  }
+  .legend .item { display: flex; align-items: center; gap: 8px; }
+  .icon-nest { width: 24px; height: 18px; border: 1.4px solid var(--ink); position: relative; }
+  .icon-nest::after { content: ""; position: absolute; inset: 4px 5px; border: 1.2px solid var(--ink); }
+  .icon-line { width: 30px; height: 0; border-top: 1.5px solid var(--ink); position: relative; }
+  .icon-line::after {
+    content: ""; position: absolute; right: -1px; top: -4px;
+    border-left: 7px solid var(--ink); border-top: 3.5px solid transparent; border-bottom: 3.5px solid transparent;
+  }
+  .icon-loop { width: 28px; height: 16px; border: 2px solid var(--green); border-radius: 50%; position: relative; }
+  .icon-loop::after {
+    content: ""; position: absolute; right: -3px; top: 2px;
+    border-left: 7px solid var(--green); border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+  }
+  .icon-dash { width: 26px; height: 18px; border: 1.5px dashed var(--amber); border-radius: 4px; }
+  .footnote {
+    position: absolute;
+    left: 150px;
+    top: 1102px;
+    font-size: 11px;
+    color: var(--muted);
+    z-index: 2;
+  }
+
+  .arrows { position: absolute; inset: 0; width: 1400px; height: 1120px; z-index: 1; pointer-events: none; }
+  .label, .label-green, .label-amber {
+    font-size: 12px;
+    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    paint-order: stroke;
+    stroke: #f4f1ea;
+    stroke-width: 5px;
+    stroke-linejoin: round;
+  }
+  .label { fill: #5b6778; }
+  .label-green { fill: #2f7d5b; }
+  .label-amber { fill: #a05f18; }
+
+  @media (max-width: 760px) {
+    .viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .page-bar { padding: 12px; gap: 8px; }
+    .page-bar .brand { display: none; }
+  }
+
+  @media print {
+    @page { size: 1400px 1120px; margin: 0; }
+    body { padding: 0; background: #fff; }
+    .page-bar { display: none; }
+    .stage { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page-bar">
+  <a href="agent-map-overview.html">← 变体总览</a>
+  <span class="brand">Agent 概念地图 · 模块边界与包含关系</span>
+  <span>变体 04 / 06</span>
+</div>
+
+<div class="viewport">
+<div class="stage">
+  <h1>带反思的 Agent：生成之后，再多一次自我校验</h1>
+  <div class="subtitle">Actor 产出草稿，Critic 按标准挑错，不通过就回炉；它是图上的一个环，不是执行器的隐藏能力。</div>
+  <div class="tag">概念图 · 变体 04 / 06</div>
+  <div class="rail">日志 / Trace</div>
+
+
+  <!-- 外部调度层 -->
+  <div class="layer" style="left:110px; top:120px; width:950px; height:120px;">
+    <div class="layer-title">外部调度层</div>
+    <div class="box" style="left:30px; top:48px; width:430px; height:56px;">
+      <h3>APScheduler</h3>
+      <p>Cron / Interval / Date Trigger</p>
+      <span class="chip">CronTrigger</span><span class="chip">JobStore</span><span class="chip">Executor</span>
+    </div>
+    <div class="box" style="left:500px; top:48px; width:210px; height:56px; border-color:var(--amber);">
+      <h3>何时跑</h3>
+      <p>错过补偿 · 并发控制</p>
+      <span class="chip">job_id</span>
+    </div>
+  </div>
+  <!-- Agent 业务层 -->
+  <div class="layer" style="left:110px; top:270px; width:950px; height:520px;">
+    <div class="layer-title">Agent 业务层</div>
+    <div class="box" style="left:30px; top:50px; width:190px; height:74px;">
+      <h3>Job 函数</h3>
+      <p>读任务 + 验收标准</p>
+      <span class="chip">普通 Python 函数</span>
+    </div>
+    <div class="box" style="left:260px; top:50px; width:210px; height:74px;">
+      <h3>调用 Agent</h3>
+      <p>生成、校验、必要时回炉</p>
+      <span class="chip">不写循环</span>
+    </div>
+    <div class="box" style="left:770px; top:50px; width:170px; height:74px;">
+      <h3>回调函数</h3>
+      <p>落库 / 通知 / 失败记录</p>
+      <span class="chip">输出层入口</span>
+    </div>
+  </div>
+  <!-- Agent 运行时 -->
+  <div class="runtime" style="left:140px; top:440px; width:760px; height:320px;">
+    <div class="runtime-title">Agent 运行时（嵌套）</div>
+    <div class="contains">嵌套框 = 包含</div>
+    <div class="shell" style="left:40px; top:30px; width:680px;">AgentExecutor / LangGraph 图 · 通用循环壳子，不做推理</div>
+
+    <div class="box" style="left:30px; top:60px; width:230px; height:140px;">
+      <h3>Actor · 执行单元</h3>
+      <p>生成草稿、调用工具、按意见修改</p>
+      <span class="chip">LLM</span><span class="chip">tools</span>
+      <div class="tiny">对产物负责，不等同于 Critic</div>
+    </div>
+
+    <div class="box added" style="left:310px; top:60px; width:250px; height:140px;">
+      <span class="add-tag">新增</span>
+      <h3>Critic · 反思单元</h3>
+      <p>按 rubric 挑错，给出可执行的修改项</p>
+      <span class="chip hot">独立 Prompt</span><span class="chip hot">独立模型</span>
+      <div class="tiny">只看产物与标准，不共享 Actor 的上下文</div>
+    </div>
+
+    <div class="box" style="left:590px; top:80px; width:140px; height:100px; border-color:var(--amber);">
+      <h3>验收门</h3>
+      <p>pass? / max_rounds</p>
+      <span class="chip">通过</span><span class="chip">回炉</span><span class="chip">降级</span>
+    </div>
+
+    <div class="box" style="left:30px; top:225px; width:230px; height:60px;">
+      <h3 style="font-size:13px; margin-bottom:2px;">工具集</h3>
+      <p>search / fetch / save</p>
+    </div>
+
+    <div class="box" style="left:310px; top:215px; width:250px; height:70px;">
+      <h3 style="font-size:13px; margin-bottom:2px;">上下文 / 评审意见</h3>
+      <p>草稿 + 问题清单 + 修改记录</p>
+    </div>
+  </div>
+
+  <!-- 反思策略 -->
+  <div class="layer variant" style="left:110px; top:810px; width:850px; height:130px;">
+    <div class="layer-title">反思策略（新增）· 没有标准就没有反思</div>
+    <div class="box added" style="left:30px; top:46px; width:250px; height:64px;">
+      <span class="add-tag">标准</span>
+      <h3>评审标准 Rubric</h3>
+      <p>正确性 · 完整性 · 引用 · 风格</p>
+      <span class="chip">checklist</span>
+    </div>
+    <div class="box added" style="left:310px; top:46px; width:250px; height:64px;">
+      <span class="add-tag">停止</span>
+      <h3>停止条件</h3>
+      <p>通过 / 最大轮数 / 预算耗尽</p>
+      <span class="chip hot">max_rounds = 2</span>
+    </div>
+    <div class="box added" style="left:590px; top:46px; width:230px; height:64px;">
+      <span class="add-tag">留痕</span>
+      <h3>评审日志</h3>
+      <p>问题清单 + 修改前后对比</p>
+      <span class="chip">trace</span>
+    </div>
+  </div>
+
+  <!-- 结果输出层 -->
+  <div class="layer" style="left:110px; top:960px; width:950px; height:110px;">
+    <div class="layer-title">结果输出层</div>
+    <p style="position:absolute; left:32px; top:24px; margin:0; font-size:12px; color:var(--muted);">任务完成后落地：结果、状态、失败原因</p>
+    <span class="chip" style="position:absolute; left:32px; top:62px; font-size:12px; padding:4px 12px;">数据库</span>
+    <span class="chip" style="position:absolute; left:130px; top:62px; font-size:12px; padding:4px 12px;">文件</span>
+    <span class="chip" style="position:absolute; left:210px; top:62px; font-size:12px; padding:4px 12px;">Webhook</span>
+    <span class="chip" style="position:absolute; left:315px; top:62px; font-size:12px; padding:4px 12px;">消息队列</span>
+    <span class="chip" style="position:absolute; left:415px; top:62px; font-size:12px; padding:4px 12px;">日志</span>
+  </div>  <div class="note" style="left:1090px; top:132px; width:280px; height:138px;">
+    <h3>Reflection 不是内置算法</h3>
+    <p>它只是<strong>多一次 LLM 调用 + 一条回边</strong>：Actor 出稿，Critic 评审，未通过就回去改。</p><p>AgentExecutor 本身不会“反思”；图里加了 Critic 节点才有。</p>
+  </div>
+  <div class="note" style="left:1090px; top:292px; width:280px; height:138px;">
+    <h3>Critic 必须独立</h3>
+    <p>用同一个上下文“再想一遍”，往往只会自我确认。</p><p>独立 Prompt / 独立上下文 / 必要时独立模型，只让它看产物和标准。</p>
+  </div>
+  <div class="note" style="left:1090px; top:452px; width:280px; height:138px;">
+    <h3>一定要能退出</h3>
+    <p>没有通过条件，反思会变成无限改稿。</p><p>设置 max_rounds、token 预算和降级出口；不通过也比卡死好。</p>
+  </div>
+
+
+
+
+    <div class="legend">
+      <div class="item"><span class="icon-nest"></span>嵌套框 = 包含</div>
+      <div class="item"><span class="icon-line"></span>实线 = 调用</div>
+      <div class="item"><span class="icon-loop"></span>绿色回环 = 循环反馈</div>
+      <div class="item"><span class="icon-dash"></span>琥珀虚线 = 本图新增 / 变化</div>
+    </div>
+    
+  <div class="footnote">反思的收益来自“独立标准 + 独立视角”；没有 rubric 和退出条件的自省，只是更贵的自我确认。</div>
+
+  <svg class="arrows" viewBox="0 0 1400 1120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#1f2a3a"/>
+      </marker>
+      <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#2f7d5b"/>
+      </marker>
+      <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#b8732c"/>
+      </marker>
+
+    </defs>
+
+    <g stroke="#b8b0a1" stroke-width="1.2" stroke-dasharray="2 4">
+      <path d="M84 190 H110"/><path d="M84 430 H110"/><path d="M84 650 H110"/><path d="M84 1000 H110"/>
+    </g>
+    <path d="M250 240 V320" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="260" y="285">到点触发</text>
+    <path d="M330 357 H370" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="332" y="347">传任务</text>
+    <path d="M475 394 V440" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="485" y="433">invoke</text>
+    <!-- 调用到 Actor -->
+    <path d="M475 440 V455 H155 V550 H170" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- Actor 到工具 -->
+    <path d="M285 640 V665" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="295" y="657">Action</text>
+    <!-- 工具到上下文 -->
+    <path d="M400 690 H450" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 上下文回传 Actor -->
+    <path d="M450 690 H420 V620 H400" fill="none" stroke="#2f7d5b" stroke-width="2.1" marker-end="url(#arrow-green)"/>
+    <text class="label-green" x="330" y="742">Observation 回传</text>
+    <!-- Actor 到 Critic -->
+    <path d="M400 550 H450" fill="none" stroke="#1f2a3a" stroke-width="1.7" marker-end="url(#arrow)"/>
+    <text class="label" x="404" y="540">draft</text>
+    <!-- Critic 退回 Actor -->
+    <path d="M450 610 H400" fill="none" stroke="#2f7d5b" stroke-width="2.1" marker-end="url(#arrow-green)"/>
+    <text class="label-green" x="404" y="602">revise</text>
+    <!-- Critic 到验收门 -->
+    <path d="M700 560 H730" fill="none" stroke="#1f2a3a" stroke-width="1.7" marker-end="url(#arrow)"/>
+    <text class="label" x="702" y="550">pass?</text>
+    <!-- 验收门不通过回 Actor -->
+    <path d="M800 620 V745 H150 V620 H170" fill="none" stroke="#2f7d5b" stroke-width="2.1" marker-end="url(#arrow-green)"/>
+    <text class="label-green" x="430" y="736">不通过 &amp; rounds &lt; max</text>
+    <!-- 验收门通过到回调 -->
+    <path d="M870 540 H930 V394" fill="none" stroke="#1f2a3a" stroke-width="1.7" marker-end="url(#arrow)"/>
+    <text class="label" x="938" y="470">通过，输出</text>
+    <!-- Critic 读取策略 -->
+    <path d="M575 640 V850" fill="none" stroke="#b8732c" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+    <text class="label-amber" x="585" y="790">读取 rubric / 预算</text>
+    <!-- 回调到输出层 -->
+    <path d="M1005 394 V960" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="1015" y="700">落库 / 通知</text>
+
+  </svg>
+</div>
+</div>
+<script>
+  (function () {
+    const wrap = document.querySelector(".viewport");
+    const stage = document.querySelector(".stage");
+    const embedded = new URLSearchParams(location.search).get("embed") === "1";
+    if (embedded) {
+      const bar = document.querySelector(".page-bar");
+      if (bar) bar.style.display = "none";
+    }
+    function fit() {
+      const min = (!embedded && window.innerWidth < 760) ? 0.62 : 0;
+      const scale = Math.min(1, Math.max(min, wrap.clientWidth / 1400));
+      stage.style.transform = "scale(" + scale + ")";
+      wrap.style.height = (1120 * scale) + "px";
+    }
+    fit();
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(wrap);
+    else addEventListener("resize", fit);
+  })();
+</script>
+</body>
+</html>

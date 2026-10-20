@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan-and-Execute：先出计划，再逐步执行</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --card: #fffdf8;
+    --ink: #1f2a3a;
+    --muted: #6b7280;
+    --line: #c9c2b4;
+    --amber: #b8732c;
+    --green: #2f7d5b;
+    --soft: #e9e4d8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 0 40px;
+    background: #e7e2d7;
+    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    color: var(--ink);
+  }
+  .page-bar {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+    color: #4a5666;
+  }
+  .page-bar a { color: #4a5666; text-decoration: none; border-bottom: 1px solid transparent; }
+  .page-bar a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .page-bar .brand { font-weight: 700; letter-spacing: .5px; color: var(--ink); }
+  .viewport { width: 100%; max-width: 1400px; margin: 0 auto; overflow: hidden; position: relative; }
+  .stage {
+    position: relative;
+    width: 1400px;
+    height: 1120px;
+    background: var(--bg);
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(31, 42, 58, .12);
+    transform-origin: top left;
+  }
+  h1 {
+    position: absolute;
+    left: 50px;
+    top: 28px;
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: .5px;
+    font-weight: 700;
+  }
+  .subtitle {
+    position: absolute;
+    left: 51px;
+    top: 72px;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: .3px;
+  }
+  .tag {
+    position: absolute;
+    right: 50px;
+    top: 40px;
+    font-size: 11px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, .35);
+  }
+
+  .layer {
+    position: absolute;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .22);
+    z-index: 0;
+  }
+  .layer.variant {
+    border: 1.6px dashed var(--amber);
+    background: rgba(255, 247, 233, .55);
+  }
+  .layer-title {
+    position: absolute;
+    top: -13px;
+    left: 18px;
+    background: var(--bg);
+    padding: 0 9px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+  .layer.variant .layer-title { color: var(--amber); background: #f7f0e1; }
+
+  .box {
+    position: absolute;
+    background: var(--card);
+    border: 1.4px solid var(--ink);
+    border-radius: 7px;
+    padding: 11px 14px;
+    z-index: 2;
+  }
+  .box h3 { margin: 0 0 4px; font-size: 15px; line-height: 1.25; }
+  .box p { margin: 0; font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+  .box.added {
+    border: 1.8px dashed var(--amber);
+    background: #fff8ec;
+  }
+  .add-tag {
+    position: absolute;
+    top: -9px;
+    right: 8px;
+    background: var(--amber);
+    color: #fff;
+    font-size: 9.5px;
+    line-height: 1.5;
+    padding: 1px 6px;
+    border-radius: 999px;
+    letter-spacing: .5px;
+    z-index: 3;
+  }
+  .chip {
+    display: inline-block;
+    margin: 6px 5px 0 0;
+    padding: 2px 7px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 10.5px;
+    color: #405066;
+    background: #fff;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  }
+  .chip.hot { border-color: var(--amber); color: #8a4e13; background: #fff3df; }
+  .tiny { margin-top: 7px; font-size: 10.5px; color: var(--muted); letter-spacing: .2px; }
+
+  .runtime {
+    position: absolute;
+    border: 2px solid var(--ink);
+    border-radius: 9px;
+    background: #faf7ef;
+    z-index: 1;
+  }
+  .runtime-title {
+    position: absolute;
+    top: -13px;
+    left: 16px;
+    background: #faf7ef;
+    padding: 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    z-index: 3;
+  }
+  .contains {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 10px;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    border-radius: 999px;
+    padding: 2px 7px;
+    background: var(--bg);
+    z-index: 3;
+  }
+  .shell {
+    position: absolute;
+    height: 32px;
+    background: var(--soft);
+    border-bottom: 1px solid var(--line);
+    border-radius: 7px 7px 0 0;
+    font-size: 12px;
+    color: #3d4b5c;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    z-index: 2;
+    letter-spacing: .2px;
+  }
+
+  .note {
+    position: absolute;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 13px 16px;
+    z-index: 2;
+  }
+  .note h3 { margin: 0 0 7px; font-size: 14px; line-height: 1.35; }
+  .note p { margin: 0 0 5px; font-size: 11.5px; line-height: 1.55; color: #3d4b5c; }
+  .note p:last-child { margin-bottom: 0; }
+  .note .small { font-size: 10.5px; color: var(--muted); }
+  .note strong { color: var(--ink); }
+
+  .rail {
+    position: absolute;
+    left: 36px;
+    top: 130px;
+    width: 48px;
+    height: 860px;
+    border: 1px dashed var(--line);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, .25);
+    z-index: 2;
+  }
+
+  .legend {
+    position: absolute;
+    left: 150px;
+    top: 1078px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 11.5px;
+    color: #3d4b5c;
+    z-index: 2;
+  }
+  .legend .item { display: flex; align-items: center; gap: 8px; }
+  .icon-nest { width: 24px; height: 18px; border: 1.4px solid var(--ink); position: relative; }
+  .icon-nest::after { content: ""; position: absolute; inset: 4px 5px; border: 1.2px solid var(--ink); }
+  .icon-line { width: 30px; height: 0; border-top: 1.5px solid var(--ink); position: relative; }
+  .icon-line::after {
+    content: ""; position: absolute; right: -1px; top: -4px;
+    border-left: 7px solid var(--ink); border-top: 3.5px solid transparent; border-bottom: 3.5px solid transparent;
+  }
+  .icon-loop { width: 28px; height: 16px; border: 2px solid var(--green); border-radius: 50%; position: relative; }
+  .icon-loop::after {
+    content: ""; position: absolute; right: -3px; top: 2px;
+    border-left: 7px solid var(--green); border-top: 4px solid transparent; border-bottom: 4px solid transparent;
+  }
+  .icon-dash { width: 26px; height: 18px; border: 1.5px dashed var(--amber); border-radius: 4px; }
+  .footnote {
+    position: absolute;
+    left: 150px;
+    top: 1102px;
+    font-size: 11px;
+    color: var(--muted);
+    z-index: 2;
+  }
+
+  .arrows { position: absolute; inset: 0; width: 1400px; height: 1120px; z-index: 1; pointer-events: none; }
+  .label, .label-green, .label-amber {
+    font-size: 12px;
+    font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    paint-order: stroke;
+    stroke: #f4f1ea;
+    stroke-width: 5px;
+    stroke-linejoin: round;
+  }
+  .label { fill: #5b6778; }
+  .label-green { fill: #2f7d5b; }
+  .label-amber { fill: #a05f18; }
+
+  @media (max-width: 760px) {
+    .viewport { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .page-bar { padding: 12px; gap: 8px; }
+    .page-bar .brand { display: none; }
+  }
+
+  @media print {
+    @page { size: 1400px 1120px; margin: 0; }
+    body { padding: 0; background: #fff; }
+    .page-bar { display: none; }
+    .stage { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page-bar">
+  <a href="agent-map-overview.html">← 变体总览</a>
+  <span class="brand">Agent 概念地图 · 模块边界与包含关系</span>
+  <span>变体 05 / 06</span>
+</div>
+
+<div class="viewport">
+<div class="stage">
+  <h1>Plan-and-Execute：先出计划，再逐步执行</h1>
+  <div class="subtitle">Planner 只规划，Executor 逐步做；计划是状态，不是 Prompt 里的一段话。</div>
+  <div class="tag">概念图 · 变体 05 / 06</div>
+  <div class="rail">日志 / Trace</div>
+
+
+  <!-- 外部调度层 -->
+  <div class="layer" style="left:110px; top:120px; width:950px; height:120px;">
+    <div class="layer-title">外部调度层</div>
+    <div class="box" style="left:30px; top:48px; width:430px; height:56px;">
+      <h3>APScheduler</h3>
+      <p>Cron / Interval / Date Trigger</p>
+      <span class="chip">CronTrigger</span><span class="chip">JobStore</span><span class="chip">Executor</span>
+    </div>
+    <div class="box" style="left:500px; top:48px; width:210px; height:56px; border-color:var(--amber);">
+      <h3>何时跑</h3>
+      <p>错过补偿 · 并发控制</p>
+      <span class="chip">job_id</span>
+    </div>
+  </div>
+  <!-- Agent 业务层 -->
+  <div class="layer" style="left:110px; top:270px; width:950px; height:520px;">
+    <div class="layer-title">Agent 业务层</div>
+    <div class="box" style="left:30px; top:50px; width:190px; height:74px;">
+      <h3>Job 函数</h3>
+      <p>读任务 + 目标与约束</p>
+      <span class="chip">普通 Python 函数</span>
+    </div>
+    <div class="box" style="left:260px; top:50px; width:210px; height:74px;">
+      <h3>调用 Agent</h3>
+      <p>先规划，再逐步执行</p>
+      <span class="chip">不写循环</span>
+    </div>
+    <div class="box" style="left:770px; top:50px; width:170px; height:74px;">
+      <h3>回调函数</h3>
+      <p>落库 / 通知 / 失败记录</p>
+      <span class="chip">输出层入口</span>
+    </div>
+  </div>
+  <!-- Agent 运行时 -->
+  <div class="runtime" style="left:140px; top:440px; width:760px; height:320px;">
+    <div class="runtime-title">Agent 运行时（嵌套）</div>
+    <div class="contains">嵌套框 = 包含</div>
+    <div class="shell" style="left:40px; top:30px; width:680px;">LangGraph 图 · Planner / Executor / Replanner 都是节点</div>
+
+    <div class="box" style="left:30px; top:60px; width:210px; height:110px;">
+      <h3>Planner</h3>
+      <p>一次性生成步骤列表</p>
+      <span class="chip">LLM</span><span class="chip">plan[]</span>
+      <div class="tiny">只规划，不执行</div>
+    </div>
+
+    <div class="box added" style="left:270px; top:60px; width:200px; height:110px;">
+      <span class="add-tag">状态</span>
+      <h3>计划状态</h3>
+      <p>current_step / status</p>
+      <span class="chip hot">plan[]</span><span class="chip">max_steps</span>
+    </div>
+
+    <div class="box" style="left:500px; top:60px; width:230px; height:110px;">
+      <h3>Executor</h3>
+      <p>逐步执行，内部是一个 ReAct 子循环</p>
+      <span class="chip">tool loop</span><span class="chip">每步 Observation</span>
+    </div>
+
+    <div class="box added" style="left:30px; top:195px; width:210px; height:80px;">
+      <span class="add-tag">可选</span>
+      <h3>Replanner</h3>
+      <p>失败 / 新信息时重规划</p>
+      <span class="chip hot">replan</span>
+    </div>
+
+    <div class="box" style="left:270px; top:195px; width:200px; height:80px;">
+      <h3 style="font-size:13px; margin-bottom:2px;">执行记录</h3>
+      <p>每步结果 / 状态 / 错误</p>
+    </div>
+
+    <div class="box" style="left:500px; top:195px; width:230px; height:80px;">
+      <h3 style="font-size:13px; margin-bottom:2px;">工具集</h3>
+      <p>search / fetch / save</p>
+      <span class="chip">受步骤约束</span>
+    </div>
+  </div>
+
+  <!-- 计划约束 -->
+  <div class="layer variant" style="left:110px; top:810px; width:850px; height:130px;">
+    <div class="layer-title">计划约束（新增）· 可执行、可验证、可终止</div>
+    <div class="box added" style="left:30px; top:46px; width:190px; height:64px;">
+      <span class="add-tag">拆分</span>
+      <h3>步骤可验证</h3>
+      <p>每步有完成标准</p>
+      <span class="chip">acceptance</span>
+    </div>
+    <div class="box added" style="left:250px; top:46px; width:190px; height:64px;">
+      <span class="add-tag">顺序</span>
+      <h3>依赖关系</h3>
+      <p>串行 / 并行 / 前置条件</p>
+      <span class="chip">depends_on</span>
+    </div>
+    <div class="box added" style="left:470px; top:46px; width:170px; height:64px;">
+      <span class="add-tag">容错</span>
+      <h3>失败处理</h3>
+      <p>重试 / 跳过 / 重规划</p>
+      <span class="chip">retry</span>
+    </div>
+    <div class="box added" style="left:670px; top:46px; width:150px; height:64px;">
+      <span class="add-tag">上限</span>
+      <h3>预算</h3>
+      <p>步数 / token / 时长</p>
+      <span class="chip">max_steps</span>
+    </div>
+  </div>
+
+  <!-- 结果输出层 -->
+  <div class="layer" style="left:110px; top:960px; width:950px; height:110px;">
+    <div class="layer-title">结果输出层</div>
+    <p style="position:absolute; left:32px; top:24px; margin:0; font-size:12px; color:var(--muted);">任务完成后落地：结果、状态、失败原因</p>
+    <span class="chip" style="position:absolute; left:32px; top:62px; font-size:12px; padding:4px 12px;">数据库</span>
+    <span class="chip" style="position:absolute; left:130px; top:62px; font-size:12px; padding:4px 12px;">文件</span>
+    <span class="chip" style="position:absolute; left:210px; top:62px; font-size:12px; padding:4px 12px;">Webhook</span>
+    <span class="chip" style="position:absolute; left:315px; top:62px; font-size:12px; padding:4px 12px;">消息队列</span>
+    <span class="chip" style="position:absolute; left:415px; top:62px; font-size:12px; padding:4px 12px;">日志</span>
+  </div>  <div class="note" style="left:1090px; top:132px; width:280px; height:138px;">
+    <h3>和 ReAct 的区别</h3>
+    <p>ReAct 是边想边做，每一步都重新决定。</p><p>Plan-and-Execute 先想全局，再让 Executor 逐步做；计划本身是状态。</p>
+  </div>
+  <div class="note" style="left:1090px; top:292px; width:280px; height:138px;">
+    <h3>经典实现不会自动重规划</h3>
+    <p>原始 PlanAndExecute 只按计划执行，失败就失败。</p><p>Replanner 是额外加的编排节点，用于失败或出现新信息时改计划。</p>
+  </div>
+  <div class="note" style="left:1090px; top:452px; width:280px; height:138px;">
+    <h3>计划要能验收</h3>
+    <p>每一步都要有完成标准，否则 Executor 不知道何时算做完。</p><p>max_steps 和预算必须设；否则计划过长会烧穿成本。</p>
+  </div>
+
+
+
+
+    <div class="legend">
+      <div class="item"><span class="icon-nest"></span>嵌套框 = 包含</div>
+      <div class="item"><span class="icon-line"></span>实线 = 调用</div>
+      <div class="item"><span class="icon-loop"></span>绿色回环 = 循环反馈</div>
+      <div class="item"><span class="icon-dash"></span>琥珀虚线 = 本图新增 / 变化</div>
+    </div>
+    
+  <div class="footnote">先规划能减少短视，但计划会过时；重规划不是默认能力，需要你在图里显式加节点。</div>
+
+  <svg class="arrows" viewBox="0 0 1400 1120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#1f2a3a"/>
+      </marker>
+      <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#2f7d5b"/>
+      </marker>
+      <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#b8732c"/>
+      </marker>
+
+    </defs>
+
+    <g stroke="#b8b0a1" stroke-width="1.2" stroke-dasharray="2 4">
+      <path d="M84 190 H110"/><path d="M84 430 H110"/><path d="M84 650 H110"/><path d="M84 1000 H110"/>
+    </g>
+    <path d="M250 240 V320" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="260" y="285">到点触发</text>
+    <path d="M330 357 H370" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="332" y="347">传任务</text>
+    <!-- 调用到 Planner -->
+    <path d="M475 394 V440" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="485" y="433">invoke</text>
+    <path d="M475 440 V470 H275 V500" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- Planner 写计划 -->
+    <path d="M380 555 H410" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 计划状态到 Executor -->
+    <path d="M610 555 H640" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="604" y="545">next step</text>
+    <!-- Executor 到工具 -->
+    <path d="M755 610 V635" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="765" y="628">Action</text>
+    <!-- 工具到执行记录 -->
+    <path d="M640 675 H610" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <!-- 执行记录更新计划状态 -->
+    <path d="M510 635 V610" fill="none" stroke="#2f7d5b" stroke-width="2.1" marker-end="url(#arrow-green)"/>
+    <text class="label-green" x="520" y="628">更新进度</text>
+    <!-- Executor 到 Replanner -->
+    <path d="M650 610 V730 H380 V715" fill="none" stroke="#b8732c" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+    <text class="label-amber" x="470" y="745">失败 / 偏差</text>
+    <!-- Replanner 回计划状态 -->
+    <path d="M380 675 H395 V560 H410" fill="none" stroke="#2f7d5b" stroke-width="2.1" marker-end="url(#arrow-green)"/>
+        <!-- Executor 完成到回调 -->
+    <path d="M870 540 H930 V394" fill="none" stroke="#1f2a3a" stroke-width="1.7" marker-end="url(#arrow)"/>
+    <text class="label" x="938" y="470">全部步骤完成</text>
+    <!-- 约束到计划状态 -->
+    <path d="M150 810 V620 H390 V560 H410" fill="none" stroke="#b8732c" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arrow-amber)"/>
+    <text class="label-amber" x="160" y="780">约束 / 验收标准</text>
+    <!-- 回调到输出层 -->
+    <path d="M1005 394 V960" fill="none" stroke="#1f2a3a" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <text class="label" x="1015" y="700">落库 / 通知</text>
+
+  </svg>
+</div>
+</div>
+<script>
+  (function () {
+    const wrap = document.querySelector(".viewport");
+    const stage = document.querySelector(".stage");
+    const embedded = new URLSearchParams(location.search).get("embed") === "1";
+    if (embedded) {
+      const bar = document.querySelector(".page-bar");
+      if (bar) bar.style.display = "none";
+    }
+    function fit() {
+      const min = (!embedded && window.innerWidth < 760) ? 0.62 : 0;
+      const scale = Math.min(1, Math.max(min, wrap.clientWidth / 1400));
+      stage.style.transform = "scale(" + scale + ")";
+      wrap.style.height = (1120 * scale) + "px";
+    }
+    fit();
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(wrap);
+    else addEventListener("resize", fit);
+  })();
+</script>
+</body>
+</html>
