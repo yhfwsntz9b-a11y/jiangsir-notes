@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报 2026-10-20 · 姜sir笔记</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
+.daily-report .cover { text-align: center; margin: 32px 0; }
+.daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+.daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
+.daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+.daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
+.daily-report ul, .daily-report ol { padding-left: 24px; }
+.daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
+.daily-report li strong { color: var(--text); }
+.daily-report hr { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+.daily-report table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.daily-report th { background: var(--bg); padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); }
+.daily-report td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.daily-report a { color: var(--brand); text-decoration: none; }
+.daily-report a:hover { text-decoration: underline; }
+.daily-report .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+.daily-report .meta-row { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
+.daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
+.daily-nav { text-align: center; padding: 24px; }
+.daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+.daily-nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
+}
+</style>
+</head>
+<body data-page="daily">
+
+<nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
+  <a href="../index.html">首页</a><span class="bc-chev"></span>
+  <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
+  <span>2026-10-20</span>
+</nav>
+<div class="daily-report">
+<h1>科技日报 | 2026-10-20</h1>
+<p class="subtitle">2026 年 10 月 20 日 周一 · GitHub Trending + Hacker News</p>
+<div class="meta-row">
+  <span class="pill pill-warm">HN Top 10</span>
+  <span class="pill pill-blue">GitHub Trending</span>
+</div>
+<blockquote><p>今日关键词：<strong>代码的生产关系、扩散模型、开源commons</strong>。</p></blockquote>
+<blockquote><p>今天最值得读的不是某个新模型，而是一位 Ruby 维护者的告别信：他把自己所有的 gem 归档了，理由是"这个共有的代码库正在被大公司露天开采，去喂养那些反过来污染它的机器"。同一天，PostgreSQL 因为 AI 代码审查的"质检标准变高"，在 beta 期回滚了 8 到 10 个功能。AI 写代码这件事，开始反噬代码本身。</p></blockquote>
+<div class="cover"><img src="../images/2026-10-20/cover.png" alt="封面"></div>
+<hr>
+<h2>一、GitHub Trending 今日热门 TOP 10</h2>
+<blockquote><p>数据截至 2026-10-20 上午，按"今日新增 Star"排序。</p></blockquote>
+<h3>1. MadsLorentzen/ai-job-search —— 把求职做成 Agent 流水线</h3>
+<img src="../images/2026-10-20/gh_01.png" alt="ai-job-search" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：57,302</li>
+<li>今日新增：<strong>+3,856</strong>（今日第一）</li>
+<li>地址：https://github.com/MadsLorentzen/ai-job-search</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>一个跑在本地的求职框架，基于 Claude Code：评估职位、定制简历、写求职信、准备面试。官方一句话很直接——"Fork it and own it."</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>全流程本地运行，简历和求职记录不经过第三方 SaaS；</li>
+<li>把求职拆成可检查、可修改的步骤，而不是"一键海投"；</li>
+<li>用 Claude Code 的技能机制组织任务，结构清晰。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>正在找工作、需要批量处理职位但不想牺牲定制化的人；也适合作为垂直领域 Agent 的参考实现。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>求职是"高重复 + 强个性化"的典型任务。看它在哪里保留人工确认，比看它用了什么提示词更有价值。</p>
+<hr>
+<h3>2. stablyai/orca —— 管理一支 Agent 舰队</h3>
+<img src="../images/2026-10-20/gh_02.png" alt="orca" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：98,300</li>
+<li>今日新增：<strong>+1,590</strong></li>
+<li>地址：https://github.com/stablyai/orca</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>多 Agent 工作台：可以用自己的订阅运行任意编码 Agent（如 Grok Bot、Claude Code），统一管理一组并行工作的智能体。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>多 Agent 并行，而不是一次只开一个会话；</li>
+<li>支持自带订阅，不必绑定某一家 API；</li>
+<li>把"派活、观察、收结果"做成统一界面。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>同时推进多个任务的重度用户、需要并行探索方案的小团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>多 Agent 的难点不是"开几个"，而是<strong>任务怎么分、结果怎么合、冲突怎么解</strong>。</p>
+<hr>
+<h3>3. anomalyco/opencode —— 仍在涨，也仍在被审视</h3>
+<img src="../images/2026-10-20/gh_03.png" alt="opencode" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：217,821</li>
+<li>今日新增：<strong>+1,311</strong></li>
+<li>地址：https://github.com/anomalyco/opencode</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>开源编码 Agent。两天前刚发生用户密钥泄露事件（旧系统被入侵），官方建议用户吊销并更换第三方模型密钥。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>终端里的编码 Agent，支持多种模型供应商；</li>
+<li>开源、可自托管，社区生态活跃；</li>
+<li>插件、记忆、编排等外围工具正在快速聚集。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>希望把编码 Agent 接进自己工作流、且愿意自行审查安全的团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p><strong>采用速度和信任建设，可以完全脱节</strong>。这一课比任何功能文档都值钱。</p>
+<hr>
+<h3>4. Comfy-Org/ComfyUI —— 节点式扩散模型工作台</h3>
+<img src="../images/2026-10-20/gh_04.png" alt="ComfyUI" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：139,732</li>
+<li>今日新增：<strong>+1,011</strong></li>
+<li>地址：https://github.com/Comfy-Org/ComfyUI</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>最强大的模块化扩散模型 GUI / API / 后端之一：用图（graph）和节点（nodes）组织生成流程，图片、视频、音频都能接。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>节点式编排，复杂流程可视化；</li>
+<li>前后端分离，可作为 API 后端使用；</li>
+<li>社区节点生态庞大，新模型接入快。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>需要精细控制生成流程的创作者、搭建生成式 AI 服务的团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>它是"工作流即程序"的典型样本：当模型能力被封装成节点，<strong>创意工作就变成了连线和调参</strong>。这也是一种新的编程范式。</p>
+<hr>
+<h3>5. akitaonrails/ai-memory —— 给 Agent 做长期记忆</h3>
+<img src="../images/2026-10-20/gh_05.png" alt="ai-memory" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Rust</li>
+<li>总 Star：11,356</li>
+<li>今日新增：<strong>+666</strong></li>
+<li>地址：https://github.com/akitaonrails/ai-memory</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>为编码 Agent 提供长期记忆，并支持在不同厂商的 Agent 之间交接工作——今天用 Claude Code，明天换工具，上下文不必从零开始。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>Rust 实现，强调性能与稳定性；</li>
+<li>记忆跨会话持久化；</li>
+<li>跨厂商交接，避免被单一工具锁定。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>长期项目、多人多 Agent 协作、需要在不同编码工具之间切换的团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>记忆正在从模型能力变成<strong>基础设施</strong>。谁能把记忆做成人人可以接手的格式，谁就掌握了工作流的切换成本。</p>
+<hr>
+<h3>6. HKUDS/CLI-Anything —— 让软件都能被 Agent 调用</h3>
+<img src="../images/2026-10-20/gh_06.png" alt="CLI-Anything" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：55,241</li>
+<li>今日新增：<strong>+606</strong></li>
+<li>地址：https://github.com/HKUDS/CLI-Anything</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>"Making ALL Software Agent-Native"：把各种软件包装成 Agent 可调用的 CLI 接口，并提供 CLI-Hub 作为集散地。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>用 CLI 作为万能适配层，绕开各家 API 的差异；</li>
+<li>覆盖面广，从开发工具到日常软件；</li>
+<li>权限边界相对清晰，便于审计。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>需要让 Agent 操作现有软件、又没有官方 API 的场景。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>它押注一个朴素判断：<strong>命令行是机器之间最稳定的契约</strong>。在 MCP 之外，这是一条值得关注的路线。</p>
+<hr>
+<h3>7. ruvnet/ruflo —— 多 Agent 编排框架</h3>
+<img src="../images/2026-10-20/gh_07.png" alt="ruflo" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：77,194</li>
+<li>今日新增：<strong>+564</strong></li>
+<li>地址：https://github.com/ruvnet/ruflo</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>自称 "the original agent harness"：部署多智能体集群、协调自主工作流、构建对话式 AI 系统。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>面向"群体"而非单个 Agent 的编排；</li>
+<li>支持复杂工作流与角色分工；</li>
+<li>TypeScript 生态，接入前端与 Node 服务方便。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>需要多个 Agent 分工协作的自动化流程、研究型项目。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>多 Agent 系统的成败往往取决于<strong>协调层</strong>，而不是单个 Agent 有多聪明。</p>
+<hr>
+<h3>8. Kruk2/jasna —— 视频修复工具</h3>
+<img src="../images/2026-10-20/gh_08.png" alt="jasna" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：2,896</li>
+<li>今日新增：<strong>+498</strong></li>
+<li>地址：https://github.com/Kruk2/jasna</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>一个视频修复（video restoration）工具，用于改善老视频、低质量素材的画质。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>面向真实视频素材的修复流程；</li>
+<li>Python 实现，便于二次开发和批量处理；</li>
+<li>小体量项目，代码可读性较高。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>老影像数字化、素材抢救、视频创作者的前处理环节。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>生成模型的热度之外，<strong>修复类任务</strong>往往更接近真实需求：不创造新内容，而是把已有内容救回来。</p>
+<hr>
+<h3>9. shiyu-coder/Kronos —— 金融市场的"语言模型"</h3>
+<img src="../images/2026-10-20/gh_09.png" alt="Kronos" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：41,680</li>
+<li>今日新增：<strong>+363</strong></li>
+<li>地址：https://github.com/shiyu-coder/Kronos</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>Kronos：一个面向金融市场的 foundation model，把 K 线等市场数据当作一种"语言"来建模。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>专门针对金融时间序列设计；</li>
+<li>以基础模型的方式统一多种市场任务；</li>
+<li>开源，可复现实验。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>量化研究、金融时序预测的教学与实验。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>把领域数据"语言化"是这两年的通用套路。但也要记住：<strong>金融数据的信噪比极低，回测漂亮不等于能赚钱</strong>。</p>
+<hr>
+<h3>10. headroomlabs-ai/headroom —— 给上下文"瘦身"</h3>
+<img src="../images/2026-10-20/gh_10.png" alt="headroom" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：76,252</li>
+<li>今日新增：<strong>+310</strong></li>
+<li>地址：https://github.com/headroomlabs-ai/headroom</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>在工具输出、日志、文件和 RAG 分块进入 LLM 之前先做压缩，官方称可减少约 20% 的 token。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>在"喂给模型之前"做压缩，而不是事后截断；</li>
+<li>覆盖工具输出、日志、文件、RAG 多个来源；</li>
+<li>直接打到 Agent 最贵的成本项。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>工具调用密集的 Agent、长日志分析、RAG 成本敏感的应用。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Agent 的成本大头往往不是推理，而是<strong>反复搬运的上下文</strong>。压缩层的价值，会随着 Agent 变复杂而上升。</p>
+<hr>
+<h2>二、Hacker News 今日热榜 TOP 10</h2>
+<blockquote><p>统计窗口：北京时间 2026-10-20 00:00 至发稿时，按 points 排序并去重。</p></blockquote>
+<table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+<th>讨论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://po-ru.com/2026/10/18/why-im-no-longer-updating-this-repository" target="_blank">I no longer care to work on any Ruby gems so I've archived all my repositories</a></td>
+<td>423</td>
+<td>393</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.minimax.io/blog/minimax-m31f" target="_blank">MiniMax M3.1 Flash</a></td>
+<td>375</td>
+<td>163</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://github.com/kksimp/Mac.apk" target="_blank">Android apps running native on macOS</a></td>
+<td>252</td>
+<td>128</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.inceptionlabs.ai/blog/introducing-mercury-3" target="_blank">Mercury 3: Diffusion at scale</a></td>
+<td>219</td>
+<td>85</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="http://peter.eisentraut.org/blog/2026/10/09/the-reverts-will-continue-until-morale-improves" target="_blank">The reverts will continue until morale improves</a></td>
+<td>193</td>
+<td>36</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://josie.lol/blog/linux-rtx-spark" target="_blank">Putting Linux on my RTX Spark laptop because I don't have a Microsoft account</a></td>
+<td>171</td>
+<td>74</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.reuters.com/business/europe-ev-sales-rose-70-september-almost-30-market-share-2026-10-19/" target="_blank">Europe EV sales rose 70.3% in September, 32.6% of market share</a></td>
+<td>140</td>
+<td>139</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://www.dailymail.com/news/article-16220441/Ukraine-carries-aerial-drone-evacuation-wounded-soldier-frontline.html" target="_blank">Ukraine carries out aerial drone evacuation of a wounded soldier</a></td>
+<td>120</td>
+<td>2</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://hexane.cc/" target="_blank">Germany's far-right AfD: half a million internal documents leaked</a></td>
+<td>92</td>
+<td>50</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://bsd.network/@brynet/117407035545900963" target="_blank">OpenBSD 8.0 will have inteldrm/radeondrm/amdgpu drivers from Linux 6.18</a></td>
+<td>75</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<h3>1️⃣ 一位 Ruby 维护者归档了所有项目："这个 commons 正在被露天开采"</h3>
+<p>Paul Battley 把自己维护多年的 Ruby gem 全部归档，并写了一封解释信。信里引用了 Matz 的两句话——"编程的乐趣"和"Ruby 是为人类设计的，不是为机器"——然后说：<strong>那个时代已经过去了</strong>。</p>
+<p>他的理由有三层：</p>
+<p>1. <strong>Rails 被一个人控制</strong>，而他认为此人的观点令他无法接受（社区正在尝试 fork）；</p>
+<p>2. <strong>Ruby 语言本身现在已经大量使用 LLM Agent 开发</strong>，Matz 也在把 Ruby 重新定位为"AI 时代的编程语言"，并希望 LLM 能吃到更多人类写的好代码；</p>
+<p>3. 于是问题出现了：<strong>大公司在露天开采这个共有代码库，用来喂养那些反过来污染它的机器</strong>。</p>
+<p>他写了一句很狠的话：当有人说"手写代码已经不可持续"，他们没说错——但这就像"有人往床上拉了屎之后，睡床确实变得不可持续"。</p>
+<p>这封信在 HN 拿到 423 分、393 条评论，是今天讨论最激烈的条目。支持者认为他点破了一个真实的结构性问题：<strong>开源作者付出，模型公司收割，污染再回到社区</strong>。反对者则认为这是把技术变迁道德化，且对 Matz 和 Rails 创始人的评价过于人身化。</p>
+<p><strong>值得所有人思考的部分</strong>：如果 AI 真的依赖人类代码作为养料，那么<strong>谁来维护这些养料的生产者</strong>？这不是情怀问题，是供应链问题。</p>
+<hr>
+<h3>2️⃣ MiniMax M3.1 Flash：把 Agent 推理成本打下来</h3>
+<img src="../images/2026-10-20/hn_02.png" alt="MiniMax" style="width:100%;border-radius:10px;margin:12px 0">
+<p>MiniMax 发布 M3.1 Flash，官方称这是一个"代际跃升"的 Flash 模型，重点全在 Agent 场景：</p>
+<ul>
+<li><strong>速度</strong>：输出可达 <strong>200+ tokens/s</strong>，P50 稳定在 <strong>170+ tokens/s</strong>；</li>
+<li><strong>价格</strong>：<strong>$0.15 / 百万输入</strong>、<strong>$0.60 / 百万输出</strong>、缓存输入 <strong>$0.015</strong>；</li>
+<li><strong>成本</strong>：官方称整体使用成本比上一代<strong>降低 70%</strong>；</li>
+<li><strong>能力</strong>：DeepSWE v1.1 <strong>73.7%</strong>、OSWorld V2 <strong>61.7</strong>、CyberGym <strong>82%</strong>、BankerToolBench <strong>76.2</strong>。</li>
+</ul>
+<p>还有一个有趣的细节：官方披露，一个匿名运行的早期版本 "Space Bunny 🐰" 已经处理了<strong>超过 200 万亿 token</strong>——也就是说，模型在正式发布前，已经在真实流量里跑了很久。</p>
+<p><strong>看点</strong>：Flash 类模型的竞争，已经从"便宜"转向"<strong>在便宜的前提下能不能干活</strong>"。Agent 任务链条长、调用次数多，单次成本的小差距会被放大几十倍。$0.15 的输入价，基本把"用不起"这个借口拿掉了。</p>
+<hr>
+<h3>3️⃣ Mac.apk：在 Apple Silicon 上原生跑安卓应用</h3>
+<p>一个叫 Mac.apk 的项目冲上 HN：它让 Android 应用<strong>原生运行在 Apple Silicon Mac 上</strong>，不需要模拟器。</p>
+<p>项目说明里几个关键点：</p>
+<ul>
+<li>要求 <strong>macOS 26.4（Tahoe）或更新版本</strong>；</li>
+<li>只支持 Apple Silicon，Intel Mac 不支持；</li>
+<li>安装包约 <strong>280 MB</strong>，每个应用另占空间；</li>
+<li>它"直接在 macOS 之上实现 Android 应用环境"，而不是跑一个完整的安卓虚拟机；</li>
+<li>支持 Google 账号与 Play Services。</li>
+</ul>
+<p><strong>为什么值得关注</strong>：Mac 和 Android 原本是两个封闭生态，这种"应用层兼容"绕过了官方商店和分发渠道。它可能带来便利，也可能带来<strong>权限、隐私和版权</strong>的新问题——尤其是 Google 服务如何被"兼容"，通常经不起细看。</p>
+<hr>
+<h3>4️⃣ Mercury 3：扩散模型也吃到了 Scaling Law</h3>
+<p>Inception Labs 发布 Mercury 3，核心结论只有一句：<strong>文本扩散模型可以 scale</strong>。</p>
+<p>几个硬指标：</p>
+<ul>
+<li>比 Mercury 1 <strong>大 40 倍以上</strong>，智能水平提升约 <strong>3 倍</strong>，速度保持不变；</li>
+<li>在 NVIDIA GPU 上达到 <strong>1,068 tokens/s</strong>，比 GPT-6 Luna、Claude Haiku 5.5 快 <strong>4–8 倍</strong>；</li>
+<li>上下文 <strong>100 万 token</strong>（Mercury 2.5 是 26 万）；</li>
+<li>价格：<strong>$0.20 / 百万输入</strong>、<strong>$0.70 / 百万输出</strong>，发布期五折（$0.10 / $0.35），缓存再打一折；</li>
+<li>在 50 个真实 Mind2Web 网页导航任务中完成 <strong>50%</strong>，高于 GPT-6.1-Sol，且 token 量和步数相同。</li>
+</ul>
+<p><strong>为什么这是条大新闻</strong>：过去两年，扩散语言模型一直被认为"快但不够聪明"，只能做草稿。Mercury 3 给出的证据是——<strong>自回归模型的 scaling law，在扩散模型上同样成立</strong>。</p>
+<p>如果这个结论站得住，未来的推理基础设施会出现第二条技术路线：不是"一次生成一个 token"，而是"一次并行去噪一整段"。对延迟敏感的 Agent、语音、实时翻译，影响会非常直接。</p>
+<hr>
+<h3>5️⃣ PostgreSQL 在 beta 期回滚了 8–10 个功能，原因很意外</h3>
+<p>Peter Eisentraut 写了一篇很坦诚的复盘：PostgreSQL 19 在 beta 期回滚了<strong>大约 8 到 10 个重要功能</strong>，有些还很晚。</p>
+<p>他列出的原因里，最值得注意的一条是：</p>
+<blockquote><p>这些功能大多是很久以前写的，那时 LLM 辅助代码审查还没有现在这么有用。<strong>功能写完之后，质量门槛被抬高了。</strong></p></blockquote>
+<p>换句话说，AI 审查工具变得更强，能在短时间内找出大量边界条件缺陷。于是你面前突然出现"四十份缺陷报告"——每个可能只需改三行，但处理每个都有固定开销，最后还是没时间。</p>
+<p>另外两个原因是：部分功能本身有架构缺陷；以及"Vulnpocalypse"期间资深开发者都在修安全问题，beta 期原本该做的审查和测试被压缩了。</p>
+<p>他特别强调：<strong>这不是 "vibe coding" 的锅</strong>，这些代码写在 vibe coding 出现之前。</p>
+<p><strong>这条新闻的意义</strong>：AI 不只是"帮你写代码"，它也在<strong>改变代码的验收标准</strong>。当机器审查比人更细，很多"当年合格"的代码会突然不合格。这是一场静悄悄的质量通胀。</p>
+<hr>
+<h3>6️⃣ 没有微软账号，于是他把 Linux 装进了 RTX Spark 笔记本</h3>
+<img src="../images/2026-10-20/hn_06.png" alt="Linux RTX Spark" style="width:100%;border-radius:10px;margin:12px 0">
+<p>Josephine Pfeiffer 买了一台 ASUS ProArt P16：<strong>128 GB 内存、6,144 个 CUDA 核心、2 TB SSD</strong>。这台机器的卖点是 GPU 能访问超过 100 GiB 内存，很适合本地跑大模型。</p>
+<p>问题是：官方只支持 Windows，而 Windows 的初始设置要求微软账号。她不想给，于是决定自己装 Arch Linux ARM。</p>
+<p>结果比预期好：</p>
+<ul>
+<li>Arch Linux 能跑，<strong>7-Zip 性能与 Windows 持平</strong>；</li>
+<li>操作系统和 CUDA 都报告<strong>同样的 116.0 GiB 内存池</strong>；</li>
+<li>屏幕 3840×2400 @ 120Hz 正常工作；</li>
+<li>她修了 ACPI 覆盖、framebuffer 映射、键盘驱动和音频驱动，并把补丁、构建脚本、安装器扩展全部开源。</li>
+</ul>
+<p><strong>为什么 HN 喜欢这篇</strong>：它同时踩中了三个点——<strong>本地大模型、Linux 桌面、以及"拒绝被账号体系绑架"</strong>。更重要的是，它证明了在新硬件上，"官方不支持"往往只是"还没人做"，而不是"做不到"。</p>
+<hr>
+<h3>7️⃣ 欧洲 9 月电动车销量同比增长 70.3%</h3>
+<p>据路透社报道，欧洲 9 月电动车销量同比增长 <strong>70.3%</strong>，市场份额升至约 <strong>三成</strong>（不同统计口径下为 32.6%）。</p>
+<p>这个数字的背景是：</p>
+<ul>
+<li>欧洲多国在 2026 年收紧了燃油车排放规则；</li>
+<li>中国品牌在欧洲的份额持续上升；</li>
+<li>充电基础设施和电池成本同时改善。</li>
+</ul>
+<p>HN 的 139 条讨论里，争论集中在"政策驱动还是产品力驱动"。一个比较共识的判断是：<strong>当电动车的总拥有成本低于燃油车，政策只是加速器，不是根本原因</strong>。</p>
+<hr>
+<h3>8️⃣ 乌克兰用无人机从前线撤运伤员</h3>
+<p>HN 上一条只有 2 条评论、但拿到 120 分的新闻：乌克兰方面公布了一段<strong>用 aerial drone 撤离受伤士兵</strong>的行动。</p>
+<p>这条新闻的技术看点不在无人机本身，而在<strong>它被用于"救人"而不是"攻击"</strong>：同样的飞行平台、同样的图传链路，任务载荷从炸弹换成了担架/吊舱。</p>
+<p>战争是最残酷的技术试验场。很多民用无人机的能力——抗干扰、自主返航、精确投放——都是先在战场上被验证的。这一次，至少有一个案例是用在了撤离上。</p>
+<hr>
+<h3>9️⃣ 德国 AfD 被曝泄露 50 万份内部文件</h3>
+<p>HN 上出现一条消息：德国极右翼政党 AfD 有<strong>约 50 万份内部文件</strong>被泄露。</p>
+<p>需要提醒的是：提交的域名 <code>hexane.cc</code> 当前被 Cloudflare 标记为 <strong>"Suspected Phishing"（疑似钓鱼）</strong>。也就是说，这个链接本身就可能是陷阱，<strong>不要直接点开、更不要输入任何凭据</strong>。</p>
+<p>对这类"政治泄漏"新闻，安全的做法是：</p>
+<ul>
+<li>等可信媒体（如德国本地大媒体）核实后再看；</li>
+<li>不要在来路不明的站点下载"文件包"；</li>
+<li>如果确实关心，用隔离环境打开，不要登录任何账号。</li>
+</ul>
+<hr>
+<h3>🔟 OpenBSD 8.0：把 Linux 6.18 的显卡驱动搬了过来</h3>
+<img src="../images/2026-10-20/hn_10.jpg" alt="OpenBSD" style="width:100%;border-radius:10px;margin:12px 0">
+<p>OpenBSD 8.0 即将发布，开发者 Bryan Steele 提前放出了亮点清单：</p>
+<ul>
+<li><strong>DRM 图形栈更新到 Linux 6.18.y / 6.18.53</strong>（inteldrm、radeondrm、amdgpu），新增对 <strong>Intel Arc A 系列（DG2/Alchemist）</strong> 的支持；</li>
+<li>amd64 的内核虚拟地址空间提升到 <strong>512G</strong>，可以映射 <strong>超过 4G 显存</strong>，为 Vulkan GPU 计算铺路；</li>
+<li><strong>vmm/vmd 支持最多 64 个 vCPU 的 SMP 虚拟机</strong>；</li>
+<li>新增 <strong>qwz(4)</strong> 驱动，支持 Qualcomm WCN7850（ath12k）WiFi；</li>
+<li>基础编译器切换到 <strong>Clang/LLVM 22</strong>，sparc64 也完成切换——成为唯一用现代工具链支持 sparc64 的操作系统；</li>
+<li>新增 sambat(4) 电池驱动、加速 swap 加密、httpd 自定义响应头等。</li>
+</ul>
+<p><strong>为什么值得看</strong>：OpenBSD 一向以"保守、安全"著称，但这次在显卡和虚拟化上相当激进。把 Linux 的 DRM 栈持续跟进，意味着它正在认真对待<strong>桌面可用性</strong>，而不只是服务器和防火墙。</p>
+<hr>
+<h2>三、今日趋势观察</h2>
+<h3>1. AI 正在改写"代码由谁生产、由谁验收"</h3>
+<p>今天最重要的两条新闻，其实是同一件事的两面：</p>
+<ul>
+<li>Ruby 维护者退出，因为<strong>人类写代码的公共供给正在被机器消耗</strong>；</li>
+<li>PostgreSQL 回滚功能，因为<strong>机器审查把质量门槛抬高了</strong>。</li>
+</ul>
+<p>一边是生产端的倦怠，一边是验收端的通胀。两者叠加，开源社区会进入一个微妙阶段：<strong>代码总量在涨，愿意长期维护的人却在减少</strong>。</p>
+<h3>2. 推理速度开始成为独立竞争力</h3>
+<p>MiniMax M3.1 Flash 的 200+ TPS、Mercury 3 的 1,068 TPS，指向同一个方向：Agent 时代，<strong>延迟就是产品体验</strong>。</p>
+<p>当模型能力差距缩小，用户会越来越难分辨"谁更聪明"，但一定能感知"谁更快、更便宜"。Flash 类模型和扩散模型，正在从两个方向夹击这个市场。</p>
+<h3>3. "官方不支持"正在变成一种可被绕过的状态</h3>
+<p>Mac.apk 让安卓应用跑在 Mac 上，Josephine 把 Linux 装进官方只支持 Windows 的笔记本。两个项目都在做同一件事：<strong>在厂商划定的边界之外，把硬件的可能性拿回来</strong>。</p>
+<p>这背后是用户对"账号绑定、生态锁定、计划性淘汰"的持续反感。</p>
+<h3>4. 安全提醒重新回到日常</h3>
+<p>OpenCode 密钥泄露还没过去几天，今天又出现一个被 Cloudflare 标记为钓鱼的"政治泄露"链接。<strong>信息越劲爆，越要先停三秒</strong>——这是 2026 年最基本的数字卫生。</p>
+<hr>
+<h2>数据来源</h2>
+<ul>
+<li><strong>GitHub Trending</strong>：https://github.com/trending?since=daily（2026-10-20 上午抓取）</li>
+<li><strong>Hacker News</strong>：hn.algolia.com，北京时间 2026-10-20 00:00 至发稿时，按 points 排序并去重</li>
+<li><strong>图片</strong>：GitHub OpenGraph 卡片 + 各站点 og:image</li>
+</ul>
+<blockquote><p>日报由自动化管线生成，数据以原始链接为准。</p></blockquote>
+</div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
+</body>
+</html>
