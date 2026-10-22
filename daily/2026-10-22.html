@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报 2026-10-22 · 姜sir笔记</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
+.daily-report .cover { text-align: center; margin: 32px 0; }
+.daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+.daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
+.daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+.daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
+.daily-report ul, .daily-report ol { padding-left: 24px; }
+.daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
+.daily-report li strong { color: var(--text); }
+.daily-report hr { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+.daily-report table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.daily-report th { background: var(--bg); padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); }
+.daily-report td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.daily-report a { color: var(--brand); text-decoration: none; }
+.daily-report a:hover { text-decoration: underline; }
+.daily-report .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+.daily-report .meta-row { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
+.daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
+.daily-nav { text-align: center; padding: 24px; }
+.daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+.daily-nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
+}
+</style>
+</head>
+<body data-page="daily">
+
+<nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
+  <a href="../index.html">首页</a><span class="bc-chev"></span>
+  <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
+  <span>2026-10-22</span>
+</nav>
+<div class="daily-report">
+<h1>科技日报 | 2026-10-22</h1>
+<p class="subtitle">2026 年 10 月 22 日 周三 · GitHub Trending + Hacker News</p>
+<div class="meta-row">
+  <span class="pill pill-warm">HN Top 10</span>
+  <span class="pill pill-blue">GitHub Trending</span>
+</div>
+<blockquote><p>今日关键词：<strong>PHP 安全、证书信任崩溃、CSS 未来、供应链投毒、DuckDB 2.0</strong>。</p></blockquote>
+<blockquote><p>今天 HN 被安全话题刷屏：PHP 一次性修补两个关键 RCE，eMudhra 的 CA 私钥因为生成缺陷被毫秒级破解，PyPI 上的 LiteLLM 被植入后门。三条新闻共同指向一件事——基础设施的信任链正在连续遭受压力测试。</p></blockquote>
+<div class="cover"><img src="../images/2026-10-22/cover.png" alt="封面"></div>
+<hr>
+<h2>一、GitHub Trending 今日热门 TOP 10</h2>
+<blockquote><p>数据截至 2026-10-22 上午，按"今日新增 Star"排序。</p></blockquote>
+<h3>1. cloudflare/security-audit-skill —— 让 Agent 做安全审计</h3>
+<img src="../images/2026-10-22/gh_01.png" alt="security-audit-skill" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：JavaScript</li>
+<li>总 Star：36,471</li>
+<li>今日新增：<strong>+2,012</strong></li>
+<li>地址：https://github.com/cloudflare/security-audit-skill</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>Cloudflare 开源的 coding-agent skill，用于多阶段安全审计，输出独立可验证、机器可读的安全发现。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>多阶段审计流程，强调"独立验证"；</li>
+<li>输出结构化发现，而不是泛泛的文本建议；</li>
+<li>直接面向生产代码库设计。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>需要在 CI/CD 或本地引入自动化安全审查的团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>安全审计是 Agent 的高风险场景：漏报会留下隐患，误报会浪费人力。这个项目的价值在于<strong>把审计过程结构化</strong>，而不是把安全责任完全交给黑盒模型。</p>
+<hr>
+<h3>2. DietrichGebert/ponytail —— 让 AI 像"最懒的高级工程师"一样写代码</h3>
+<img src="../images/2026-10-22/gh_02.png" alt="ponytail" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：JavaScript</li>
+<li>总 Star：171,628</li>
+<li>今日新增：<strong>+2,079</strong></li>
+<li>地址：https://github.com/DietrichGebert/ponytail</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>一个让 AI Agent "像最懒的高级工程师一样思考"的框架：不炫技、不堆砌，优先不写不必要的代码。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>通过 Prompt 和工具约束引导 Agent 做最小改动；</li>
+<li>强调"最好的代码是你没写的代码"；</li>
+<li>适合已经厌恶"过度工程"的团队。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>代码库膨胀、Agent 改动频频引入新依赖的项目。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Agent 生成代码的一个隐藏风险是"积极贡献"：它为了显得有用，会不断加东西。Ponytail 试图反向约束——<strong>少即是多</strong>。</p>
+<hr>
+<h3>3. stablyai/orca —— 管理一支 Agent 舰队</h3>
+<img src="../images/2026-10-22/gh_03.png" alt="orca" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：101,246</li>
+<li>今日新增：<strong>+1,541</strong></li>
+<li>地址：https://github.com/stablyai/orca</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>多 Agent 工作台：可以用自己的订阅运行任意编码 Agent（如 Grok Bot、Claude Code），统一管理一组并行工作的智能体。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>多 Agent 并行，而不是一次只开一个会话；</li>
+<li>支持自带订阅，不必绑定某一家 API；</li>
+<li>把"派活、观察、收结果"做成统一界面。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>同时推进多个任务的重度用户、需要并行探索方案的小团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>当 Agent 从"一个助手"变成"一组 worker"，你需要的是一个调度台，而不是更大的聊天窗口。</p>
+<hr>
+<h3>4. Graphify-Labs/graphify —— 把整个代码库变成知识图谱</h3>
+<img src="../images/2026-10-22/gh_04.png" alt="graphify" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：131,633</li>
+<li>今日新增：<strong>+1,433</strong></li>
+<li>地址：https://github.com/Graphify-Labs/graphify</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>把任意代码库、文档、SQL schema、配置文件、PDF 转成可查询的知识图谱，并作为 skill 接入 Claude Code、Cursor、Codex、Gemini CLI。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>不是简单 RAG，而是结构化的跨源关系抽取；</li>
+<li>支持代码、文档、数据库 schema 的统一建模；</li>
+<li>以 skill 形式嵌入现有编码 Agent。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>大型遗留系统、跨多个仓库和文档的复杂项目。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Agent 要改好代码，先得"看懂"代码。Graphify 的赌注是：<strong>结构化的关系图比扁平的向量检索更接近人类工程师的理解方式</strong>。</p>
+<hr>
+<h3>5. Comfy-Org/ComfyUI —— 节点式扩散模型工作台</h3>
+<img src="../images/2026-10-22/gh_05.png" alt="ComfyUI" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：141,515</li>
+<li>今日新增：<strong>+939</strong></li>
+<li>地址：https://github.com/Comfy-Org/ComfyUI</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>最强大的模块化扩散模型 GUI / API / 后端之一：用图和节点组织生成流程，图片、视频、音频都能接。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>节点式编排，复杂流程可视化；</li>
+<li>前后端分离，可作为 API 后端使用；</li>
+<li>社区节点生态庞大，新模型接入快。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>需要精细控制生成流程的创作者、搭建生成式 AI 服务的团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>它是"工作流即程序"的典型样本：当模型能力被封装成节点，创意工作就变成了连线和调参。这也是一种新的编程范式。</p>
+<hr>
+<h3>6. supabase/supabase —— Postgres 开发平台</h3>
+<img src="../images/2026-10-22/gh_06.png" alt="supabase" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：113,000</li>
+<li>今日新增：<strong>+504</strong></li>
+<li>地址：https://github.com/supabase/supabase</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>一个围绕 PostgreSQL 构建的开发平台，提供数据库、认证、实时订阅、存储、边缘函数等后端能力。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>开源 Firebase 替代方案，核心基于 Postgres；</li>
+<li>支持行级安全、实时订阅、自动生成的 REST/GraphQL API；</li>
+<li>可自托管，也可使用托管服务。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>不想被云厂商后端锁定的中小团队、需要 Postgres 但又不想自己搭全栈后端的开发者。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Supabase 的长红说明：<strong>开发者对"开源 + Postgres + 不绑定"的需求一直很稳</strong>。它不是在追逐新范式，而是在把成熟数据库的能力产品化。</p>
+<hr>
+<h3>7. headroomlabs-ai/headroom —— 给上下文"瘦身"</h3>
+<img src="../images/2026-10-22/gh_07.png" alt="headroom" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：77,252</li>
+<li>今日新增：<strong>+474</strong></li>
+<li>地址：https://github.com/headroomlabs-ai/headroom</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>在工具输出、日志、文件和 RAG 分块进入 LLM 之前先做压缩，官方称可减少约 20% 的 token。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>在"喂给模型之前"做压缩，而不是事后截断；</li>
+<li>覆盖工具输出、日志、文件、RAG 多个来源；</li>
+<li>直接打到 Agent 最贵的成本项。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>工具调用密集的 Agent、长日志分析、RAG 成本敏感的应用。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Agent 的成本大头往往不是推理，而是<strong>反复搬运的上下文</strong>。压缩层的价值，会随着 Agent 变复杂而上升。</p>
+<hr>
+<h3>8. shiyu-coder/Kronos —— 金融市场的"语言模型"</h3>
+<img src="../images/2026-10-22/gh_08.png" alt="Kronos" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：42,825</li>
+<li>今日新增：<strong>+575</strong></li>
+<li>地址：https://github.com/shiyu-coder/Kronos</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>Kronos：一个面向金融市场的 foundation model，把 K 线等市场数据当作一种"语言"来建模。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>专门针对金融时间序列设计；</li>
+<li>以基础模型的方式统一多种市场任务；</li>
+<li>开源，可复现实验。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>量化研究、金融时序预测的教学与实验。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>把领域数据"语言化"是这两年的通用套路。但也要记住：<strong>金融数据的信噪比极低，回测漂亮不等于能赚钱</strong>。</p>
+<hr>
+<h3>9. vllm-project/vllm —— LLM 推理与服务引擎</h3>
+<img src="../images/2026-10-22/gh_09.png" alt="vllm" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：94,863</li>
+<li>今日新增：<strong>+441</strong></li>
+<li>地址：https://github.com/vllm-project/vllm</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>一个高吞吐、内存高效的 LLM 推理和服务引擎，被广泛应用于生产环境的模型部署。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>PagedAttention 减少 KV Cache 内存浪费；</li>
+<li>支持连续批处理、张量并行、流水线并行；</li>
+<li>与 Hugging Face、OpenAI API 兼容。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>需要自建 LLM 推理服务的团队，尤其是高并发、低延迟场景。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>vLLM 几乎是开源 LLM 部署的事实标准之一。理解它，比理解某个新模型更能帮你把模型真正跑起来。</p>
+<hr>
+<h3>10. strelov1/freehire —— 求职者的开源搜索引擎</h3>
+<img src="../images/2026-10-22/gh_10.png" alt="freehire" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Go</li>
+<li>总 Star：2,382</li>
+<li>今日新增：<strong>+360</strong></li>
+<li>地址：https://github.com/strelov1/freehire</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>一个面向求职者的开源职位搜索引擎，用 Go 写成。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>开源、可自托管，数据可控；</li>
+<li>轻量、快速，适合作为垂直搜索的原型；</li>
+<li>与前几周热门的 ai-job-search 不同，它更偏向"搜索"而非"Agent 代理"。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>想自己掌控求职信息源、不愿意被招聘平台算法支配的开发者。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>求职是高频需求，但大多数解决方案要么太重（企业 ATS），要么太黑盒（招聘 App）。freehire 代表另一种思路：<strong>把信息抓取和筛选权还给用户</strong>。</p>
+<hr>
+<h2>二、Hacker News 今日热榜 TOP 10</h2>
+<blockquote><p>统计窗口：北京时间 2026-10-22 00:00 至发稿时，按 points 排序并去重。</p></blockquote>
+<table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+<th>讨论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/" target="_blank">PHP security release: 8.2.35, 8.3.36, 8.4.27 and 8.5.12</a></td>
+<td>963</td>
+<td>532</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/" target="_blank">Eight Bits of Trust: eMudhra's CA keys cracked in milliseconds</a></td>
+<td>834</td>
+<td>400</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://unric.org/en/unep-emissions-gap-report-2026-1-5-degree-overshoot/" target="_blank">The 1.5°C goal of the Paris Agreement is no longer viable</a></td>
+<td>612</td>
+<td>746</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.joshwcomeau.com/css/interop-2027/" target="_blank">The Future of CSS</a></td>
+<td>592</td>
+<td>261</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.theverge.com/games/1015647/ea-is-shutting-down-bioware" target="_blank">EA is shutting down BioWare</a></td>
+<td>501</td>
+<td>298</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.techdirt.com/2026/10/20/accident-or-not-the-no-kings-takedown-is-why-you-shouldnt-rent-your-megaphone-from-zuck/" target="_blank">The No Kings Takedown Is Why You Shouldn't Rent Your Megaphone from Zuck</a></td>
+<td>490</td>
+<td>474</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.wiz.io/blog/php2shell-php-rce" target="_blank">PHP2Shell: AI uncovers critical RCE in PHP</a></td>
+<td>432</td>
+<td>172</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/" target="_blank">Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor</a></td>
+<td>423</td>
+<td>131</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/" target="_blank">Muse exposes users' personal and business secrets when they share conversations</a></td>
+<td>380</td>
+<td>163</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://duckdb.org/2026/10/21/announcing-duckdb-200" target="_blank">DuckDB 2.0.0 LTS “Cinnamon Teal”</a></td>
+<td>357</td>
+<td>43</td>
+</tr>
+</tbody></table>
+<h3>1️⃣ PHP 一天连发四个安全版本，AI 还发现了一个更老的 RCE</h3>
+<img src="../images/2026-10-22/hn_01.png" alt="PHP" style="width:100%;border-radius:10px;margin:12px 0">
+<p>PHP 基金会一次性发布了 <strong>8.5.12、8.4.27、8.3.36、8.2.35</strong> 四个安全版本，修复了两个关键 RCE 漏洞：</p>
+<ul>
+<li><strong>CVE-2026-109618</strong>：OOM 损坏导致的 RCE；</li>
+<li><strong>CVE-2026-109619</strong>：全局状态过期导致的 RCE。</li>
+</ul>
+<p>基金会同时承认，这次披露过程曾因信息泄露而被打乱，并宣布将加强安全团队、引入 AI 工具、通过 Calif 和 OpenAI 进行审计。</p>
+<p>同一天，Wiz 发布 <strong>PHP2Shell</strong> 研究：他们用 AI 发现了一个存在于 PHP 核心引擎中<strong>超过十年</strong>的未认证 RCE。漏洞根源是致命错误处理中的 use-after-free 和类型混淆，影响版本从 5.4 开始。Wiz 的核心结论是：这类长期存在的架构弱点，正在因为 AI 降低漏洞利用门槛，从"理论上危险"变成"实际上大规模可利用"。</p>
+<p><strong>这意味着两件事</strong>：PHP 生态必须加速现代化安全流程；同时，AI 正在成为攻击者和防御者的共同加速器。</p>
+<hr>
+<h3>2️⃣ eMudhra 的 CA 私钥被毫秒级破解：问题比昨天更严重</h3>
+<img src="../images/2026-10-22/hn_02.png" alt="eMudhra" style="width:100%;border-radius:10px;margin:12px 0">
+<p>昨天我们报道了 eMudhra 中间 CA 私钥泄露。今天 Scott Helme 的分析让事件进一步升级：这些 P-384 私钥不是被"窃取"，而是被<strong>直接猜出来</strong>——因为它们的私钥值是单字节数字（比如 4、56），可以在毫秒级暴力破解。</p>
+<p>也就是说，这不是一次高级入侵，而是一次<strong>生成层面的低级错误</strong>。更麻烦的是：</p>
+<ul>
+<li>主流浏览器可以通过 CRL 和 Certificate Transparency 拦截；</li>
+<li>但 curl、Python、IoT 设备、旧系统等非浏览器客户端，因为 CA 包更新慢、不做吊销检查，仍然可能信任伪造证书；</li>
+<li>某些旧系统直到 2039 年都可能继续信任这些证书。</li>
+</ul>
+<p><strong>结论</strong>：Web PKI 的信任链再次证明，它的安全取决于最弱的一环。而这一次，弱环是"私钥生成器"。</p>
+<hr>
+<h3>3️⃣ 巴黎协定 1.5°C 目标已不可行</h3>
+<p>联合国环境规划署（UNEP）发布 2026 年排放差距报告，正式宣布：</p>
+<blockquote><p>"以'无或有限过冲'方式弥合 1.5°C 排放差距的机会已经失去。"</p></blockquote>
+<p>新目标变成：先把升温控制在 2°C 以下，再在本世纪末回到 1.5°C。需要到 2030 年减排 18%（相对 2025），到 2040 年减排 69%。但按当前各国的计划，到 2030 年只能减排 5–8%。</p>
+<p>对技术行业来说，这条新闻的直接影响是：<strong>碳核算、绿色计算、能效优化将从"社会责任"变成"硬约束"</strong>。数据中心、AI 训练、芯片制造的能耗，未来会越来越容易被监管和资本市场盯上。</p>
+<hr>
+<h3>4️⃣ CSS 的未来：Interop 2027 想让你少写点 JavaScript</h3>
+<img src="../images/2026-10-22/hn_04.png" alt="Future CSS" style="width:100%;border-radius:10px;margin:12px 0">
+<p>Josh Comeau 梳理了 <strong>Interop 2027</strong> 正在推进的 CSS 新特性，目标是让浏览器厂商协同实现，最终减少开发者对 JavaScript 的依赖。重点包括：</p>
+<ul>
+<li><code>corner-shape</code> / <code>border-shape</code>：更灵活的圆角和形状；</li>
+<li><code>anchor()</code> 和 anchored container queries：原生锚点定位；</li>
+<li><code>inherit()</code>：更可控的继承；</li>
+<li>scroll-triggered animations、scroll state container queries：滚动驱动动画；</li>
+<li><code>interpolate-size</code>、<code>gap decorations</code>、<code>reading-flow</code> 等。</li>
+</ul>
+<p>如果这批特性真的跨浏览器落地，很多现在要靠 JS 或复杂 hack 实现的交互，会变成几行 CSS。</p>
+<hr>
+<h3>5️⃣ EA 正式关闭 BioWare</h3>
+<img src="../images/2026-10-22/hn_05.jpg" alt="EA BioWare" style="width:100%;border-radius:10px;margin:12px 0">
+<p>EA 宣布关闭 BioWare，裁员约 400 人，其中 50 人是工作室员工。正在开发的下一部《质量效应》被取消。</p>
+<p>EA 给出的解释是"战略转型"，未来会把资源投向 Respawn、DICE、EA Sports、The Sims 和漫威/星战 IP。BioWare 剩下的员工将并入其他团队。</p>
+<p>对玩家来说，这意味着一个时代的结束：《博德之门》《无冬之夜》《质量效应》《龙腾世纪》这些作品背后的工作室，最终也没逃过被母公司拆散的命运。</p>
+<hr>
+<h3>6️⃣ Meta 下架 No Kings 账号：平台即扩音器</h3>
+<p>上周末，"No Kings" 抗议活动的 Instagram 账号被 Meta 短暂下架，引发轩然大波。Techdirt 的评论标题很直接：<strong>不要从 Zuckerberg 那里租扩音器</strong>。</p>
+<p>这件事的核心不是某一方的政治立场，而是平台权力问题：当绝大多数公共讨论发生在少数几家私营平台上，这些平台随时可以决定谁有发言权——无论理由是"误操作"还是"违反政策"。</p>
+<p>对组织者和普通用户来说，这是一个持续 reminder：<strong>私有平台不是公共广场，账号可以随时被收回</strong>。</p>
+<hr>
+<h3>7️⃣ PyPI 上的 LiteLLM 被植入后门</h3>
+<img src="../images/2026-10-22/hn_08.jpg" alt="LiteLLM" style="width:100%;border-radius:10px;margin:12px 0">
+<p>SafeDep 发现 <strong>LiteLLM 1.107.0</strong> 的 PyPI 包被投毒。攻击者在安装时植入：</p>
+<ul>
+<li><code>cook.py</code> 和 <code>sitecustomize.py</code>，每次 Python 启动时运行；</li>
+<li>窃取 SSH 密钥、云凭证、AI token；</li>
+<li>数据发送到 <code>www.litellm[.]dev</code>（注意是伪装域名）；</li>
+<li>后台守护进程每小时下载远程代码执行。</li>
+</ul>
+<p>更可疑的是，这个 PyPI 版本与任何公开 commit 都对不上，说明发布管道本身可能被入侵。</p>
+<p><strong>对 AI 开发者的提醒</strong>：LLM 工具链现在成了高价值目标，任何中间层（LiteLLM、LangChain、向量库）一旦被攻破，都可能成为窃取 API key 和训练数据的入口。</p>
+<hr>
+<h3>8️⃣ Meta Muse：分享对话时泄露他人秘密</h3>
+<p>Meta 的 AI 产品 Muse 的"分享对话"功能被发现严重隐私问题：研究人员找到了 <strong>6800 多个可公开访问的分享链接</strong>，这些链接不仅暴露了对话内容，还泄露了用户的个人和商业秘密。</p>
+<p>Meta 已暂停该分享功能并展开调查。</p>
+<p>这件事和 LiteLLM 后门一起，构成了今天 AI 安全的主旋律：<strong>AI 产品的新功能上线速度，正在超过安全审查的深度</strong>。分享、代理、工具调用——每一个新能力，都是新的攻击面。</p>
+<hr>
+<h3>9️⃣ DuckDB 2.0.0 LTS 发布</h3>
+<img src="../images/2026-10-22/hn_10.png" alt="DuckDB" style="width:100%;border-radius:10px;margin:12px 0">
+<p>DuckDB 发布 2.0.0 LTS，代号 "Cinnamon Teal"，承诺支持到 2027 年 10 月。核心更新包括：</p>
+<ul>
+<li>异步 I/O；</li>
+<li>原生 <code>VARIANT</code> 类型；</li>
+<li>SQL 触发器；</li>
+<li>可扩展的 PEG 解析器；</li>
+<li>server 模式（Quack 协议）；</li>
+<li>CLI agent 模式，方便编码助手调用。</li>
+</ul>
+<p>DuckDB 正在从"单机分析数据库"向"嵌入式/边缘/Agent 友好的数据引擎"演进。对数据工程来说，它越来越像一个"可以到处跑的 Postgres 分析版"。</p>
+<hr>
+<h2>三、今日趋势观察</h2>
+<h3>1. 基础设施的信任链正在连续遭受压力测试</h3>
+<p>今天三条新闻——PHP 漏洞、eMudhra CA 私钥、LiteLLM PyPI 后门——分别对应代码、证书、包管理三个基础设施层。它们共同说明：<strong>攻击者正在向上游移动</strong>，因为攻破一次基础设施，影响的是成千上万个下游系统。</p>
+<h3>2. AI 同时成为攻击工具和防御工具</h3>
+<p>Wiz 用 AI 发现 PHP 十年老漏洞；PHP 基金会要用 AI 加强审计；Cloudflare 开源 security-audit-skill 让 Agent 做安全审查。AI 在安全领域的角色正在从"辅助"变成"主力"。</p>
+<h3>3. 平台权力与数据隐私再次成为焦点</h3>
+<p>Meta 下架 No Kings 账号、Muse 分享链接泄露隐私——两件事都在提醒：当数据和表达都托管在私营平台，用户控制权非常脆弱。</p>
+<h3>4. 开源项目的可持续性仍然脆弱</h3>
+<p>BioWare 关闭、PHP 基金会呼吁增加安全投入——大型机构可以裁撤或重组，但依赖这些项目的生态不会立刻消失。如何为关键开源基础设施提供可持续的维护资源，是一个长期问题。</p>
+<hr>
+<h2>数据来源</h2>
+<ul>
+<li><strong>GitHub Trending</strong>：https://github.com/trending?since=daily（2026-10-22 上午抓取）</li>
+<li><strong>Hacker News</strong>：hn.algolia.com，北京时间 2026-10-22 00:00 至发稿时，按 points 排序并去重</li>
+<li><strong>图片</strong>：GitHub OpenGraph 卡片 + 各站点 og:image</li>
+</ul>
+<blockquote><p>日报由自动化管线生成，数据以原始链接为准。</p></blockquote>
+</div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
+</body>
+</html>
