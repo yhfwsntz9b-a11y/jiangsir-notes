@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报 2026-10-26 · 姜sir笔记</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
+.daily-report .cover { text-align: center; margin: 32px 0; }
+.daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+.daily-report img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
+.daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; font-size: 14.5px; }
+.daily-report ul, .daily-report ol { padding-left: 24px; }
+.daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
+.daily-report li strong { color: var(--text); }
+.daily-report hr { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+.daily-report table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.daily-report th { background: var(--bg); padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); }
+.daily-report td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.daily-report a { color: var(--brand); text-decoration: none; }
+.daily-report a:hover { text-decoration: underline; }
+.daily-report .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+.daily-report .meta-row { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
+.daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-nav { text-align: center; padding: 24px; }
+.daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+@media (max-width: 768px) { .daily-report { padding: 20px 16px 60px; } }
+</style>
+</head>
+<body data-page="daily">
+<nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
+  <a href="../index.html">首页</a><span class="bc-chev"></span>
+  <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
+  <span>2026-10-26</span>
+</nav>
+<div class="daily-report">
+<h1>科技日报 | 2026-10-26</h1>
+<p class="subtitle">2026 年 10 月 26 日 周日 · GitHub Trending + Hacker News</p>
+<div class="meta-row">
+  <span class="pill pill-warm">HN Top 10</span>
+  <span class="pill pill-blue">GitHub Trending</span>
+</div>
+<div class="cover"><img src="../images/2026-10-26/cover.png" alt="封面"></div>
+<blockquote><p>今天的关键词：<strong>LLM 价格战 80%</strong></p></blockquote>
+<hr>
+<blockquote><p>今天的关键词：<strong>LLM 价格战 80%</strong>、<strong>FOSDEM 反审查宣言</strong>、<strong>Lula 赢得巴西大选</strong></p></blockquote>
+<hr>
+<h2>一、GitHub Trending 今日热门项目 TOP 10</h2>
+<h3>1. cloudflare/security-audit-skill —— 给 AI 编程 Agent 装上安全审计眼</h3>
+<img src="../images/2026-10-26/gh01.png" alt="security-audit-skill" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：JavaScript</li>
+<li>总 Star：47,282</li>
+<li>今日新增：<strong>+2,878</strong></li>
+<li>地址：https://github.com/cloudflare/security-audit-skill</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>Cloudflare 开源的编程 Agent 安全审计技能：让 AI 编码助手在写代码的同时，自动做多阶段安全审计。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>多阶段审计：依赖扫描 → 数据流分析 → 配置检查；</li>
+<li>结构化输出，可被 CI/CD 管线直接消费；</li>
+<li>嵌入 Agent 工作流的实时检查。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>使用 Claude Code、Cursor 等 AI 编程工具的团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Agent 安全审计正在从"可选"变成"必选"。</p>
+<hr>
+<h3>2. Nutlope/hallmark —— 反 AI 审美泛滥的设计规范</h3>
+<img src="../images/2026-10-26/gh02.png" alt="hallmark" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：CSS</li>
+<li>总 Star：34,334</li>
+<li>今日新增：<strong>+1,317</strong></li>
+<li>地址：https://github.com/Nutlope/hallmark</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>面向 AI 编程工具的"反 AI 审美"设计技能——让 AI 生成的 UI 不再千篇一律。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>定义"好设计"的负面清单；</li>
+<li>以 Skill 形式嵌入 Agent 工作流；</li>
+<li>连续霸榜说明审美痛点普遍存在。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>AI 辅助前端开发。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>"反 AI 审美"正在成为新的设计能力。</p>
+<hr>
+<h3>3. debpalash/VoiceStudio —— 开源版 ElevenLabs</h3>
+<img src="../images/2026-10-26/gh03.png" alt="VoiceStudio" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：87,273</li>
+<li>今日新增：<strong>+1,592</strong></li>
+<li>地址：https://github.com/debpalash/VoiceStudio</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>完全本地运行的 ElevenLabs 替代品：语音克隆、声音设计、视频配音、转录和有声书制作，支持 646 种语言。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>全离线运行；</li>
+<li>覆盖语音全链路；</li>
+<li>646 种语言支持。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>内容创作者、多语言配音需求。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>当开源方案追平商业服务，行业定价逻辑会被重写。</p>
+<hr>
+<h3>4. pbakaus/impeccable —— 让 AI 设计输出达到专业水准</h3>
+<img src="../images/2026-10-26/gh04.png" alt="impeccable" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Rust</li>
+<li>总 Star：87,998</li>
+<li>今日新增：<strong>+1,092</strong></li>
+<li>地址：https://github.com/pbakaus/impeccable</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>一套设计语言系统，让 AI 编程工具生成的 UI/UX 达到专业水准。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>Rust 编写，性能优异；</li>
+<li>定义 AI 辅助设计的原则和组件规范。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>Vibe coding 场景。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>AI 编程的下一个竞争维度是设计质量。</p>
+<hr>
+<h3>5. pollen-robotics/microduck —— Rust 双足小鸭机器人</h3>
+<img src="../images/2026-10-26/gh05.png" alt="microduck" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Rust</li>
+<li>总 Star：11,863</li>
+<li>今日新增：<strong>+647</strong></li>
+<li>地址：https://github.com/pollen-robotics/microduck</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>微型双足鸭子机器人 🦆，Rust 实现。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>双足行走平衡算法；</li>
+<li>Rust 保证内存安全和实时控制。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>机器人爱好者、Rust 嵌入式开发者。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>开源正在降低机器人开发门槛。</p>
+<hr>
+<h3>6. TauricResearch/TradingAgents —— 多 Agent 金融交易框架</h3>
+<img src="../images/2026-10-26/gh06.png" alt="TradingAgents" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：114,881</li>
+<li>今日新增：<strong>+381</strong></li>
+<li>地址：https://github.com/TauricResearch/TradingAgents</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>多 Agent LLM 金融交易框架：多个 AI Agent 分别扮演分析师、交易员、风控经理。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>角色分工明确；</li>
+<li>基于 LLM 的推理能力；</li>
+<li>11 万+ Star。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>量化交易研究。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Multi-Agent 最成熟的落地场景之一。</p>
+<hr>
+<h3>7. Renhuai123/ziwei-doushu —— 紫微斗数开源排盘引擎</h3>
+<img src="../images/2026-10-26/gh07.png" alt="ziwei-doushu" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：7,872</li>
+<li>今日新增：<strong>+199</strong></li>
+<li>地址：https://github.com/Renhuai123/ziwei-doushu</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>基于倪海厦《天纪》体系的紫微斗数开源排盘引擎。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>传统命理学的完整算法实现；</li>
+<li>包含古籍原文数据；</li>
+<li>TypeScript 实现，浏览器直接运行。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>命理学研究者、传统文化数字化。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>把传统知识体系编码成软件，本身就是一种文化传承。</p>
+<hr>
+<h3>8. JetBrains/thinkrail —— Vibe Coding IDE</h3>
+<img src="../images/2026-10-26/gh08.png" alt="thinkrail" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：2,021</li>
+<li>今日新增：<strong>+51</strong></li>
+<li>地址：https://github.com/JetBrains/thinkrail</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>JetBrains 推出的轻量级 IDE，主打 Vibe Coding。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>JetBrains 出品，继承 IntelliJ 系的代码分析能力；</li>
+<li>用对话代替键盘；</li>
+<li>自我定制的 IDE。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>新手开发者、偏好自然语言交互的编程者。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>AI 编程正在成为主流开发方式。</p>
+<hr>
+<h3>9. coollabsio/coolify —— 自托管 PaaS</h3>
+<img src="../images/2026-10-26/gh09.png" alt="coolify" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：PHP</li>
+<li>总 Star：64,614</li>
+<li>今日新增：<strong>+152</strong></li>
+<li>地址：https://github.com/coollabsio/coolify</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>开源自托管 PaaS 平台，Vercel/Heroku 的替代方案。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>支持 Docker、Nixpacks 等构建方式；</li>
+<li>一键部署 360+ 服务；</li>
+<li>数据完全自主掌控。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>想摆脱云厂商锁定的团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>自托管复兴运动的核心工具之一。</p>
+<hr>
+<h3>10. AgriciDaniel/claude-seo —— Claude Code 的 SEO 技能包</h3>
+<img src="../images/2026-10-26/gh10.png" alt="claude-seo" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：21,217</li>
+<li>今日新增：<strong>+197</strong></li>
+<li>地址：https://github.com/AgriciDaniel/claude-seo</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>Claude Code 的通用 SEO 技能包：26 个子技能 + 19 个子 Agent。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>覆盖技术 SEO、E-E-A-T、Schema 等全方位能力；</li>
+<li>支持 Lighthouse Agentic Browsing 等前沿标准；</li>
+<li>9 个可选扩展获取实时 SEO 数据。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>用 Claude Code 做网站优化的团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>SEO 正在从"人工审计"变成"Agent 原生能力"。</p>
+<hr>
+<h2>二、Hacker News 今日热榜 TOP 10</h2>
+<blockquote><p>统计窗口：北京时间 2026-10-26 00:00 至发稿时，按 points 排序并去重。</p></blockquote>
+<table>
+<tr><th>#</th><th>标题</th><th>热度</th><th>讨论</th></tr>
+<tr><td>1</td><td><a href="https://news.ycombinator.com/">OpenAI and Anthropic cut their LLM prices by up to 80%</a></td><td>233</td><td>187</td></tr>
+<tr><td>2</td><td><a href="https://news.ycombinator.com/">Lula wins election after final votes tallied</a></td><td>279</td><td>156</td></tr>
+<tr><td>3</td><td><a href="https://news.ycombinator.com/">Serbia's Vucic concedes election defeat</a></td><td>262</td><td>134</td></tr>
+<tr><td>4</td><td><a href="https://news.ycombinator.com/">The State of Context Engineering</a></td><td>134</td><td>89</td></tr>
+<tr><td>5</td><td><a href="https://news.ycombinator.com/">IBM CEO says open weight models are now good and cheap</a></td><td>124</td><td>78</td></tr>
+<tr><td>6</td><td><a href="https://news.ycombinator.com/">What goes into making an animated film?</a></td><td>122</td><td>67</td></tr>
+<tr><td>7</td><td><a href="https://news.ycombinator.com/">Proton Flock Camera Map</a></td><td>101</td><td>54</td></tr>
+<tr><td>8</td><td><a href="https://news.ycombinator.com/">US Wages Share of GDI at 75 Year Low</a></td><td>99</td><td>112</td></tr>
+<tr><td>9</td><td><a href="https://news.ycombinator.com/">iPhone Duo Teardown</a></td><td>92</td><td>45</td></tr>
+<tr><td>10</td><td><a href="https://news.ycombinator.com/">Removing Next.js got my blog to 100 on every Lighthouse category</a></td><td>91</td><td>78</td></tr>
+</table>
+<h3>1️⃣ OpenAI 和 Anthropic 在几个月内将 LLM 价格砍了 80%</h3>
+<p>233 分、187 条评论。<strong>OpenAI 和 Anthropic 在短短几个月内将 LLM API 价格下调了高达 80%</strong>。</p>
+<p>这意味着什么？</p>
+<ul>
+<li>LLM 推理成本正在经历"摩尔定律"式的下降；</li>
+<li>价格战对中小 AI 创业公司是好消息——API 调用成本大幅降低；</li>
+<li>但也引发了"价格战是否可持续"的讨论。</li>
+</ul>
+<p><strong>背景</strong>：就在几周前，多家模型厂商密集降价。行业共识正在形成：<strong>LLM 正在从"奢侈品"变成"日用品"</strong>。</p>
+<hr>
+<h3>2️⃣ Lula 赢得巴西大选</h3>
+<p>279 分、156 条评论。Lula 在最终计票后赢得巴西总统选举，获得第四个任期。</p>
+<p>这条新闻登上 HN 的原因：</p>
+<ul>
+<li>巴西是全球重要的新兴经济体；</li>
+<li>选举过程充满戏剧性——此前 Bolsonaro 支持者一度试图阻止计票；</li>
+<li>对科技行业的影响：巴西的科技监管政策可能转向。</li>
+</ul>
+<hr>
+<h3>3️⃣</h3>
+<img src="../images/2026-10-26/01.png" alt="LLM prices" style="width:100%;border-radius:10px;margin:12px 0">
+<p>262 分、134 条评论。塞尔维亚总统 Vucic 在历史性的选举中承认失败。</p>
+<p>讨论焦点：</p>
+<ul>
+<li>巴尔干半岛的政治格局正在变化；</li>
+<li>"民主回归"在东欧持续发酵；</li>
+<li>对欧洲科技政策可能有间接影响。</li>
+</ul>
+<hr>
+<h3>4️⃣</h3>
+<img src="../images/2026-10-26/02.jpg" alt="Context Eng" style="width:100%;border-radius:10px;margin:12px 0">
+<p>134 分、89 条评论。一篇关于 <strong>Context Engineering（上下文工程）</strong> 现状的文章。</p>
+<p>核心观点：</p>
+<ul>
+<li>上下文工程正在成为 LLM 应用开发的核心技能；</li>
+<li>不是"写好 prompt"那么简单——涉及信息检索、记忆管理、对话状态追踪；</li>
+<li>好的上下文工程可以让小模型表现超过大模型。</li>
+</ul>
+<hr>
+<h3>5️⃣</h3>
+<img src="../images/2026-10-26/03.png" alt="IBM" style="width:100%;border-radius:10px;margin:12px 0">
+<p>124 分、78 条评论。IBM CEO 公开表示：<strong>开源权重模型在性能和成本上已经可以与闭源模型竞争</strong>。</p>
+<p>这与 OpenAI/Anthropic 降价形成呼应：</p>
+<ul>
+<li>开源模型正在侵蚀闭源模型的护城河；</li>
+<li>企业客户有了真正的替代选择；</li>
+<li>"好且便宜"的开源模型将加速 AI 的民主化。</li>
+</ul>
+<hr>
+<h3>6️⃣</h3>
+<img src="../images/2026-10-26/04.jpg" alt="animated film" style="width:100%;border-radius:10px;margin:12px 0">
+<p>122 分、67 条评论。一篇深入探讨动画电影制作流程的文章。</p>
+<p>讨论从技术延伸到艺术：</p>
+<ul>
+<li>现代动画电影的制作流程比大多数人想象的复杂得多；</li>
+<li>每一帧背后是数百人的协作；</li>
+<li>在 AI 生成视频的时代，人类动画师的价值在哪里？</li>
+</ul>
+<hr>
+<h3>7️⃣</h3>
+<img src="../images/2026-10-26/05.png" alt="Proton Flock" style="width:100%;border-radius:10px;margin:12px 0">
+<p>101 分、54 条评论。Proton 推出的 Flock 相机地图——一个隐私友好的相机位置可视化工具。</p>
+<hr>
+<h3>8️⃣</h3>
+<img src="../images/2026-10-26/06.png" alt="US Wages" style="width:100%;border-radius:10px;margin:12px 0">
+<p>99 分、112 条评论。美国劳动者的工资在国内总收入（GDI）中的占比降至 <strong>75 年来最低水平</strong>。</p>
+<p>112 条评论讨论激烈：</p>
+<ul>
+<li>技术进步（包括 AI）正在加速资本对劳动的替代；</li>
+<li>工资停滞不是周期性问题，而是结构性问题；</li>
+<li>与 HN 上"20 万创意岗位消失"形成呼应。</li>
+</ul>
+<hr>
+<h3>9️⃣</h3>
+<img src="../images/2026-10-26/07.jpg" alt="iPhone Duo" style="width:100%;border-radius:10px;margin:12px 0">
+<p>92 分、45 条评论。Apple 最新的 iPhone Duo 被拆解，展示了内部设计。</p>
+<hr>
+<h3>🔟</h3>
+<img src="../images/2026-10-26/08.webp" alt="Next.js" style="width:100%;border-radius:10px;margin:12px 0">
+<p>91 分、78 条评论。一位开发者分享：<strong>把博客从 Next.js 迁移到纯静态方案后，Lighthouse 每个类别都拿到了满分</strong>。</p>
+<p>78 条评论讨论焦点：</p>
+<ul>
+<li>Next.js 的复杂度是否已经超过了大多数项目的需求？</li>
+<li>"框架疲劳"正在成为开发者的普遍感受；</li>
+<li>简单方案（纯 HTML/CSS/JS）在很多场景下依然是最优解。</li>
+</ul>
+<hr>
+<p>*数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理*</p>
+</div>
+<div class="daily-nav"><a href="../daily.html">← 返回科技日报</a></div>
+</body>
+</html>
