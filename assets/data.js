@@ -32,6 +32,7 @@ window.SITE = {
     { id: "philosophy-ai", title: "如果苏格拉底遇到 ChatGPT", summary: "用哲学家的视角追问：会回答问题的机器，懂得“知道自己不知道”吗？", cat: "essay", sub: "哲学与 AI", tags: ["哲学", "思考"], date: "2026-06-20", read: 6 }
   ],
   dailies: [
+    { date: "2026-10-29", hl: ["ICE 大规模监控左翼社会运动曝光", "Gemini 4 Carbon 发布"] },
     { date: "2026-10-28", hl: ["美国政府隐藏秘密监控裁决曝光", "DeepMind Genie 4 世界模拟新纪元"] },
     { date: "2026-10-27", hl: ["GPT-6.1 Terra 发布：模型竞赛进入周更节奏", "OpenAI 数学团队证明指数时间假说是错误的"] },
     { date: "2026-10-26", hl: ["OpenAI 和 Anthropic 数月内将 LLM 价格砍了 80%", "IBM CEO：开源权重模型现在又好又便宜"] },
