@@ -6,6 +6,7 @@ window.SITE = {
     { id: "essay", name: "随笔", color: "warm", icon: "pen", subs: ["技术思考", "读书笔记", "哲学与 AI"] }
   ],
   posts: [
+    { id: "agent-diffusion", title: "扩散模型杀进 Agent 主场：一文讲透 Agent 扩散模型的技术原理与最新进展", summary: "扩散模型杀进 Agent 主场：从 LLaDA 到 Clover，一文讲透技术原理、代码实现与最新进展。", cat: "ai", sub: "模型动态", tags: ["扩散模型", "Agent", "LLaDA", "Clover", "dLLM"], date: "2026-10-30", read: 15, featured: true },
     { id: "agent-timed-map", title: "定时 Agent：模块边界与包含关系", summary: "把“定时”从 Agent 里剥出去：APScheduler 只管何时跑，Agent 只管怎么解，中间只隔一个很薄的 Job 函数。", cat: "ai", sub: "Agent 开发", tags: ["Agent", "APScheduler", "LangGraph", "概念辨析"], date: "2026-10-20", read: 4, featured: true },
     { id: "agent-map-variants", title: "Agent 概念地图：同一套骨架，六种形态", summary: "记忆、知识库、人工介入、Reflection、Plan-and-Execute、多 Agent——六张图看清每种能力到底加在哪一层。", cat: "ai", sub: "Agent 开发", tags: ["Agent", "LangGraph", "RAG", "多Agent", "概念辨析"], date: "2026-10-20", read: 9 },
     { id: "ai-cs-hallucination", title: "AI 客服为什么会“胡说八道”？大模型的幻觉与护栏", summary: "一句编造的发货时间，就是一次真实的客诉。从幻觉机制到 RAG 护栏，讲清客服 AI 为什么必须做到“无依据不回答”。", cat: "ai", sub: "RAG 知识库", tags: ["AI客服", "RAG", "大模型幻觉", "AI安全"], date: "2026-10-15", read: 6 },
