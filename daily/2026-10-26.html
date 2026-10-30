@@ -9,12 +9,14 @@
 .daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
 .daily-report .cover { text-align: center; margin: 32px 0; }
 .daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
-.daily-report img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
 .daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
 .daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
 .daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
 .daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
-.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; font-size: 14.5px; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
 .daily-report ul, .daily-report ol { padding-left: 24px; }
 .daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
 .daily-report li strong { color: var(--text); }
@@ -29,12 +31,20 @@
 .daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
 .daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
 .daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
 .daily-nav { text-align: center; padding: 24px; }
 .daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
-@media (max-width: 768px) { .daily-report { padding: 20px 16px 60px; } }
+.daily-nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
+}
 </style>
 </head>
 <body data-page="daily">
+
 <nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
   <a href="../index.html">首页</a><span class="bc-chev"></span>
   <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
@@ -48,8 +58,6 @@
   <span class="pill pill-blue">GitHub Trending</span>
 </div>
 <div class="cover"><img src="../images/2026-10-26/cover.png" alt="封面"></div>
-<blockquote><p>今天的关键词：<strong>LLM 价格战 80%</strong></p></blockquote>
-<hr>
 <blockquote><p>今天的关键词：<strong>LLM 价格战 80%</strong>、<strong>FOSDEM 反审查宣言</strong>、<strong>Lula 赢得巴西大选</strong></p></blockquote>
 <hr>
 <h2>一、GitHub Trending 今日热门项目 TOP 10</h2>
@@ -274,18 +282,74 @@
 <h2>二、Hacker News 今日热榜 TOP 10</h2>
 <blockquote><p>统计窗口：北京时间 2026-10-26 00:00 至发稿时，按 points 排序并去重。</p></blockquote>
 <table>
-<tr><th>#</th><th>标题</th><th>热度</th><th>讨论</th></tr>
-<tr><td>1</td><td><a href="https://news.ycombinator.com/">OpenAI and Anthropic cut their LLM prices by up to 80%</a></td><td>233</td><td>187</td></tr>
-<tr><td>2</td><td><a href="https://news.ycombinator.com/">Lula wins election after final votes tallied</a></td><td>279</td><td>156</td></tr>
-<tr><td>3</td><td><a href="https://news.ycombinator.com/">Serbia's Vucic concedes election defeat</a></td><td>262</td><td>134</td></tr>
-<tr><td>4</td><td><a href="https://news.ycombinator.com/">The State of Context Engineering</a></td><td>134</td><td>89</td></tr>
-<tr><td>5</td><td><a href="https://news.ycombinator.com/">IBM CEO says open weight models are now good and cheap</a></td><td>124</td><td>78</td></tr>
-<tr><td>6</td><td><a href="https://news.ycombinator.com/">What goes into making an animated film?</a></td><td>122</td><td>67</td></tr>
-<tr><td>7</td><td><a href="https://news.ycombinator.com/">Proton Flock Camera Map</a></td><td>101</td><td>54</td></tr>
-<tr><td>8</td><td><a href="https://news.ycombinator.com/">US Wages Share of GDI at 75 Year Low</a></td><td>99</td><td>112</td></tr>
-<tr><td>9</td><td><a href="https://news.ycombinator.com/">iPhone Duo Teardown</a></td><td>92</td><td>45</td></tr>
-<tr><td>10</td><td><a href="https://news.ycombinator.com/">Removing Next.js got my blog to 100 on every Lighthouse category</a></td><td>91</td><td>78</td></tr>
-</table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+<th>讨论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">OpenAI and Anthropic cut their LLM prices by up to 80%</a></td>
+<td>233</td>
+<td>187</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Lula wins election after final votes tallied</a></td>
+<td>279</td>
+<td>156</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Serbia's Vucic concedes election defeat</a></td>
+<td>262</td>
+<td>134</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">The State of Context Engineering</a></td>
+<td>134</td>
+<td>89</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">IBM CEO says open weight models are now good and cheap</a></td>
+<td>124</td>
+<td>78</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">What goes into making an animated film?</a></td>
+<td>122</td>
+<td>67</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Proton Flock Camera Map</a></td>
+<td>101</td>
+<td>54</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">US Wages Share of GDI at 75 Year Low</a></td>
+<td>99</td>
+<td>112</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">iPhone Duo Teardown</a></td>
+<td>92</td>
+<td>45</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Removing Next.js got my blog to 100 on every Lighthouse category</a></td>
+<td>91</td>
+<td>78</td>
+</tr>
+</tbody></table>
 <h3>1️⃣ OpenAI 和 Anthropic 在几个月内将 LLM 价格砍了 80%</h3>
 <p>233 分、187 条评论。<strong>OpenAI 和 Anthropic 在短短几个月内将 LLM API 价格下调了高达 80%</strong>。</p>
 <p>这意味着什么？</p>
@@ -373,8 +437,13 @@
 <li>简单方案（纯 HTML/CSS/JS）在很多场景下依然是最优解。</li>
 </ul>
 <hr>
-<p>*数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理*</p>
+<p><em>数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理</em></p>
 </div>
-<div class="daily-nav"><a href="../daily.html">← 返回科技日报</a></div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
 </body>
 </html>

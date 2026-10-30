@@ -10,10 +10,11 @@
 .daily-report .cover { text-align: center; margin: 32px 0; }
 .daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
 .daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
-.daily-report img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
 .daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
 .daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
 .daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
 .daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
 .daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
 .daily-report ul, .daily-report ol { padding-left: 24px; }
@@ -30,14 +31,20 @@
 .daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
 .daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
 .daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
 .daily-nav { text-align: center; padding: 24px; }
 .daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+.daily-nav a:hover { text-decoration: underline; }
 @media (max-width: 768px) {
   .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
 }
 </style>
 </head>
 <body data-page="daily">
+
 <nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
   <a href="../index.html">首页</a><span class="bc-chev"></span>
   <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
@@ -51,13 +58,11 @@
   <span class="pill pill-blue">GitHub Trending</span>
 </div>
 <div class="cover"><img src="../images/2026-10-24/cover.png" alt="封面"></div>
-<blockquote><p>今天的关键词：<strong>Samsung TV 被 Root</strong></p></blockquote>
-<hr>
 <blockquote><p>今天的关键词：<strong>Samsung TV 被 Root</strong>、<strong>Broccoli2Shell 跨语言 RCE</strong>、<strong>AI 没有带来经济回报</strong></p></blockquote>
 <hr>
 <h2>一、GitHub Trending 今日热门项目 TOP 10</h2>
 <h3>1. cloudflare/security-audit-skill —— 给 AI 编程 Agent 装上安全审计眼</h3>
-<p>![security-audit-skill](../images/2026-10-24/gh01.png</p>
+<img src="../images/2026-10-24/gh01.png" alt="security-audit-skill" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：JavaScript</li>
@@ -79,7 +84,7 @@
 <p>当 Agent 开始写生产代码，<strong>安全审计不能还是人工最后一关</strong>。把安全检查变成 Agent 的原生能力，是"AI 写代码"走向"AI 负责代码"的关键一步。</p>
 <hr>
 <h3>2. Nutlope/hallmark —— 反 AI 审美泛滥的设计规范</h3>
-<p>![hallmark](../images/2026-10-24/gh02.png</p>
+<img src="../images/2026-10-24/gh02.png" alt="hallmark" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：CSS</li>
@@ -101,7 +106,7 @@
 <p>AI 能写代码，但审美判断仍需人类引导。<strong>"反 AI 审美"本身就成了一种新的设计能力</strong>。</p>
 <hr>
 <h3>3. debpalash/VoiceStudio —— 开源版 ElevenLabs：本地语音克隆+配音</h3>
-<p>![VoiceStudio](../images/2026-10-24/gh03.png</p>
+<img src="../images/2026-10-24/gh03.png" alt="VoiceStudio" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
@@ -123,7 +128,7 @@
 <p>语音 AI 的"ElevenLabs 时刻"正在到来：<strong>当开源方案追平商业服务，整个行业的定价逻辑会被重写</strong>。</p>
 <hr>
 <h3>4. pbakaus/impeccable —— 让 AI 编程工具的设计输出不再"一眼 AI"</h3>
-<p>![impeccable](../images/2026-10-24/gh04.png</p>
+<img src="../images/2026-10-24/gh04.png" alt="impeccable" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Rust</li>
@@ -145,7 +150,7 @@
 <p>AI 编程的下一个竞争维度不是"能不能写代码"，而是"写出来的东西好不好看"。</p>
 <hr>
 <h3>5. pollen-robotics/microduck —— 一只用 Rust 写的双足行走小鸭子</h3>
-<p>![microduck](../images/2026-10-24/gh05.png</p>
+<img src="../images/2026-10-24/gh05.png" alt="microduck" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Rust</li>
@@ -167,7 +172,7 @@
 <p>开源硬件+Rust 的组合正在降低机器人开发门槛。<strong>"一只小鸭子"背后是完整的运动控制和嵌入式系统</strong>。</p>
 <hr>
 <h3>6. TauricResearch/TradingAgents —— 多 Agent 协作的金融交易框架</h3>
-<p>![TradingAgents](../images/2026-10-24/gh06.png</p>
+<img src="../images/2026-10-24/gh06.png" alt="TradingAgents" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
@@ -189,7 +194,7 @@
 <p>Multi-Agent 最成熟的落地场景之一：<strong>金融决策天然需要多视角、多角色协作</strong>。</p>
 <hr>
 <h3>7. Renhuai123/ziwei-doushu —— 紫微斗数开源排盘引擎</h3>
-<p>![ziwei-doushu](../images/2026-10-24/gh07.png</p>
+<img src="../images/2026-10-24/gh07.png" alt="ziwei-doushu" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：TypeScript</li>
@@ -211,7 +216,7 @@
 <p>把传统知识体系编码成软件，本身就是一种文化传承方式。<strong>算法不只是现代的专利</strong>。</p>
 <hr>
 <h3>8. JetBrains/thinkrail —— JetBrains 的 Vibe Coding IDE</h3>
-<p>![thinkrail](../images/2026-10-24/gh08.png</p>
+<img src="../images/2026-10-24/gh08.png" alt="thinkrail" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：TypeScript</li>
@@ -233,7 +238,7 @@
 <p>JetBrains 入局 Vibe Coding 说明：<strong>AI 编程不再是极客玩具，正在成为主流开发方式</strong>。</p>
 <hr>
 <h3>9. coollabsio/coolify —— 自托管 PaaS，Vercel/Heroku 的开源替代</h3>
-<p>![coolify](../images/2026-10-24/gh09.png</p>
+<img src="../images/2026-10-24/gh09.png" alt="coolify" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：PHP</li>
@@ -255,7 +260,7 @@
 <p>"自托管复兴"运动的核心工具之一。<strong>当云账单越来越贵，开源 PaaS 成为理性选择</strong>。</p>
 <hr>
 <h3>10. AgriciDaniel/claude-seo —— Claude Code 的全能 SEO 技能包</h3>
-<p>![claude-seo](../images/2026-10-24/gh10.png</p>
+<img src="../images/2026-10-24/gh10.png" alt="claude-seo" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
@@ -279,20 +284,76 @@
 <h2>二、Hacker News 今日热榜 TOP 10</h2>
 <blockquote><p>统计窗口：北京时间 2026-10-24 00:00 至发稿时，按 points 排序并去重。</p></blockquote>
 <table>
-<tr><th>#</th><th>标题</th><th>热度</th><th>讨论</th></tr>
-<tr><td>1</td><td><a href="https://news.ycombinator.com/">Root shell on Samsung TV</a></td><td>811</td><td>234</td></tr>
-<tr><td>2</td><td><a href="https://news.ycombinator.com/">GrapheneOS: Banking apps blocking</a></td><td>678</td><td>412</td></tr>
-<tr><td>3</td><td><a href="https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector">No signs of AI payoff outside the tech sector</a></td><td>616</td><td>389</td></tr>
-<tr><td>4</td><td><a href="https://aardappel.github.io/goose/">The Goose Programming Language</a></td><td>571</td><td>267</td></tr>
-<tr><td>5</td><td><a href="https://news.ycombinator.com/">Elon Musk Just Gave Europe a Reason to Replace American Tech</a></td><td>470</td><td>356</td></tr>
-<tr><td>6</td><td><a href="https://github.com/obsproject/obs-studio/releases/tag/33.0.0">OBS Studio 33</a></td><td>470</td><td>178</td></tr>
-<tr><td>7</td><td><a href="https://news.ycombinator.com/">Broccoli2Shell: Brotli decoder RCE</a></td><td>394</td><td>201</td></tr>
-<tr><td>8</td><td><a href="https://news.ycombinator.com/">Twelve years of distributed SQLite</a></td><td>384</td><td>156</td></tr>
-<tr><td>9</td><td><a href="https://news.ycombinator.com/">I don't understand quantum physics (2018)</a></td><td>375</td><td>189</td></tr>
-<tr><td>10</td><td><a href="https://freedns.afraid.org/">FreeDNS</a></td><td>358</td><td>134</td></tr>
-</table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+<th>讨论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Root shell on Samsung TV</a></td>
+<td>811</td>
+<td>234</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">GrapheneOS: Banking apps blocking</a></td>
+<td>678</td>
+<td>412</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector" target="_blank">No signs of AI payoff outside the tech sector</a></td>
+<td>616</td>
+<td>389</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://aardappel.github.io/goose/" target="_blank">The Goose Programming Language</a></td>
+<td>571</td>
+<td>267</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Elon Musk Just Gave Europe a Reason to Replace American Tech</a></td>
+<td>470</td>
+<td>356</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://github.com/obsproject/obs-studio/releases/tag/33.0.0" target="_blank">OBS Studio 33</a></td>
+<td>470</td>
+<td>178</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Broccoli2Shell: Brotli decoder RCE</a></td>
+<td>394</td>
+<td>201</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Twelve years of distributed SQLite</a></td>
+<td>384</td>
+<td>156</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">I don't understand quantum physics (2018)</a></td>
+<td>375</td>
+<td>189</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://freedns.afraid.org/" target="_blank">FreeDNS</a></td>
+<td>358</td>
+<td>134</td>
+</tr>
+</tbody></table>
 <h3>1️⃣</h3>
-<p>![Samsung TV](../images/2026-10-24/01.png Samsung TV 被获取 Root Shell：智能电视安全的又一次暴露</p>
+<p><img src="../images/2026-10-24/01.png" alt="Samsung TV" style="max-width:100%;border-radius:8px"> Samsung TV 被获取 Root Shell：智能电视安全的又一次暴露</p>
 <p>安全研究者展示了一种在 Samsung TV 上获取 root shell 的方法。具体细节仍在讨论中，但核心问题是：<strong>智能电视的操作系统（通常是 Tizen）的安全加固远不如手机和电脑</strong>。</p>
 <p>811 分、234 条评论，讨论焦点：</p>
 <ul>
@@ -302,7 +363,7 @@
 </ul>
 <hr>
 <h3>2️⃣</h3>
-<p>![GrapheneOS](../images/2026-10-24/02.png GrapheneOS 用户报告银行 App 封杀：隐私与金融的拉锯战</p>
+<p><img src="../images/2026-10-24/02.png" alt="GrapheneOS" style="max-width:100%;border-radius:8px"> GrapheneOS 用户报告银行 App 封杀：隐私与金融的拉锯战</p>
 <p>GrapheneOS 是一个主打隐私保护的 Android 定制系统。约一打银行 App <strong>专门检测并封杀</strong> GrapheneOS 用户，即使他们的设备完全正常。</p>
 <p>678 分、412 条评论，社区反应强烈：</p>
 <ul>
@@ -313,7 +374,7 @@
 <p><strong>深层问题</strong>：当"安全"和"合规"冲突时，用户被迫在隐私和日常金融服务之间二选一。</p>
 <hr>
 <h3>3️⃣</h3>
-<p>![AI payoff](../images/2026-10-24/03.png AI 没有带来经济回报：S&P 493 的数据说了什么</p>
+<p><img src="../images/2026-10-24/03.png" alt="AI payoff" style="max-width:100%;border-radius:8px"> AI 没有带来经济回报：S&P 493 的数据说了什么</p>
 <p>Apollo 的分析报告指出：<strong>除科技行业外，AI 投资尚未产生可衡量的经济回报</strong>。S&P 493（剔除科技巨头后）的收入和利润率保持平稳。</p>
 <p>616 分、389 条评论，讨论两极分化：</p>
 <ul>
@@ -323,7 +384,7 @@
 </ul>
 <hr>
 <h3>4️⃣</h3>
-<p>![Goose](../images/2026-10-24/04.png Goose 编程语言：无堆、无 GC、无标注的内存安全</p>
+<p><img src="../images/2026-10-24/04.png" alt="Goose" style="max-width:100%;border-radius:8px"> Goose 编程语言：无堆、无 GC、无标注的内存安全</p>
 <p>Goose 是一门新的系统级编程语言，核心特性：<strong>没有堆内存、没有垃圾回收、没有类型标注</strong>，但依然实现了内存安全。</p>
 <p>571 分、267 条评论，技术讨论深入：</p>
 <ul>
@@ -334,7 +395,7 @@
 <p><strong>为什么重要</strong>：内存安全语言的探索正在多元化。Rust 不是唯一答案。</p>
 <hr>
 <h3>5️⃣</h3>
-<p>![Musk Europe](../images/2026-10-24/05.jpg 马斯克给了欧洲一个替换美国科技的理由</p>
+<p><img src="../images/2026-10-24/05.jpg" alt="Musk Europe" style="max-width:100%;border-radius:8px"> 马斯克给了欧洲一个替换美国科技的理由</p>
 <p>一篇评论文章认为，Musk 的政治活动和争议行为正在推动欧洲企业和政府<strong>认真考虑替换美国科技产品</strong>。</p>
 <p>470 分、356 条评论：</p>
 <ul>
@@ -344,7 +405,7 @@
 </ul>
 <hr>
 <h3>6️⃣</h3>
-<p>![OBS Studio](../images/2026-10-24/06.png OBS Studio 33 发布：直播/录制工具的里程碑更新</p>
+<p><img src="../images/2026-10-24/06.png" alt="OBS Studio" style="max-width:100%;border-radius:8px"> OBS Studio 33 发布：直播/录制工具的里程碑更新</p>
 <p>OBS Studio 发布第 33 个大版本。作为最广泛使用的开源直播和录屏工具，每次更新都牵动数百万用户。</p>
 <p>470 分、178 条评论：</p>
 <ul>
@@ -353,7 +414,7 @@
 </ul>
 <hr>
 <h3>7️⃣</h3>
-<p>![Broccoli2Shell](../images/2026-10-24/07.png Broccoli2Shell：Brotli 解码器 RCE 影响 Node.js、Python 等</p>
+<p><img src="../images/2026-10-24/07.png" alt="Broccoli2Shell" style="max-width:100%;border-radius:8px"> Broccoli2Shell：Brotli 解码器 RCE 影响 Node.js、Python 等</p>
 <p>Broccoli2Shell 是一个影响 Brotli 压缩解码器的远程代码执行漏洞。受影响范围包括 <strong>Node.js、Python 和多个运行时环境</strong>。</p>
 <p>394 分、201 条评论：</p>
 <ul>
@@ -363,7 +424,7 @@
 </ul>
 <hr>
 <h3>8️⃣</h3>
-<p>![distributed SQLite](../images/2026-10-24/08.jpg 分布式 SQLite 的十二年</p>
+<p><img src="../images/2026-10-24/08.jpg" alt="distributed SQLite" style="max-width:100%;border-radius:8px"> 分布式 SQLite 的十二年</p>
 <p>一篇回顾分布式 SQLite 项目 12 年历程的长文。</p>
 <p>384 分、156 条评论：</p>
 <ul>
@@ -373,7 +434,7 @@
 </ul>
 <hr>
 <h3>9️⃣</h3>
-<p>![quantum physics](../images/2026-10-24/09.png 我不懂量子物理（2018）</p>
+<p><img src="../images/2026-10-24/09.png" alt="quantum physics" style="max-width:100%;border-radius:8px"> 我不懂量子物理（2018）</p>
 <p>一篇 2018 年的旧文重新登上 HN 首页，坦率地承认"我不懂量子物理"，并尝试解释为什么。</p>
 <p>375 分、189 条评论：</p>
 <ul>
@@ -383,7 +444,7 @@
 </ul>
 <hr>
 <h3>🔟</h3>
-<p>![FreeDNS](../images/2026-10-24/10.jpg FreeDNS：免费 DNS 服务的老牌选择</p>
+<p><img src="../images/2026-10-24/10.jpg" alt="FreeDNS" style="max-width:100%;border-radius:8px"> FreeDNS：免费 DNS 服务的老牌选择</p>
 <p>FreeDNS（freedns.afraid.org）是一个运营超过 20 年的免费 DNS 服务。</p>
 <p>358 分、134 条评论：</p>
 <ul>
@@ -392,10 +453,13 @@
 <li>免费服务的可持续性始终是讨论焦点。</li>
 </ul>
 <hr>
-<p>*数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理*</p>
+<p><em>数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理</em></p>
 </div>
-<div class="daily-nav">
-  <a href="../daily.html">← 返回科技日报</a>
-</div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
 </body>
 </html>

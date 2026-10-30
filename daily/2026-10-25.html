@@ -10,10 +10,11 @@
 .daily-report .cover { text-align: center; margin: 32px 0; }
 .daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
 .daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
-.daily-report img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
 .daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
 .daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
 .daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
 .daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
 .daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
 .daily-report ul, .daily-report ol { padding-left: 24px; }
@@ -30,14 +31,20 @@
 .daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
 .daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
 .daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
 .daily-nav { text-align: center; padding: 24px; }
 .daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+.daily-nav a:hover { text-decoration: underline; }
 @media (max-width: 768px) {
   .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
 }
 </style>
 </head>
 <body data-page="daily">
+
 <nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
   <a href="../index.html">首页</a><span class="bc-chev"></span>
   <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
@@ -51,13 +58,11 @@
   <span class="pill pill-blue">GitHub Trending</span>
 </div>
 <div class="cover"><img src="../images/2026-10-25/cover.png" alt="封面"></div>
-<blockquote><p>今天的关键词：<strong>AI 泡沫质疑</strong></p></blockquote>
-<hr>
 <blockquote><p>今天的关键词：<strong>AI 泡沫质疑</strong>、<strong>20 万创意岗位消失</strong>、<strong>CNN 碾压 LLM 诊断癌症</strong></p></blockquote>
 <hr>
 <h2>一、GitHub Trending 今日热门项目 TOP 10</h2>
 <h3>1. cloudflare/security-audit-skill —— 给 AI 编程 Agent 装上安全审计眼</h3>
-<p>![security-audit-skill](../images/2026-10-25/gh01.png</p>
+<img src="../images/2026-10-25/gh01.png" alt="security-audit-skill" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：JavaScript</li>
@@ -79,7 +84,7 @@
 <p>Agent 安全审计正在从"可选"变成"必选"。</p>
 <hr>
 <h3>2. Nutlope/hallmark —— 反 AI 审美泛滥的设计规范</h3>
-<p>![hallmark](../images/2026-10-25/gh02.png</p>
+<img src="../images/2026-10-25/gh02.png" alt="hallmark" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：CSS</li>
@@ -101,7 +106,7 @@
 <p>"反 AI 审美"本身正在成为一种新的设计能力。</p>
 <hr>
 <h3>3. debpalash/VoiceStudio —— 开源版 ElevenLabs：本地语音克隆+配音</h3>
-<p>![VoiceStudio](../images/2026-10-25/gh03.png</p>
+<img src="../images/2026-10-25/gh03.png" alt="VoiceStudio" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
@@ -123,7 +128,7 @@
 <p>当开源方案追平商业服务，整个行业的定价逻辑会被重写。</p>
 <hr>
 <h3>4. pbakaus/impeccable —— 让 AI 编程工具的设计输出达到专业水准</h3>
-<p>![impeccable](../images/2026-10-25/gh04.png</p>
+<img src="../images/2026-10-25/gh04.png" alt="impeccable" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Rust</li>
@@ -145,7 +150,7 @@
 <p>AI 编程的下一个竞争维度是设计质量。</p>
 <hr>
 <h3>5. pollen-robotics/microduck —— Rust 写的双足行走小鸭子机器人</h3>
-<p>![microduck](../images/2026-10-25/gh05.png</p>
+<img src="../images/2026-10-25/gh05.png" alt="microduck" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Rust</li>
@@ -167,7 +172,7 @@
 <p>开源正在降低机器人开发门槛。</p>
 <hr>
 <h3>6. TauricResearch/TradingAgents —— 多 Agent 协作的金融交易框架</h3>
-<p>![TradingAgents](../images/2026-10-25/gh06.png</p>
+<img src="../images/2026-10-25/gh06.png" alt="TradingAgents" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
@@ -189,7 +194,7 @@
 <p>Multi-Agent 最成熟的落地场景之一。</p>
 <hr>
 <h3>7. Renhuai123/ziwei-doushu —— 紫微斗数开源排盘引擎</h3>
-<p>![ziwei-doushu](../images/2026-10-25/gh07.png</p>
+<img src="../images/2026-10-25/gh07.png" alt="ziwei-doushu" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：TypeScript</li>
@@ -211,7 +216,7 @@
 <p>把传统知识体系编码成软件，本身就是一种文化传承。</p>
 <hr>
 <h3>8. JetBrains/thinkrail —— JetBrains 的 Vibe Coding IDE</h3>
-<p>![thinkrail](../images/2026-10-25/gh08.png</p>
+<img src="../images/2026-10-25/gh08.png" alt="thinkrail" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：TypeScript</li>
@@ -233,7 +238,7 @@
 <p>JetBrains 入局 Vibe Coding 说明 AI 编程正在成为主流开发方式。</p>
 <hr>
 <h3>9. coollabsio/coolify —— 自托管 PaaS，Vercel/Heroku 的开源替代</h3>
-<p>![coolify](../images/2026-10-25/gh09.png</p>
+<img src="../images/2026-10-25/gh09.png" alt="coolify" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：PHP</li>
@@ -255,7 +260,7 @@
 <p>自托管复兴运动的核心工具之一。</p>
 <hr>
 <h3>10. AgriciDaniel/claude-seo —— Claude Code 的全能 SEO 技能包</h3>
-<p>![claude-seo](../images/2026-10-25/gh10.png</p>
+<img src="../images/2026-10-25/gh10.png" alt="claude-seo" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
@@ -279,18 +284,74 @@
 <h2>二、Hacker News 今日热榜 TOP 10</h2>
 <blockquote><p>统计窗口：北京时间 2026-10-25 00:00 至发稿时，按 points 排序并去重。</p></blockquote>
 <table>
-<tr><th>#</th><th>标题</th><th>热度</th><th>讨论</th></tr>
-<tr><td>1</td><td><a href="https://news.ycombinator.com/">We should be more ambitious with the software we build</a></td><td>772</td><td>398</td></tr>
-<tr><td>2</td><td><a href="https://news.ycombinator.com/">Show HN: Steal My Bitcoin</a></td><td>597</td><td>312</td></tr>
-<tr><td>3</td><td><a href="https://news.ycombinator.com/">America has lost 200k jobs in media, film and the arts</a></td><td>515</td><td>445</td></tr>
-<tr><td>4</td><td><a href="https://news.ycombinator.com/">A 10-year-old CNN outperforms frontier LLMs for skin cancer</a></td><td>503</td><td>267</td></tr>
-<tr><td>5</td><td><a href="https://news.ycombinator.com/">Dolly Parton's Imagination Library</a></td><td>480</td><td>189</td></tr>
-<tr><td>6</td><td><a href="https://news.ycombinator.com/">Meta Ignores Brazilian Court Order</a></td><td>473</td><td>356</td></tr>
-<tr><td>7</td><td><a href="https://news.ycombinator.com/">Oregon Police Are Charging a Local News Outlet $2.5M</a></td><td>444</td><td>278</td></tr>
-<tr><td>8</td><td><a href="https://news.ycombinator.com/">I refuse to accept a censored Internet. Join Me at FOSDEM</a></td><td>435</td><td>234</td></tr>
-<tr><td>9</td><td><a href="https://news.ycombinator.com/">Cerebras Deploys Trillion-Parameter AI Models</a></td><td>355</td><td>198</td></tr>
-<tr><td>10</td><td><a href="https://news.ycombinator.com/">Samsung running a TensorFlow lite model on 960x540</a></td><td>287</td><td>145</td></tr>
-</table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+<th>讨论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">We should be more ambitious with the software we build</a></td>
+<td>772</td>
+<td>398</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Show HN: Steal My Bitcoin</a></td>
+<td>597</td>
+<td>312</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">America has lost 200k jobs in media, film and the arts</a></td>
+<td>515</td>
+<td>445</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">A 10-year-old CNN outperforms frontier LLMs for skin cancer</a></td>
+<td>503</td>
+<td>267</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Dolly Parton's Imagination Library</a></td>
+<td>480</td>
+<td>189</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Meta Ignores Brazilian Court Order</a></td>
+<td>473</td>
+<td>356</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Oregon Police Are Charging a Local News Outlet $2.5M</a></td>
+<td>444</td>
+<td>278</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">I refuse to accept a censored Internet. Join Me at FOSDEM</a></td>
+<td>435</td>
+<td>234</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Cerebras Deploys Trillion-Parameter AI Models</a></td>
+<td>355</td>
+<td>198</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://news.ycombinator.com/" target="_blank">Samsung running a TensorFlow lite model on 960x540</a></td>
+<td>287</td>
+<td>145</td>
+</tr>
+</tbody></table>
 <h3>1️⃣ 我们应该对软件更有雄心</h3>
 <p>一篇引发广泛共鸣的文章：<strong>我们对软件的期望太低</strong>。772 分、398 条评论。</p>
 <p>核心观点：</p>
@@ -312,7 +373,7 @@
 </ul>
 <hr>
 <h3>3️⃣</h3>
-<p>![creative jobs](../images/2026-10-25/03.png 美国已失去 20 万媒体、影视和艺术岗位</p>
+<p><img src="../images/2026-10-25/03.png" alt="creative jobs" style="max-width:100%;border-radius:8px"> 美国已失去 20 万媒体、影视和艺术岗位</p>
 <p>515 分、445 条评论。一组触目惊心的数据：<strong>美国在媒体、电影和艺术领域已流失 20 万个工作岗位</strong>。</p>
 <p>讨论核心：</p>
 <ul>
@@ -341,7 +402,7 @@
 </ul>
 <hr>
 <h3>6️⃣</h3>
-<p>![Meta Brazil](../images/2026-10-25/06.jpg Meta 无视巴西法院命令</p>
+<p><img src="../images/2026-10-25/06.jpg" alt="Meta Brazil" style="max-width:100%;border-radius:8px"> Meta 无视巴西法院命令</p>
 <p>473 分、356 条评论。Meta 被指<strong>无视巴西法院要求终止对 Bolsonaro 有利内容推荐</strong>的命令。</p>
 <p>讨论焦点：</p>
 <ul>
@@ -369,7 +430,7 @@
 </ul>
 <hr>
 <h3>9️⃣</h3>
-<p>![Cerebras](../images/2026-10-25/09.png Cerebras 部署万亿参数 AI 模型</p>
+<p><img src="../images/2026-10-25/09.png" alt="Cerebras" style="max-width:100%;border-radius:8px"> Cerebras 部署万亿参数 AI 模型</p>
 <p>355 分、198 条评论。Cerebras 宣布<strong>成功部署万亿参数级别的 AI 模型</strong>。</p>
 <p>技术细节：</p>
 <ul>
@@ -393,10 +454,13 @@
 <li>这种"降级运行"是边缘 AI 落地的常态。</li>
 </ul>
 <hr>
-<p>*数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理*</p>
+<p><em>数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理</em></p>
 </div>
-<div class="daily-nav">
-  <a href="../daily.html">← 返回科技日报</a>
-</div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
 </body>
 </html>

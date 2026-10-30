@@ -9,12 +9,14 @@
 .daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
 .daily-report .cover { text-align: center; margin: 32px 0; }
 .daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
-.daily-report img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
 .daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
 .daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
 .daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
 .daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
-.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; font-size: 14.5px; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
 .daily-report ul, .daily-report ol { padding-left: 24px; }
 .daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
 .daily-report li strong { color: var(--text); }
@@ -29,12 +31,20 @@
 .daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
 .daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
 .daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
 .daily-nav { text-align: center; padding: 24px; }
 .daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
-@media (max-width: 768px) { .daily-report { padding: 20px 16px 60px; } }
+.daily-nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
+}
 </style>
 </head>
 <body data-page="daily">
+
 <nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
   <a href="../index.html">首页</a><span class="bc-chev"></span>
   <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
@@ -42,17 +52,17 @@
 </nav>
 <div class="daily-report">
 <h1>科技日报 | 2026-10-28</h1>
-<p class="subtitle">2026 年 10 月 28 日 周三 · GitHub Trending + Hacker News</p>
+<p class="subtitle">2026 年 10 月 28 日 周二 · GitHub Trending + Hacker News</p>
 <div class="meta-row">
   <span class="pill pill-warm">HN Top 10</span>
   <span class="pill pill-blue">GitHub Trending</span>
 </div>
-<div class="cover"><img src="../images/2026-10-28/2026-10-28_cover_v2.jpg" alt="封面"></div>
+<div class="cover"><img src="../images/2026-10-28/cover_v2.jpg" alt="封面"></div>
 <blockquote><p>今天的关键词：<strong>美国秘密监控裁决曝光</strong>、<strong>Ghostty 1.4 发布</strong>、<strong>AI 承诺减负却适得其反</strong></p></blockquote>
 <hr>
 <h2>一、GitHub Trending 今日热门项目 TOP 10</h2>
 <h3>1. Nutlope/hallmark —— 反 AI 审美泛滥的设计规范</h3>
-<img src="../images/2026-10-28/2026-10-28_gh01.png" alt="hallmark" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh01.png" alt="hallmark" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：CSS</li>
@@ -74,7 +84,7 @@
 <p>"反 AI 审美"正在成为新的设计能力。</p>
 <hr>
 <h3>2. TauricResearch/TradingAgents —— 多 Agent 金融交易框架</h3>
-<img src="../images/2026-10-28/2026-10-28_gh02.png" alt="TradingAgents" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh02.png" alt="TradingAgents" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
@@ -96,7 +106,7 @@
 <p>Multi-Agent 最成熟的落地场景之一。</p>
 <hr>
 <h3>3. JetBrains/thinkrail —— Vibe Coding IDE</h3>
-<img src="../images/2026-10-28/2026-10-28_gh03.png" alt="thinkrail" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh03.png" alt="thinkrail" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：TypeScript</li>
@@ -118,7 +128,7 @@
 <p>AI 编程正在成为主流开发方式。</p>
 <hr>
 <h3>4. makecindy/cindy —— 开箱即用的开源 AI Agent</h3>
-<img src="../images/2026-10-28/2026-10-28_gh04.png" alt="cindy" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh04.png" alt="cindy" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：TypeScript</li>
@@ -140,7 +150,7 @@
 <p>Agent 平台正在从"需要调参"走向"开箱即用"。</p>
 <hr>
 <h3>5. affaan-m/ECC —— Agent 性能优化系统</h3>
-<img src="../images/2026-10-28/2026-10-28_gh05.png" alt="ECC" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh05.png" alt="ECC" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：JavaScript</li>
@@ -162,7 +172,7 @@
 <p>Agent 的性能优化正在成为独立的技术方向。</p>
 <hr>
 <h3>6. pbakaus/impeccable —— 让 AI 设计输出达到专业水准</h3>
-<img src="../images/2026-10-28/2026-10-28_gh06.png" alt="impeccable" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh06.png" alt="impeccable" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Rust</li>
@@ -183,12 +193,12 @@
 <p>AI 编程的下一个竞争维度是设计质量。</p>
 <hr>
 <h3>7. NVIDIA/SkillSpector —— AI Agent 技能安全扫描器</h3>
-<img src="../images/2026-10-28/2026-10-28_gh07.png" alt="SkillSpector" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh07.png" alt="SkillSpector" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
 <li>总 Star：22,199</li>
-<li>今日新增：**+214**</li>
+<li>今日新增：<strong>+214</strong></li>
 <li>地址：https://github.com/NVIDIA/SkillSpector</li>
 </ul>
 <p><strong>📖 项目介绍</strong></p>
@@ -205,7 +215,7 @@
 <p>Agent 安全从"事后补救"走向"事前扫描"。</p>
 <hr>
 <h3>8. pollen-robotics/microduck —— Rust 双足小鸭机器人</h3>
-<img src="../images/2026-10-28/2026-10-28_gh08.png" alt="microduck" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh08.png" alt="microduck" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Rust</li>
@@ -226,7 +236,7 @@
 <p>开源正在降低机器人开发门槛。</p>
 <hr>
 <h3>9. nightly-labs/openbot —— 本地优先的 AI 桌面工作区</h3>
-<img src="../images/2026-10-28/2026-10-28_gh09.png" alt="openbot" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh09.png" alt="openbot" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：TypeScript</li>
@@ -248,7 +258,7 @@
 <p>Local-first + Agent 是隐私计算的新组合。</p>
 <hr>
 <h3>10. Panniantong/Agent-Reach —— 让 AI Agent 看到整个互联网</h3>
-<img src="../images/2026-10-28/2026-10-28_gh10.png" alt="Agent-Reach" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/gh10.png" alt="Agent-Reach" style="width:100%;border-radius:10px;margin:12px 0">
 <p><strong>🏷️ 基本信息</strong></p>
 <ul>
 <li>语言：Python</li>
@@ -272,20 +282,76 @@
 <h2>二、Hacker News 今日热榜 TOP 10</h2>
 <blockquote><p>统计窗口：北京时间 2026-10-28 00:00 至发稿时，按 points 排序并去重。</p></blockquote>
 <table>
-<tr><th>#</th><th>标题</th><th>热度</th></tr>
-<tr><td>1</td><td><a href="https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/">US Government hiding secret court ruling on surveillance</a></td><td>770</td></tr>
-<tr><td>2</td><td><a href="https://ghostty.org/docs/install/release-notes/1-4-0">Ghostty 1.4</a></td><td>727</td></tr>
-<tr><td>3</td><td><a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/">Genie 4: World simulation by DeepMind</a></td><td>706</td></tr>
-<tr><td>4</td><td><a href="https://oioannou.com/blog/ai-promised-less-work/">AI promised less work – I've never worked more</a></td><td>614</td></tr>
-<tr><td>5</td><td><a href="https://open3dlab.com/news/roblox-downloaded-145-gb-of-models-from-our-sites/">Roblox downloaded 145GB models without asking</a></td><td>456</td></tr>
-<tr><td>6</td><td><a href="https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/">Anthropic trained Claude on pirated Stanford books</a></td><td>452</td></tr>
-<tr><td>7</td><td><a href="https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup">Wikipedia's cleanup of AI-generated content</a></td><td>443</td></tr>
-<tr><td>8</td><td><a href="https://lwn.net/SubscriberLink/1102102/0c00e4d550f25f8c/">Python's experimental JIT to be removed</a></td><td>440</td></tr>
-<tr><td>9</td><td><a href="https://gizmodo.com/police-are-using-ai-to-pull-over-drivers-for-suspicious-behavior-2000831220">Police using AI to pull over drivers</a></td><td>336</td></tr>
-<tr><td>10</td><td><a href="https://www.apple.com/imac/">New iMac with M6</a></td><td>306</td></tr>
-</table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+<th>讨论</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/" target="_blank">US Government hiding secret court ruling on surveillance</a></td>
+<td>770</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://ghostty.org/docs/install/release-notes/1-4-0" target="_blank">Ghostty 1.4</a></td>
+<td>727</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank">Genie 4: World simulation by DeepMind</a></td>
+<td>706</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://oioannou.com/blog/ai-promised-less-work/" target="_blank">AI promised less work – I've never worked more</a></td>
+<td>614</td>
+<td>—</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://open3dlab.com/news/roblox-downloaded-145-gb-of-models-from-our-sites/" target="_blank">Roblox downloaded 145GB models without asking</a></td>
+<td>456</td>
+<td>—</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/" target="_blank">Anthropic trained Claude on pirated Stanford books</a></td>
+<td>452</td>
+<td>—</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup" target="_blank">Wikipedia's cleanup of AI-generated content</a></td>
+<td>443</td>
+<td>—</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://lwn.net/SubscriberLink/1102102/0c00e4d550f25f8c/" target="_blank">Python's experimental JIT to be removed</a></td>
+<td>440</td>
+<td>—</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://gizmodo.com/police-are-using-ai-to-pull-over-drivers-for-suspicious-behavior-2000831220" target="_blank">Police using AI to pull over drivers</a></td>
+<td>336</td>
+<td>—</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://www.apple.com/imac/" target="_blank">New iMac with M6</a></td>
+<td>306</td>
+<td>—</td>
+</tr>
+</tbody></table>
 <h3>1️⃣ 美国政府隐藏秘密监控裁决</h3>
-<img src="../images/2026-10-28/2026-10-28_01.png" alt="surveillance" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/01.png" alt="surveillance" style="width:100%;border-radius:10px;margin:12px 0">
 <p>770 分。Wired 报道：<strong>美国政府正在隐藏一项关于如何监控美国公民的秘密法院裁决</strong>。</p>
 <p>这条新闻引爆 HN 的原因：</p>
 <ul>
@@ -296,7 +362,7 @@
 <p><strong>背景</strong>：斯诺登事件过去十多年，政府监控的边界依然是美国社会最敏感的议题之一。</p>
 <hr>
 <h3>2️⃣ Ghostty 1.4 发布</h3>
-<img src="../images/2026-10-28/2026-10-28_02.png" alt="Ghostty" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/02.png" alt="Ghostty" style="width:100%;border-radius:10px;margin:12px 0">
 <p>727 分。Ghostty 终端模拟器发布 1.4 版本。</p>
 <p>核心更新：</p>
 <ul>
@@ -307,7 +373,7 @@
 <p><strong>为什么 HN 关注</strong>：终端是开发者每天面对的工具，Ghostty 代表了"重新发明轮子"的成功案例。</p>
 <hr>
 <h3>3️⃣ DeepMind Genie 4：世界模拟新纪元</h3>
-<img src="../images/2026-10-28/2026-10-28_03.png" alt="Genie 4" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/03.png" alt="Genie 4" style="width:100%;border-radius:10px;margin:12px 0">
 <p>706 分。Google DeepMind 发布 <strong>Genie 4</strong>——新一代世界模拟模型。</p>
 <p>技术突破：</p>
 <ul>
@@ -323,7 +389,7 @@
 </ul>
 <hr>
 <h3>4️⃣ AI 承诺减少工作量，我却从未如此忙碌</h3>
-<img src="../images/2026-10-28/2026-10-28_04.png" alt="AI work" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/04.png" alt="AI work" style="width:100%;border-radius:10px;margin:12px 0">
 <p>614 分。一篇引发广泛共鸣的博客文章：<strong>AI 工具承诺帮我们减负，但实际上工作量更大了</strong>。</p>
 <p>核心论点：</p>
 <ul>
@@ -337,8 +403,8 @@
 <li>效率工具的悖论：每次效率提升都伴随着工作量的膨胀。</li>
 </ul>
 <hr>
-<h3>5️⃣ Roblox 从我们的网站下载了 145GB 模型</h3>
-<img src="../images/2026-10-28/2026-10-28_05.png" alt="Roblox" style="width:100%;border-radius:10px;margin:12px 0">
+<h3>5️⃣ Roblox 从我们的网站下载了 145GB 模型（含成人内容）</h3>
+<img src="../images/2026-10-28/05.png" alt="Roblox" style="width:100%;border-radius:10px;margin:12px 0">
 <p>456 分。Open3DLab 发现：<strong>Roblox 未经请求，从他们的网站批量下载了 145GB 的 3D 模型——其中包含成人内容</strong>。</p>
 <p>争议焦点：</p>
 <ul>
@@ -348,7 +414,7 @@
 </ul>
 <hr>
 <h3>6️⃣ Anthropic 用盗版斯坦福教授书籍训练 Claude</h3>
-<img src="../images/2026-10-28/2026-10-28_06.png" alt="Stanford" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/06.png" alt="Stanford" style="width:100%;border-radius:10px;margin:12px 0">
 <p>452 分。斯坦福校报报道：<strong>教授的书籍被非法获取并用于训练 Claude AI 模型</strong>。</p>
 <p>核心争议：</p>
 <ul>
@@ -359,7 +425,7 @@
 <p><strong>背景</strong>：AI 训练数据的版权问题正在从灰色地带走向法律正面冲突。</p>
 <hr>
 <h3>7️⃣ 维基百科的 AI 生成内容大清理</h3>
-<img src="../images/2026-10-28/2026-10-28_07.png" alt="Wikipedia" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/07.png" alt="Wikipedia" style="width:100%;border-radius:10px;margin:12px 0">
 <p>443 分。IEEE Spectrum 报道：维基百科正在发起 <strong>WikiProject AI Cleanup</strong>——系统性清理 AI 生成的内容。</p>
 <p>清理范围：</p>
 <ul>
@@ -375,7 +441,7 @@
 </ul>
 <hr>
 <h3>8️⃣ Python 实验性 JIT 编译器将被移除</h3>
-<img src="../images/2026-10-28/2026-10-28_08.png" alt="Python" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/08.png" alt="Python" style="width:100%;border-radius:10px;margin:12px 0">
 <p>440 分。LWN 报道：<strong>Python 核心开发者决定移除实验性的 JIT 编译器</strong>。</p>
 <p>技术背景：</p>
 <ul>
@@ -391,7 +457,7 @@
 </ul>
 <hr>
 <h3>9️⃣ 警察正在用 AI 拦截"可疑行为"的司机</h3>
-<img src="../images/2026-10-28/2026-10-28_09.png" alt="Police AI" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/09.png" alt="Police AI" style="width:100%;border-radius:10px;margin:12px 0">
 <p>336 分。Gizmodo 报道：美国多地警方正在使用 <strong>AI 系统分析交通摄像头画面，以"可疑行为"为由拦截司机</strong>。</p>
 <p>争议焦点：</p>
 <ul>
@@ -401,7 +467,7 @@
 </ul>
 <hr>
 <h3>🔟 Apple 发布搭载 M6 芯片的新 iMac</h3>
-<img src="../images/2026-10-28/2026-10-28_10.png" alt="iMac" style="width:100%;border-radius:10px;margin:12px 0">
+<img src="../images/2026-10-28/10.png" alt="iMac" style="width:100%;border-radius:10px;margin:12px 0">
 <p>306 分。Apple 发布搭载 <strong>M6 芯片</strong>的新款 iMac。</p>
 <p>关键升级：</p>
 <ul>
@@ -418,6 +484,11 @@
 <hr>
 <p><em>数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理</em></p>
 </div>
-<div class="daily-nav"><a href="../daily.html">← 返回科技日报</a></div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
 </body>
 </html>
