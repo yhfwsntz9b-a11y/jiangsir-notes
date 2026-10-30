@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技日报 2026-10-30 · 姜sir笔记</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.daily-report { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
+.daily-report .cover { text-align: center; margin: 32px 0; }
+.daily-report .cover img { max-width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+.daily-report .project-card { margin: 40px 0; padding: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.daily-report .project-card img { width: 100%; border-radius: 10px; margin: 16px 0; }
+.daily-report h1 { font-size: 28px; font-weight: 800; margin: 0 0 8px; letter-spacing: -.02em; }
+.daily-report h2 { font-size: 22px; font-weight: 700; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.daily-report h3 { font-size: 18px; font-weight: 700; margin: 24px 0 8px; color: var(--brand); }
+.daily-report h4 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; }
+.daily-report p { font-size: 15px; line-height: 1.75; color: var(--text-2); margin: 8px 0; }
+.daily-report blockquote { margin: 16px 0; padding: 12px 20px; background: var(--bg); border-left: 4px solid var(--brand); border-radius: 0 10px 10px 0; color: var(--text-2); font-size: 14.5px; }
+.daily-report ul, .daily-report ol { padding-left: 24px; }
+.daily-report li { font-size: 14.5px; line-height: 1.7; color: var(--text-2); margin: 4px 0; }
+.daily-report li strong { color: var(--text); }
+.daily-report hr { border: none; border-top: 1px dashed var(--border); margin: 32px 0; }
+.daily-report table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.daily-report th { background: var(--bg); padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); }
+.daily-report td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.daily-report a { color: var(--brand); text-decoration: none; }
+.daily-report a:hover { text-decoration: underline; }
+.daily-report .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 24px; }
+.daily-report .meta-row { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.daily-report .pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.daily-report .pill-blue { background: rgba(0,122,255,.1); color: #007aff; }
+.daily-report .pill-warm { background: rgba(255,149,0,.1); color: #ff9500; }
+.daily-report .pill-green { background: rgba(40,205,65,.1); color: #28cd41; }
+.daily-nav { text-align: center; padding: 24px; }
+.daily-nav a { color: var(--brand); text-decoration: none; font-weight: 600; }
+.daily-nav a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .daily-report { padding: 20px 16px 60px; }
+  .daily-report .project-card { padding: 20px 16px; }
+  .daily-report h1 { font-size: 24px; }
+  .daily-report h2 { font-size: 20px; }
+}
+</style>
+</head>
+<body data-page="daily">
+
+<nav class="breadcrumb" style="max-width:780px;margin:0 auto;padding:20px 20px 0">
+  <a href="../index.html">首页</a><span class="bc-chev"></span>
+  <a href="../daily.html">科技日报</a><span class="bc-chev"></span>
+  <span>2026-10-30</span>
+</nav>
+<div class="daily-report">
+<h1>科技日报 | 2026-10-30</h1>
+<p class="subtitle">2026 年 10 月 30 日 周四 · GitHub Trending + Hacker News</p>
+<div class="meta-row">
+  <span class="pill pill-warm">HN Top 10</span>
+  <span class="pill pill-blue">GitHub Trending</span>
+</div>
+<div class="cover"><img src="../images/2026-10-30/cover.png" alt="封面"></div>
+<blockquote><p>今天的关键词：<strong>Mistral Large 4 开源</strong>、<strong>Kimi 接入 Google 全家桶</strong>、<strong>Binance 56亿美元被盗</strong></p></blockquote>
+<hr>
+<h2>一、GitHub Trending 今日热门项目 TOP 10</h2>
+<h3>1. pbakaus/impeccable —— 编程 Agent 的设计语言</h3>
+<img src="../images/2026-10-30/gh03.png" alt="impeccable" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Rust</li>
+<li>总 Star：95,478</li>
+<li>今日新增：<strong>+2,870</strong></li>
+<li>地址：https://github.com/pbakaus/impeccable</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>为编程 Agent 定义的设计语言——用 polish 和 bolder 引导，用 critique 和 audit 审查，在 AI 代码出厂前拦截"AI 味"。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>日增 2,870 星，今日 Trending 增速第一；</li>
+<li>把"设计审美"编码成 Agent 可执行的规则；</li>
+<li>Rust 编写，性能与安全性兼顾。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>AI 辅助编程、代码审查自动化。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>AI 写的代码不缺功能，缺审美。这个项目在补这块短板。</p>
+<hr>
+<h3>2. HKUDS/DeepTutor —— 终身个性化 AI 导师</h3>
+<img src="../images/2026-10-30/gh01.png" alt="DeepTutor" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Python</li>
+<li>总 Star：50,240</li>
+<li>今日新增：<strong>+1,930</strong></li>
+<li>地址：https://github.com/HKUDS/DeepTutor</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>港大出品的终身个性化 AI 导师系统，基于学习者画像做自适应教学。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>突破 5 万 Star，教育 AI 赛道现象级项目；</li>
+<li>长期记忆追踪学习进度和知识盲区；</li>
+<li>从"通用回答"走向"因材施教"。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>在线教育、个人学习助手、企业培训。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>AI 教育正在从"问一答一"进化到"了解你再回答你"。</p>
+<hr>
+<h3>3. togg53192-cmd/jailbreaks —— AI 越狱提示词合集</h3>
+<img src="../images/2026-10-30/gh10.png" alt="jailbreaks" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Markdown</li>
+<li>总 Star：9,140</li>
+<li>今日新增：<strong>+1,594</strong></li>
+<li>地址：https://github.com/togg53192-cmd/jailbreaks</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>收集各种绕过 AI 安全限制的 jailbreak 提示词，完整清单。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>社区贡献的攻击技术汇总；</li>
+<li>日增 1,594 星，安全攻防关注度高；</li>
+<li>反映 AI 安全边界的持续博弈。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>AI 安全研究者、红队测试。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>理解攻击面是防御的第一步。</p>
+<hr>
+<h3>4. milind-soni/OpenMausBot —— 开源 Grok 替代品</h3>
+<img src="../images/2026-10-30/gh05.png" alt="OpenMausBot" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：7,536</li>
+<li>今日新增：<strong>+1,199</strong></li>
+<li>地址：https://github.com/milind-soni/OpenMausBot</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>开源 Grok Bot 替代品，内置虚拟机让 Bot 可以独立运行。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>完整的 VM 隔离机制；</li>
+<li>开源社区的 xAI 替代方案；</li>
+<li>日增近 1,200 星。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>AI Bot 开发、自动化工作流。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>开源社区对闭源 AI 服务的"去中心化"尝试。</p>
+<hr>
+<h3>5. elayadesign/ai-design-skills —— AI 设计技能包</h3>
+<img src="../images/2026-10-30/gh07.png" alt="ai-design-skills" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：CSS</li>
+<li>总 Star：12,224</li>
+<li>今日新增：<strong>+1,187</strong></li>
+<li>地址：https://github.com/elayadesign/ai-design-skills</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>面向 Claude Code、Cursor、Codex 的 AI 设计技能包。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>以 Skill 形式嵌入 Agent 工作流；</li>
+<li>覆盖布局、配色、动效等多维度；</li>
+<li>连续两天上榜 Trending。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>AI 辅助前端开发、UI 设计自动化。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>设计正在从"人工审美"变成"可编码技能"。</p>
+<hr>
+<h3>6. JetBrains/thinkrail —— Vibe Coding IDE</h3>
+<img src="../images/2026-10-30/gh04.png" alt="thinkrail" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：6,058</li>
+<li>今日新增：<strong>+1,117</strong></li>
+<li>地址：https://github.com/JetBrains/thinkrail</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>JetBrains 推出的轻量级 IDE，主打 Vibe Coding——用自然语言和 AI 对话写代码。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>JetBrains 出品，继承 IntelliJ 系的代码分析能力；</li>
+<li>自我定制的 IDE，围绕你的工作方式演化；</li>
+<li>连续两天上榜。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>新手开发者、偏好自然语言交互的编程者。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>AI 编程 IDE 正在从"辅助补全"走向"对话式开发"。</p>
+<hr>
+<h3>7. obra/superpowers —— Agent 技能框架</h3>
+<img src="../images/2026-10-30/gh02.png" alt="superpowers" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：Shell</li>
+<li>总 Star：308,626</li>
+<li>今日新增：<strong>+1,034</strong></li>
+<li>地址：https://github.com/obra/superpowers</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>一个 Agent 技能框架和软件开发方法论，让 AI Agent 拥有"超能力"。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>30 万+ Star，现象级项目；</li>
+<li>定义 Agent 能力的模块化框架；</li>
+<li>配套完整的开发方法论。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>Agent 开发者、AI 工程团队。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Agent 的能力边界正在被系统化定义。</p>
+<hr>
+<h3>8. nightly-labs/openbot —— 本地优先 AI 桌面工作区</h3>
+<img src="../images/2026-10-30/gh06.png" alt="openbot" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：3,918</li>
+<li>今日新增：<strong>+709</strong></li>
+<li>地址：https://github.com/nightly-labs/openbot</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>本地优先的桌面工作区，让 Codex、Claude、Grok 等 AI 拥有独立工作空间、任务队列和文件共享。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>多 Agent 协作：Agent 之间可以共享浏览器、文件和任务；</li>
+<li>本地运行，数据不出本机；</li>
+<li>支持 AG-UI 协议。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>多 Agent 协作开发、隐私敏感场景。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>"AI 队友"正在从概念变成可运行的桌面应用。</p>
+<hr>
+<h3>9. thedotmack/claude-mem —— Agent 跨会话持久记忆</h3>
+<img src="../images/2026-10-30/gh08.png" alt="claude-mem" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：104,860</li>
+<li>今日新增：<strong>+336</strong></li>
+<li>地址：https://github.com/thedotmack/claude-mem</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>为所有 Agent 提供跨会话持久记忆——捕获 Agent 操作、AI 压缩、未来会话注入相关上下文。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>突破 10 万 Star；</li>
+<li>支持 Claude Code、OpenClaw、Codex、Gemini、Hermes 等主流 Agent；</li>
+<li>记忆压缩+相关性注入，不是简单堆日志。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>长期 Agent 工作流、需要上下文连续性的场景。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>Agent 的记忆问题正在被工程化解决。</p>
+<hr>
+<h3>10. CopilotKit/OpenBot —— 开源 AI 同事</h3>
+<img src="../images/2026-10-30/gh09.png" alt="OpenBot-CopilotKit" style="width:100%;border-radius:10px;margin:12px 0">
+<p><strong>🏷️ 基本信息</strong></p>
+<ul>
+<li>语言：TypeScript</li>
+<li>总 Star：8,195</li>
+<li>今日新增：<strong>+247</strong></li>
+<li>地址：https://github.com/CopilotKit/OpenBot</li>
+</ul>
+<p><strong>📖 项目介绍</strong></p>
+<p>开源 AI 同事——每个 Agent 都有自己的浏览器、文件和工具，所有操作在执行前被确认、执行后被记录。</p>
+<p><strong>✨ 技术亮点</strong></p>
+<ul>
+<li>CopilotKit 出品，AG-UI 协议支持；</li>
+<li>"人在回路"设计：操作前确认，操作后审计；</li>
+<li>与 nightly-labs/openbot 形成开源双雄。</li>
+</ul>
+<p><strong>🎯 适合场景</strong></p>
+<p>企业级 Agent 协作、需要审计追踪的场景。</p>
+<p><strong>📚 学习价值</strong></p>
+<p>AI 不只是工具，正在变成"同事"。</p>
+<hr>
+<h2>二、Hacker News 今日热榜 TOP 10</h2>
+<blockquote><p>统计窗口：北京时间 2026-10-30 00:00 至发稿时，按 points 排序并去重。</p></blockquote>
+<table>
+<thead><tr>
+<th>#</th>
+<th>标题</th>
+<th>热度</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.nytimes.com/2026/10/29/arts/television/patrick-stewart-dead.html" target="_blank">Patrick Stewart has died</a></td>
+<td>2436</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank">We're releasing the weights of Mistral Large 4</a></td>
+<td>1211</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://arkm.com/explorer/entity/21a94755-f604-45e5-9501-6542e23005e8" target="_blank">Binance-hacker-1029 – $5.6B stolen from Binance</a></td>
+<td>736</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://about.doordash.com/en-us/news/doordash-to-acquire-instacart" target="_blank">DoorDash to acquire Instacart</a></td>
+<td>427</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://martinfowler.com/bliki/LLM-Voice.html" target="_blank">LLM Voice</a></td>
+<td>346</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://sidbala.com/h-264-is-magic/" target="_blank">H.264 Is Magic (2016)</a></td>
+<td>335</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://nypost.com/2026/10/29/business/alleged-chinese-spy-had-close-relationship-with-nvidia-boss-jensen-huang-report/" target="_blank">Alleged Chinese spy had 'close relationship' with Nvidia boss Jensen Huang</a></td>
+<td>290</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://dreamgroup.com/blog/chained-php2shell-exploit-roots-25-servers" target="_blank">Chained PHP2Shell exploit roots 25 servers, including US Government servers</a></td>
+<td>290</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://iptrust.co/blog/if-ipv4-were-land" target="_blank">If IPv4 were land</a></td>
+<td>234</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://mastodon.sdf.org/@netbsd/117518160563539748" target="_blank">NetBSD adds a new text editor called atto</a></td>
+<td>164</td>
+</tr>
+</tbody></table>
+<h3>1️⃣ Patrick Stewart 去世</h3>
+<p>2436 分。纽约时报确认：<strong>"X教授"Patrick Stewart 去世</strong>。</p>
+<p>这位因《星际迷航》皮卡德舰长和《X战警》X教授闻名的英国演员，享年 85 岁。HN 社区大量悼念帖，很多人分享了他对自己童年和职业生涯的影响。</p>
+<p><strong>文化意义</strong>：两代科幻迷的精神坐标。</p>
+<hr>
+<h3>2️⃣ Mistral 开源 Large 4 模型权重</h3>
+<p>1211 分。法国 AI 实验室 Mistral 宣布：<strong>开源 Mistral Large 4 的全部模型权重</strong>。</p>
+<p>关键信息：</p>
+<ul>
+<li>Large 4 是 Mistral 目前最强的模型；</li>
+<li>此前仅通过 API 提供，现在完全开放权重；</li>
+<li>社区反应热烈，340+ 条评论讨论其对开源生态的影响。</li>
+</ul>
+<p><strong>这意味着什么</strong>：</p>
+<ul>
+<li>欧洲 AI 力量的标志性动作；</li>
+<li>开源 vs 闭源的博弈再次倾斜；</li>
+<li>对 DeepSeek、Qwen 等中国开源模型形成直接竞争。</li>
+</ul>
+<hr>
+<h3>3️⃣ Binance 遭 56 亿美元黑客攻击</h3>
+<p>736 分。链上数据显示：<strong>Binance 被盗 56 亿美元</strong>，攻击者地址已被标记。</p>
+<p>核心内容：</p>
+<ul>
+<li>10 月 29 日发生的大规模安全事件；</li>
+<li>440+ 条评论，社区在追踪资金流向；</li>
+<li>这是加密史上最大规模的单次盗窃之一。</li>
+</ul>
+<p><strong>讨论焦点</strong>：</p>
+<ul>
+<li>中心化交易所的安全边界在哪里；</li>
+<li>链上追踪是否能追回资金；</li>
+<li>对加密市场信心的冲击。</li>
+</ul>
+<hr>
+<h3>4️⃣ DoorDash 170 亿美元收购 Instacart</h3>
+<p>427 分。DoorDash 宣布：<strong>将以约 170 亿美元收购生鲜配送平台 Instacart</strong>。</p>
+<p>背景：</p>
+<ul>
+<li>两家公司此前多次传出合并谈判；</li>
+<li>收购将整合外卖和生鲜配送两大赛道；</li>
+<li>600+ 条评论，讨论集中在反垄断和消费者福利。</li>
+</ul>
+<p><strong>这意味着什么</strong>：</p>
+<ul>
+<li>美国即时配送行业加速整合；</li>
+<li>对标 Amazon Fresh + Uber Eats 的竞争格局；</li>
+<li>配送费会不会涨？消费者最关心这个。</li>
+</ul>
+<hr>
+<h3>5️⃣ LLM 的"声音"——Martin Fowler 新文</h3>
+<p>346 分。软件工程大师 Martin Fowler 发表新博文：<strong>LLM Voice</strong>。</p>
+<p>核心观点：</p>
+<ul>
+<li>大模型正在形成一种独特的"写作风格"——LLM Voice；</li>
+<li>类似于"公司腔"或"学术腔"，AI 生成的文本有自己的可辨识特征；</li>
+<li>如何识别和避免"AI 味"正在成为写作新技能。</li>
+</ul>
+<p><strong>讨论焦点</strong>：</p>
+<ul>
+<li>AI 生成内容的同质化风险；</li>
+<li>"去 AI 化"写作的价值；</li>
+<li>与昨日"首个 AI 宗教豁免"形成呼应——人类正在重新定义"什么是人写的"。</li>
+</ul>
+<hr>
+<h3>6️⃣ H.264 是魔法（2016 经典重读）</h3>
+<p>335 分。sidbala.com 的经典文章 <strong>《H.264 Is Magic》</strong> 重新登上 HN 首页。</p>
+<p>内容：</p>
+<ul>
+<li>深入解析 H.264 视频编码的工作原理；</li>
+<li>从 DCT 变换到运动补偿，把复杂的压缩算法讲得通俗易懂；</li>
+<li>2016 年的文章，至今仍是理解视频编码的最佳入门材料。</li>
+</ul>
+<p><strong>为什么现在又火了</strong>：H.265/H.266 的专利争议让很多人重新审视 H.264 的设计哲学。</p>
+<hr>
+<h3>7️⃣  alleged 中国间谍与 NVIDIA CEO 黄仁勋"关系密切"</h3>
+<p>290 分。纽约邮报报道：<strong>一名被指控的中国间谍与 NVIDIA CEO 黄仁勋有"密切关系"</strong>。</p>
+<p>核心内容：</p>
+<ul>
+<li>FBI 调查中的敏感案件；</li>
+<li>涉及芯片出口管制和技术泄露；</li>
+<li>202 条评论，讨论集中在中美科技脱钩的深层影响。</li>
+</ul>
+<p><strong>讨论焦点</strong>：</p>
+<ul>
+<li>芯片战争的人员维度；</li>
+<li>企业高管的安全审查边界；</li>
+<li>对 NVIDIA 股价的潜在影响。</li>
+</ul>
+<hr>
+<h3>8️⃣ PHP2Shell 链式攻击攻陷 25 台服务器含美国政府</h3>
+<p>290 分。安全报告：<strong>PHP2Shell 链式漏洞利用已攻陷 25 台服务器，包括美国政府服务器</strong>。</p>
+<p>技术细节：</p>
+<ul>
+<li>链式利用多个 PHP 漏洞实现远程代码执行；</li>
+<li>攻击面覆盖政府、企业和基础设施；</li>
+<li>142 条评论讨论漏洞管理和补丁策略。</li>
+</ul>
+<p><strong>这意味着什么</strong>：</p>
+<ul>
+<li>老旧 PHP 系统的安全债务正在集中爆发；</li>
+<li>政府服务器的安全更新机制存在盲区；</li>
+<li>运维团队的补丁管理不能再拖了。</li>
+</ul>
+<hr>
+<h3>9️⃣ 如果 IPv4 地址是土地</h3>
+<p>234 分。iptrust.co 的趣味科普：<strong>如果把 IPv4 地址面积化成土地，会有多大？</strong></p>
+<p>核心概念：</p>
+<ul>
+<li>IPv4 总共约 43 亿个地址；</li>
+<li>如果每个地址是一块 1m² 的土地，总面积约 4,300 km²——相当于一个大城市；</li>
+<li>直观理解为什么 IPv4 枯竭是真实问题。</li>
+</ul>
+<p><strong>讨论焦点</strong>：</p>
+<ul>
+<li>322 条评论，很多人在回忆从 IPv4 到 IPv6 的迁移史；</li>
+<li>NAT 的发明被戏称为"人类最伟大的补丁"。</li>
+</ul>
+<hr>
+<h3>🔟 NetBSD 新增 atto 文本编辑器</h3>
+<p>164 分。NetBSD 官方 Mastodon 宣布：<strong>新增一个名为 atto 的轻量级文本编辑器</strong>。</p>
+<p>背景：</p>
+<ul>
+<li>NetBSD 一直以"运行在任何平台"著称；</li>
+<li>atto 是一个极简编辑器，适合嵌入式和救援场景；</li>
+<li>137 条评论讨论 vi/emacs/nano/atto 的编辑器之争。</li>
+</ul>
+<p><strong>HN 氛围</strong>：又一个"编辑器新闻"登上热榜，程序员对文本编辑器的热爱永不消退。</p>
+<hr>
+<h2>三、今日国内科技快讯</h2>
+<p>除了 HN 和 GitHub，今天国内科技圈也有几件大事值得关注：</p>
+<p><strong>Kimi 接入 Google 全家桶</strong>：月之暗面宣布 Kimi 已接入 Gmail、Google Drive 和日历，用户可通过插件页面启用。AI 助手正在从"聊天窗口"走向"生产力中枢"。</p>
+<p><strong>启元机器人接入腾讯 WorkBuddy</strong>：2026 腾讯全球数字生态大会上，启元机器人 CEO 田华宣布接入腾讯 WorkBuddy——用户用自然语言下达指令，WorkBuddy 理解意图、拆解任务，机器人执行。物理 AI 正在落地。</p>
+<p><strong>DeepSeek 开源 DeepInfer 推理框架</strong>：10 月 20 日 DeepSeek 宣布将内部推理框架 DeepInfer 全面开源，单集群日吞吐 155 万亿 Token，同时兼容 NVIDIA 和华为昇腾平台。</p>
+<p><strong>新芯航途发布 X7 Ultra 智驾芯片</strong>：大模型算力 700 TOPS，对标 NVIDIA Thor-U，量产模型实测 99.99% 对齐。国产智驾芯片进入"大模型定义"时代。</p>
+<p><strong>荷兰拟裁撤 15% 公务员用 AI 替代</strong>：荷兰政府宣布"高效政府"规划，拟裁撤 2.5 万个公务员岗位，用 AI 和标准化 IT 系统承接。预计年省 35 亿欧元。这是欧洲首个大规模"AI 替代公务员"计划。</p>
+<hr>
+<h2>四、今日趋势洞察</h2>
+<p><strong>1. Agent 生态爆发日</strong></p>
+<p>今天 GitHub Trending 10 个项目里，至少 7 个和 AI Agent 直接相关：impeccable（设计语言）、DeepTutor（教育 Agent）、OpenMausBot（Agent VM）、ai-design-skills（Agent 技能包）、thinkrail（Agent IDE）、openbot（Agent 工作区）、claude-mem（Agent 记忆）。</p>
+<p>Agent 不再是概念，正在快速分化为"记忆"、"协作"、"设计"、"教育"等垂直能力。</p>
+<p><strong>2. 开源 vs 闭源：Mistral 的标志性一步</strong></p>
+<p>Mistral Large 4 开源权重，是欧洲 AI 实验室对美国闭源模型的一次正面回应。结合 DeepSeek 开源 DeepInfer，开源阵营正在形成"模型+推理框架"的完整生态。</p>
+<p><strong>3. 安全事件密集爆发</strong></p>
+<p>Binance 56 亿美元被盗、PHP2Shell 攻陷美国政府服务器、 alleged 中国间谍案——今天的安全新闻密度异常高。技术系统的脆弱性和地缘政治的交织，正在成为新常态。</p>
+<p><strong>4. AI 替代公务员：从讨论到落地</strong></p>
+<p>荷兰 15% 公务员裁撤计划，是全球首个把"AI 替代政府岗位"写进政策文件的案例。这比企业端的 AI 替代更具信号意义——政府自己在革自己的命。</p>
+<hr>
+<p><em>数据来源：Hacker News (Algolia API) + GitHub Trending | 由 AI 辅助整理</em></p>
+</div>
+
+<nav class="daily-nav">
+  <a href="../daily.html">← 返回科技日报列表</a>
+</nav>
+<script src="../assets/layout.js"></script>
+<script>document.querySelectorAll(".bc-chev").forEach(e => e.outerHTML = ICON.chev);</script>
+</body>
+</html>
